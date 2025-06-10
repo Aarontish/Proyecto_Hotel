@@ -1,9 +1,91 @@
 package Controllers;
 
+import Views.AuthView;
+import Views.UsersView;
+
 public class UsersController {
+	
+	private UsersView vista;
 
 	public UsersController() {
-		// TODO Auto-generated constructor stub
+		vista = new UsersView();
 	}
+	
+	public void PanelHabitaciones3() {
+		vista.PanelHabitaciones3();
+	}
+	
+	public void PanelHabitaciones2() {
+		vista.PanelHabitaciones2();
+	}
+	
+	public void DetallesHabitacion1() {
+		vista.DetallesHabitacion1();
+	}
+	
+	public void DetallesHabitacion2() {
+		vista.DetallesHabitacion2();
+	}
+	
+	public void ClientesEliminar() {
+		vista.ClientesEliminar();
+	}
+	
+	public void DatosUsuario() {
+		vista.DatosUsuario();
+	}
+	
+	public void EditarDatosCliente() {
+		vista.EditarDatosCliente();
+	}
+	
+	public void CrearNuevoCliente() {
+		vista.CrearNuevoCliente();
+	}
+	
+	public void DatosRenta() {
+		vista.DatosRenta();
+	}
+	
+	public void DatosRenta2() {
+		vista.DatosRenta2();
+	}
+	
+	public void RentasModificarReserva() {
+		vista.RentasModificarReserva();
+	}
+	
+	public void DetallesHabitacion4() {
+		vista.DetallesHabitacion4();
+	}
+	
+	public void DetallesFamiliar() {
+		vista.DetallesFamiliar();
+	}
+	
+	public void EliminarTipodeHabitacion() {
+		vista.EliminarTipodeHabitacion();
+	}
+	
+	public void CrearTipoHabitacion() {
+		vista.CrearTipoHabitacion();
+	}
+	
+	public void EditarHabitacion() {
+		vista.EditarHabitacion();
+	}
+	
+	public void CrearTarifa() {
+		vista.CrearTarifa();
+	}
+	
+	public void HabitacionNoEncontrada() {
+		vista.HabitacionNoEncontrada();
+	}
+	
+	public void ClienteNoEncontrado() {
+		vista.ClienteNoEncontrado();
+	}
+	
 
 }

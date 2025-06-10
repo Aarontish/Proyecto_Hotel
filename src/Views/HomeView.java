@@ -29,6 +29,7 @@ import javax.swing.table.TableColumnModel;
 import com.formdev.flatlaf.FlatLightLaf;
 
 import Controllers.HomeController;
+import Controllers.UsersController;
 
 public class HomeView {
 
@@ -71,7 +72,7 @@ public class HomeView {
 		btnTiposDeHabitaciones.setForeground(new Color(255, 255, 255));
 		btnTiposDeHabitaciones.setBackground(new Color(56, 54, 41));
 		btnTiposDeHabitaciones.setBorder(BorderFactory.createLineBorder(Color.BLACK, 0));
-		btnTiposDeHabitaciones.setBounds(1023, 0, 134, 23);
+		btnTiposDeHabitaciones.setBounds(974, 0, 180, 23);
 		btnTiposDeHabitaciones.setBorderPainted(false);
 		btnTiposDeHabitaciones.setFocusPainted(false);
 		btnTiposDeHabitaciones.setContentAreaFilled(true);
@@ -93,7 +94,7 @@ public class HomeView {
 		btnrentas.setBorderPainted(false);
 		btnrentas.setBorder(BorderFactory.createLineBorder(Color.BLACK, 0));
 		btnrentas.setBackground(new Color(56, 54, 41));
-		btnrentas.setBounds(932, 0, 81, 23);
+		btnrentas.setBounds(883, 0, 81, 23);
 		btnrentas.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				frame.dispose();
@@ -111,7 +112,7 @@ public class HomeView {
 		btnclientes.setBorderPainted(false);
 		btnclientes.setBorder(BorderFactory.createLineBorder(Color.BLACK, 0));
 		btnclientes.setBackground(new Color(56, 54, 41));
-		btnclientes.setBounds(841, 0, 81, 23);
+		btnclientes.setBounds(792, 0, 81, 23);
 		panel_2.add(btnclientes);
 		btnclientes.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -130,7 +131,7 @@ public class HomeView {
 		btnhabitaciones.setBorderPainted(false);
 		btnhabitaciones.setBorder(BorderFactory.createLineBorder(Color.BLACK, 0));
 		btnhabitaciones.setBackground(new Color(56, 54, 41));
-		btnhabitaciones.setBounds(731, 0, 100, 23);
+		btnhabitaciones.setBounds(682, 0, 100, 23);
 		panel_2.add(btnhabitaciones);
 		btnhabitaciones.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -149,7 +150,7 @@ public class HomeView {
 		btntarifas.setBorderPainted(false);
 		btntarifas.setBorder(BorderFactory.createLineBorder(Color.BLACK, 0));
 		btntarifas.setBackground(new Color(56, 54, 41));
-		btntarifas.setBounds(649, 0, 72, 23);
+		btntarifas.setBounds(600, 0, 72, 23);
 		btntarifas.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				frame.dispose();
@@ -379,12 +380,9 @@ public class HomeView {
 		menuTitulo.setFont(new Font("Jost*", Font.BOLD, 38));
 		menuTitulo.setBounds(131, 126, 283, 56);
 		panel.add(menuTitulo);
-		ImageIcon icon69 = new ImageIcon(getClass().getResource("/images/usuario.png"));
-		Image imagen69 = icon69.getImage().getScaledInstance(35, 35, Image.SCALE_SMOOTH);
-		ImageIcon icon79 = new ImageIcon(getClass().getResource("/images/informacion.png"));
-		Image imagen79 = icon79.getImage().getScaledInstance(35, 35, Image.SCALE_SMOOTH);
-
+		
 		JButton botonVolver = new JButton(""); // Boton para volver atrás
+		botonVolver.setBounds(60, 132, 36, 36);
 		botonVolver.setForeground(new Color(255, 255, 255));
 		botonVolver.setBackground(new Color(255, 255, 255));
 		botonVolver.setBorderPainted(false);
@@ -392,26 +390,15 @@ public class HomeView {
 		botonVolver.setContentAreaFilled(true);
 		botonVolver.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				frame.dispose();
+				frame.dispose(); // Cierra la ventana actual del menú
 				HomeController hc = new HomeController();
 				hc.Menu();
-
 			}
 		});
-		botonVolver.setBounds(60, 132, 50, 50);
-		ImageIcon icon42 = new ImageIcon(getClass().getResource("/images/flecha_izquierda.png"));
-		Image imagen42 = icon42.getImage().getScaledInstance(36, 36, Image.SCALE_SMOOTH);
-		botonVolver.setIcon(new ImageIcon(imagen42));
+		ImageIcon icon2006 = new ImageIcon(getClass().getResource("/images/flecha_izquierda.png"));
+		Image imagen2006 = icon2006.getImage().getScaledInstance(36, 36, Image.SCALE_SMOOTH);
+		botonVolver.setIcon(new ImageIcon(imagen2006));
 		panel.add(botonVolver);
-		JButton btnHabitaciones = new JButton("<html>Rentas &#8594;</html>"); // Botón superior rentas
-//		botonVolver.addActionListener(new ActionListener() {
-//			public void actionPerformed(ActionEvent e) {
-//				// Aquí podrías abrir la ventana de Rentas
-//				frame.dispose(); // Cierra la ventana actual del menú
-//				Menu conexion = new Menu();
-//				conexion.frame.setVisible(true); 	
-//			}
-//		});
 
 		JButton btnTiposDeRentas = new JButton("<html>Tipos de habitaciones &#8594;</html>"); // Botón superior tipos de
 																								// habitaciones
@@ -419,27 +406,27 @@ public class HomeView {
 		btnTiposDeRentas.setForeground(new Color(255, 255, 255));
 		btnTiposDeRentas.setBackground(new Color(56, 54, 41));
 		btnTiposDeRentas.setBorder(BorderFactory.createLineBorder(Color.BLACK, 0));
-//		btnTiposDeRentas.addActionListener(new ActionListener() {
-//			public void actionPerformed(ActionEvent e) {
-//				frame.dispose(); // Cierra la ventana actual del menú
-//				TiposHabitacion conexion = new TiposHabitacion();
-//				conexion.frame.setVisible(true); 
-//			}
-//		});
-		btnTiposDeRentas.setBounds(1023, 0, 134, 23);
+		btnTiposDeRentas.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				frame.dispose(); // Cierra la ventana actual del menú
+				HomeController hc = new HomeController();
+				hc.TiposHabitacion();
+			}
+		});
+		btnTiposDeRentas.setBounds(974, 0, 180, 23);
 		btnTiposDeRentas.setBorderPainted(false);
 		btnTiposDeRentas.setFocusPainted(false);
 		btnTiposDeRentas.setContentAreaFilled(true);
 		panel_2.add(btnTiposDeRentas);
 
 		JButton btnrentas = new JButton("<html>Rentas &#8594;</html>"); // Botón superior rentas
-//		btnrentas.addActionListener(new ActionListener() {
-//			public void actionPerformed(ActionEvent e) {
-//				frame.dispose(); // Cierra la ventana actual del menú
-//				Rentas conexion = new Rentas();
-//				conexion.frame.setVisible(true); 
-//			}
-//		});
+		btnrentas.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				frame.dispose(); // Cierra la ventana actual del menú
+				HomeController hc = new HomeController();
+				hc.Rentas();
+			}
+		});
 		btnrentas.setForeground(Color.WHITE);
 		btnrentas.setFont(new Font("Jost* Medium", Font.PLAIN, 12));
 		btnrentas.setFocusPainted(false);
@@ -447,17 +434,17 @@ public class HomeView {
 		btnrentas.setBorderPainted(false);
 		btnrentas.setBorder(BorderFactory.createLineBorder(Color.BLACK, 0));
 		btnrentas.setBackground(new Color(56, 54, 41));
-		btnrentas.setBounds(932, 0, 81, 23);
+		btnrentas.setBounds(883, 0, 81, 23);
 		panel_2.add(btnrentas);
 
 		JButton btnclientes = new JButton("<html>Clientes &#8594;</html>"); // Botón superior clientes
-//		btnclientes.addActionListener(new ActionListener() {
-//			public void actionPerformed(ActionEvent e) {
-//				frame.dispose(); // Cierra la ventana actual del menú
-//				Clientes conexion = new Clientes();
-//				conexion.frame.setVisible(true); 
-//			}
-//		});
+		btnclientes.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				frame.dispose(); // Cierra la ventana actual del menú
+				HomeController hc = new HomeController();
+				hc.Clientes();
+			}
+		});
 		btnclientes.setForeground(Color.WHITE);
 		btnclientes.setFont(new Font("Jost* Medium", Font.PLAIN, 12));
 		btnclientes.setFocusPainted(false);
@@ -465,7 +452,7 @@ public class HomeView {
 		btnclientes.setBorderPainted(false);
 		btnclientes.setBorder(BorderFactory.createLineBorder(Color.BLACK, 0));
 		btnclientes.setBackground(new Color(56, 54, 41));
-		btnclientes.setBounds(841, 0, 81, 23);
+		btnclientes.setBounds(792, 0, 81, 23);
 		panel_2.add(btnclientes);
 
 		JButton btnhabitaciones = new JButton("<html>Habitaciones &#8594;</html>"); // Botón superior habitaciones
@@ -483,17 +470,17 @@ public class HomeView {
 		btnhabitaciones.setBorderPainted(false);
 		btnhabitaciones.setBorder(BorderFactory.createLineBorder(Color.BLACK, 0));
 		btnhabitaciones.setBackground(new Color(56, 54, 41));
-		btnhabitaciones.setBounds(731, 0, 100, 23);
+		btnhabitaciones.setBounds(682, 0, 100, 23);
 		panel_2.add(btnhabitaciones);
 
 		JButton btntarifas = new JButton("<html>Tarifas &#8594;</html>"); // Botón superior tarifas
-//		btntarifas.addActionListener(new ActionListener() {
-//			public void actionPerformed(ActionEvent e) {
-//				frame.dispose(); // Cierra la ventana actual del menú
-//				Tarifas conexion = new Tarifas();
-//				conexion.frame.setVisible(true); 
-//			}
-//		});
+		btntarifas.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				frame.dispose(); // Cierra la ventana actual del menú
+				HomeController hc = new HomeController();
+				hc.Tarifas();
+			}
+		});
 		btntarifas.setForeground(Color.WHITE);
 		btntarifas.setFont(new Font("Jost* Medium", Font.PLAIN, 12));
 		btntarifas.setFocusPainted(false);
@@ -501,7 +488,7 @@ public class HomeView {
 		btntarifas.setBorderPainted(false);
 		btntarifas.setBorder(BorderFactory.createLineBorder(Color.BLACK, 0));
 		btntarifas.setBackground(new Color(56, 54, 41));
-		btntarifas.setBounds(649, 0, 72, 23);
+		btntarifas.setBounds(600, 0, 72, 23);
 		panel_2.add(btntarifas);
 
 		JButton btnBuscar = new JButton(""); // Boton para la barra de busqueda
@@ -549,26 +536,26 @@ public class HomeView {
 		btnEliminarCliente.setFont(new Font("Inter", Font.BOLD | Font.ITALIC, 24));
 		btnEliminarCliente.setBorder(BorderFactory.createLineBorder(Color.BLACK, 0));
 		btnEliminarCliente.setForeground(Color.WHITE);
-//		btnEliminarCliente.addActionListener(new ActionListener() {
-//			public void actionPerformed(ActionEvent e) {
-//				frame.dispose(); // Cierra la ventana actual del menú
-//				PanelHabitaciones2 conexion = new PanelHabitaciones2();
-//				conexion.frame.setVisible(true); 	
-//			}
-//		});
+		btnEliminarCliente.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+					frame.dispose();
+					UsersController hc = new UsersController();
+					hc.PanelHabitaciones2();	
+			}
+		});
 		btnEliminarCliente.setBounds(131, 193, 280, 40);
 		panel.add(btnEliminarCliente);
 
 		JButton btnCuartoA1 = new JButton("Cuarto A1"); // Botón Cuarto A1
 		btnCuartoA1.setFont(new Font("Jost*", Font.BOLD | Font.ITALIC, 14));
 		btnCuartoA1.setBackground(new Color(0, 187, 249));
-//		btnCuartoA1.addActionListener(new ActionListener() {
-//			public void actionPerformed(ActionEvent e) {
-//				frame.dispose(); // Cierra la ventana actual del menú
-//				DetallesHabitacion1 conexion = new DetallesHabitacion1();
-//				conexion.frame.setVisible(true); 	
-//			}
-//		});
+		btnCuartoA1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				frame.dispose(); // Cierra la ventana actual del menú
+				UsersView hc = new UsersView();
+				hc.DetallesHabitacion1();
+			}
+		});
 
 		btnCuartoA1.setBounds(131, 257, 150, 150);
 		btnCuartoA1.setVerticalTextPosition(SwingConstants.BOTTOM); // Para poner texto debajo de la imagen dentro del
@@ -586,6 +573,7 @@ public class HomeView {
 		JButton btnCuartoB1 = new JButton("Cuarto B1"); // Botón Cuarto B1
 		btnCuartoB1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+
 			}
 		});
 		btnCuartoB1.setFont(new Font("Jost*", Font.BOLD | Font.ITALIC, 14));
@@ -807,40 +795,8 @@ public class HomeView {
 		menuTitulo.setBounds(131, 126, 245, 56);
 		panel.add(menuTitulo);
 
-		JButton botonSuperior1 = new JButton(""); // Boton usuario esquina superior derecha
-		botonSuperior1.setBackground(new Color(0, 0, 0));
-		botonSuperior1.setBorderPainted(false);
-		botonSuperior1.setFocusPainted(false);
-		botonSuperior1.setContentAreaFilled(true);
-		botonSuperior1.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-			}
-		});
-		botonSuperior1.setBounds(1098, 11, 56, 56);
-		ImageIcon c1 = new ImageIcon("images/usuario.png");
-		Image c2 = c1.getImage();
-		Image c3 = c2.getScaledInstance(36, 36, Image.SCALE_SMOOTH);
-		botonSuperior1.setIcon(new ImageIcon(c3));
-		panel_1.add(botonSuperior1);
-
-		JButton botonSuperior2 = new JButton(""); // Boton información esquina superior derecha
-		botonSuperior2.setBackground(new Color(0, 0, 0));
-		botonSuperior2.setBorderPainted(false);
-		botonSuperior2.setFocusPainted(false);
-		botonSuperior2.setContentAreaFilled(true);
-		botonSuperior2.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-			}
-		});
-		botonSuperior2.setBounds(1032, 11, 56, 56);
-		ImageIcon e1 = new ImageIcon("images/informacion.png");
-		Image e2 = e1.getImage();
-		Image e3 = e2.getScaledInstance(36, 36, Image.SCALE_SMOOTH);
-		botonSuperior2.setIcon(new ImageIcon(e3));
-		panel_1.add(botonSuperior2);
-
 		JButton botonVolver = new JButton(""); // Boton para volver atrás
-		botonVolver.setBounds(60, 132, 50, 50);
+		botonVolver.setBounds(60, 132, 36, 36);
 		botonVolver.setForeground(new Color(255, 255, 255));
 		botonVolver.setBackground(new Color(255, 255, 255));
 		botonVolver.setBorderPainted(false);
@@ -854,7 +810,7 @@ public class HomeView {
 			}
 		});
 		ImageIcon icon2006 = new ImageIcon(getClass().getResource("/images/flecha_izquierda.png"));
-		Image imagen2006 = icon2006.getImage().getScaledInstance(50, 50, Image.SCALE_SMOOTH);
+		Image imagen2006 = icon2006.getImage().getScaledInstance(36, 36, Image.SCALE_SMOOTH);
 		botonVolver.setIcon(new ImageIcon(imagen2006));
 		panel.add(botonVolver);
 
@@ -864,27 +820,27 @@ public class HomeView {
 		btnTiposDeRentas.setForeground(new Color(255, 255, 255));
 		btnTiposDeRentas.setBackground(new Color(56, 54, 41));
 		btnTiposDeRentas.setBorder(BorderFactory.createLineBorder(Color.BLACK, 0));
-//		btnTiposDeRentas.addActionListener(new ActionListener() {
-//			public void actionPerformed(ActionEvent e) {
-//				frame.dispose(); // Cierra la ventana actual del menú
-//				TiposHabitacion conexion = new TiposHabitacion();
-//				conexion.frame.setVisible(true); 
-//			}
-//		});
-		btnTiposDeRentas.setBounds(1023, 0, 134, 23);
+		btnTiposDeRentas.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				frame.dispose(); // Cierra la ventana actual del menú
+				HomeController hc = new HomeController();
+				hc.TiposHabitacion();
+			}
+		});
+		btnTiposDeRentas.setBounds(974, 0, 180, 23);
 		btnTiposDeRentas.setBorderPainted(false);
 		btnTiposDeRentas.setFocusPainted(false);
 		btnTiposDeRentas.setContentAreaFilled(true);
 		panel_2.add(btnTiposDeRentas);
 
 		JButton btnrentas = new JButton("<html>Rentas &#8594;</html>"); // Botón superior rentas
-//		btnrentas.addActionListener(new ActionListener() {
-//			public void actionPerformed(ActionEvent e) {
-//				frame.dispose(); // Cierra la ventana actual del menú
-//				Rentas conexion = new Rentas();
-//				conexion.frame.setVisible(true); 
-//			}
-//		});
+		btnrentas.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				frame.dispose(); // Cierra la ventana actual del menú
+				HomeController hc = new HomeController();
+				hc.Rentas();
+			}
+		});
 		btnrentas.setForeground(Color.WHITE);
 		btnrentas.setFont(new Font("Jost* Medium", Font.PLAIN, 12));
 		btnrentas.setFocusPainted(false);
@@ -892,7 +848,7 @@ public class HomeView {
 		btnrentas.setBorderPainted(false);
 		btnrentas.setBorder(BorderFactory.createLineBorder(Color.BLACK, 0));
 		btnrentas.setBackground(new Color(56, 54, 41));
-		btnrentas.setBounds(932, 0, 81, 23);
+		btnrentas.setBounds(883, 0, 81, 23);
 		panel_2.add(btnrentas);
 
 		JButton btnclientes = new JButton("<html>Clientes &#8594;</html>"); // Botón superior clientes
@@ -910,18 +866,17 @@ public class HomeView {
 		btnclientes.setBorderPainted(false);
 		btnclientes.setBorder(BorderFactory.createLineBorder(Color.BLACK, 0));
 		btnclientes.setBackground(new Color(56, 54, 41));
-		btnclientes.setBounds(841, 0, 81, 23);
+		btnclientes.setBounds(792, 0, 81, 23);
 		panel_2.add(btnclientes);
 
 		JButton btnhabitaciones = new JButton("<html>Habitaciones &#8594;</html>"); // Botón superior habitaciones
-//		btnhabitaciones.addActionListener(new ActionListener() {
-//			public void actionPerformed(ActionEvent e) {
-//				
-//				frame.dispose(); // Cierra la ventana actual del menú
-//				PanelHabitaciones1 conexion = new PanelHabitaciones1();
-//				conexion.frame.setVisible(true); 
-//			}
-//		});
+		btnhabitaciones.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				frame.dispose(); // Cierra la ventana actual del menú
+				HomeController hc = new HomeController();
+				hc.PanelHabitaciones1();
+			}
+		});
 		btnhabitaciones.setForeground(Color.WHITE);
 		btnhabitaciones.setFont(new Font("Jost* Medium", Font.PLAIN, 12));
 		btnhabitaciones.setFocusPainted(false);
@@ -929,17 +884,17 @@ public class HomeView {
 		btnhabitaciones.setBorderPainted(false);
 		btnhabitaciones.setBorder(BorderFactory.createLineBorder(Color.BLACK, 0));
 		btnhabitaciones.setBackground(new Color(56, 54, 41));
-		btnhabitaciones.setBounds(731, 0, 100, 23);
+		btnhabitaciones.setBounds(682, 0, 100, 23);
 		panel_2.add(btnhabitaciones);
 
 		JButton btntarifas = new JButton("<html>Tarifas &#8594;</html>"); // Botón superior tarifas
-//		btntarifas.addActionListener(new ActionListener() {
-//			public void actionPerformed(ActionEvent e) {
-//				frame.dispose(); // Cierra la ventana actual del menú
-//				Tarifas conexion = new Tarifas();
-//				conexion.frame.setVisible(true); 
-//			}
-//		});
+		btntarifas.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				frame.dispose(); // Cierra la ventana actual del menú
+				HomeController hc = new HomeController();
+				hc.Tarifas();
+			}
+		});
 		btntarifas.setForeground(Color.WHITE);
 		btntarifas.setFont(new Font("Jost* Medium", Font.PLAIN, 12));
 		btntarifas.setFocusPainted(false);
@@ -947,7 +902,7 @@ public class HomeView {
 		btntarifas.setBorderPainted(false);
 		btntarifas.setBorder(BorderFactory.createLineBorder(Color.BLACK, 0));
 		btntarifas.setBackground(new Color(56, 54, 41));
-		btntarifas.setBounds(649, 0, 72, 23);
+		btntarifas.setBounds(600, 0, 72, 23);
 		panel_2.add(btntarifas);
 
 		JButton btnBuscar = new JButton(""); // Boton para la barra de busqueda
@@ -995,26 +950,26 @@ public class HomeView {
 		btnEliminarCliente.setFont(new Font("Inter", Font.BOLD | Font.ITALIC, 24));
 		btnEliminarCliente.setBorder(BorderFactory.createLineBorder(Color.BLACK, 0));
 		btnEliminarCliente.setForeground(Color.WHITE);
-//		btnEliminarCliente.addActionListener(new ActionListener() {
-//			public void actionPerformed(ActionEvent e) {
-//				frame.dispose(); // Cierra la ventana actual del menú
-//				ClientesEliminar conexion = new ClientesEliminar();
-//				conexion.frame.setVisible(true); 	
-//			}
-//		});
+		btnEliminarCliente.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				frame.dispose(); // Cierra la ventana actual del menú
+				UsersController hc = new UsersController();
+				hc.ClientesEliminar();
+			}
+		});
 		btnEliminarCliente.setBounds(131, 193, 245, 40);
 		panel.add(btnEliminarCliente);
 
 		JButton btnCuartoA1 = new JButton("usuario#123"); // Botón Cuarto A1
 		btnCuartoA1.setFont(new Font("Jost*", Font.BOLD | Font.ITALIC, 14));
 		btnCuartoA1.setBackground(new Color(0, 175, 185));
-//		btnCuartoA1.addActionListener(new ActionListener() {
-//			public void actionPerformed(ActionEvent e) {
-//				frame.dispose(); // Cierra la ventana actual del menú
-//				DatosUsuario conexion = new DatosUsuario();
-//				conexion.frame.setVisible(true); 	
-//			}
-//		});
+		btnCuartoA1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				frame.dispose(); // Cierra la ventana actual del menú
+				UsersController hc = new UsersController();
+				hc.DatosUsuario();
+			}
+		});
 		btnCuartoA1.setBounds(131, 257, 150, 150);
 		btnCuartoA1.setVerticalTextPosition(SwingConstants.BOTTOM); // Para poner texto debajo de la imagen dentro del
 																	// botón
@@ -1198,13 +1153,13 @@ public class HomeView {
 		btnCrearClienteNuevo.setBorder(BorderFactory.createLineBorder(Color.BLACK, 0));
 		btnCrearClienteNuevo.setBackground(Color.YELLOW);
 		btnCrearClienteNuevo.setBounds(388, 193, 245, 40);
-//		btnCrearClienteNuevo.addActionListener(new ActionListener() {
-//			public void actionPerformed(ActionEvent e) {
-//				frame.dispose(); // Cierra la ventana actual del menú
-//				CrearNuevoCliente conexion = new CrearNuevoCliente();
-//				conexion.frame.setVisible(true); 	
-//			}
-//		});
+		btnCrearClienteNuevo.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				frame.dispose(); // Cierra la ventana actual del menú
+				UsersController hc = new UsersController();
+				hc.CrearNuevoCliente();
+			}
+		});
 		panel.add(btnCrearClienteNuevo);
 
 		frame.add(panel);
@@ -1261,10 +1216,6 @@ public class HomeView {
 		menuTitulo.setFont(new Font("Jost*", Font.BOLD, 22));
 		menuTitulo.setBounds(131, 126, 579, 56);
 		panel.add(menuTitulo);
-		ImageIcon icon03 = new ImageIcon(getClass().getResource("/images/usuario.png"));
-		Image imagen03 = icon03.getImage().getScaledInstance(36, 36, Image.SCALE_SMOOTH);
-		ImageIcon icon02 = new ImageIcon(getClass().getResource("/images/informacion.png"));
-		Image imagen02 = icon02.getImage().getScaledInstance(36, 36, Image.SCALE_SMOOTH);
 
 		JButton botonVolver = new JButton(""); // Boton para volver atrás
 		botonVolver.setForeground(new Color(255, 255, 255));
@@ -1291,14 +1242,14 @@ public class HomeView {
 		btnTiposDeRentas.setForeground(new Color(255, 255, 255));
 		btnTiposDeRentas.setBackground(new Color(56, 54, 41));
 		btnTiposDeRentas.setBorder(BorderFactory.createLineBorder(Color.BLACK, 0));
-//		btnTiposDeRentas.addActionListener(new ActionListener() {
-//			public void actionPerformed(ActionEvent e) {
-//				frame.dispose(); // Cierra la ventana actual del menú
-//				TiposHabitacion conexion = new TiposHabitacion();
-//				conexion.frame.setVisible(true); 
-//			}
-//		});
-		btnTiposDeRentas.setBounds(1023, 0, 134, 23);
+		btnTiposDeRentas.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				frame.dispose(); // Cierra la ventana actual del menú
+				HomeController hc = new HomeController();
+				hc.TiposHabitacion();
+			}
+		});
+		btnTiposDeRentas.setBounds(974, 0, 180, 23);
 		btnTiposDeRentas.setBorderPainted(false);
 		btnTiposDeRentas.setFocusPainted(false);
 		btnTiposDeRentas.setContentAreaFilled(true);
@@ -1319,17 +1270,17 @@ public class HomeView {
 		btnrentas.setBorderPainted(false);
 		btnrentas.setBorder(BorderFactory.createLineBorder(Color.BLACK, 0));
 		btnrentas.setBackground(new Color(56, 54, 41));
-		btnrentas.setBounds(932, 0, 81, 23);
+		btnrentas.setBounds(883, 0, 81, 23);
 		panel_2.add(btnrentas);
 
 		JButton btnclientes = new JButton("<html>Clientes &#8594;</html>"); // Botón superior clientes
-//		btnclientes.addActionListener(new ActionListener() {
-//			public void actionPerformed(ActionEvent e) {
-//				frame.dispose(); // Cierra la ventana actual del menú
-//				Clientes conexion = new Clientes();
-//				conexion.frame.setVisible(true); 
-//			}
-//		});
+		btnclientes.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				frame.dispose(); // Cierra la ventana actual del menú
+				HomeController hc = new HomeController();
+				hc.Clientes();
+			}
+		});
 		btnclientes.setForeground(Color.WHITE);
 		btnclientes.setFont(new Font("Jost* Medium", Font.PLAIN, 12));
 		btnclientes.setFocusPainted(false);
@@ -1337,17 +1288,17 @@ public class HomeView {
 		btnclientes.setBorderPainted(false);
 		btnclientes.setBorder(BorderFactory.createLineBorder(Color.BLACK, 0));
 		btnclientes.setBackground(new Color(56, 54, 41));
-		btnclientes.setBounds(841, 0, 81, 23);
+		btnclientes.setBounds(792, 0, 81, 23);
 		panel_2.add(btnclientes);
 
 		JButton btnhabitaciones = new JButton("<html>Habitaciones &#8594;</html>"); // Botón superior habitaciones
-//		btnhabitaciones.addActionListener(new ActionListener() {
-//			public void actionPerformed(ActionEvent e) {
-//				frame.dispose(); // Cierra la ventana actual del menú
-//				PanelHabitaciones1 conexion = new PanelHabitaciones1();
-//				conexion.frame.setVisible(true); 
-//			}
-//		});
+		btnhabitaciones.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				frame.dispose(); // Cierra la ventana actual del menú
+				HomeController hc = new HomeController();
+				hc.PanelHabitaciones1();; 
+			}
+		});
 		btnhabitaciones.setForeground(Color.WHITE);
 		btnhabitaciones.setFont(new Font("Jost* Medium", Font.PLAIN, 12));
 		btnhabitaciones.setFocusPainted(false);
@@ -1355,17 +1306,17 @@ public class HomeView {
 		btnhabitaciones.setBorderPainted(false);
 		btnhabitaciones.setBorder(BorderFactory.createLineBorder(Color.BLACK, 0));
 		btnhabitaciones.setBackground(new Color(56, 54, 41));
-		btnhabitaciones.setBounds(731, 0, 100, 23);
+		btnhabitaciones.setBounds(682, 0, 100, 23);
 		panel_2.add(btnhabitaciones);
 
 		JButton btntarifas = new JButton("<html>Tarifas &#8594;</html>"); // Botón superior tarifas
-//		btntarifas.addActionListener(new ActionListener() {
-//			public void actionPerformed(ActionEvent e) {
-//				frame.dispose(); // Cierra la ventana actual del menú
-//				Tarifas conexion = new Tarifas();
-//				conexion.frame.setVisible(true); 
-//			}
-//		});
+		btntarifas.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				frame.dispose(); // Cierra la ventana actual del menú
+				HomeController hc = new HomeController();
+				hc.Tarifas();
+			}
+		});
 		btntarifas.setForeground(Color.WHITE);
 		btntarifas.setFont(new Font("Jost* Medium", Font.PLAIN, 12));
 		btntarifas.setFocusPainted(false);
@@ -1373,7 +1324,7 @@ public class HomeView {
 		btntarifas.setBorderPainted(false);
 		btntarifas.setBorder(BorderFactory.createLineBorder(Color.BLACK, 0));
 		btntarifas.setBackground(new Color(56, 54, 41));
-		btntarifas.setBounds(649, 0, 72, 23);
+		btntarifas.setBounds(600, 0, 72, 23);
 		panel_2.add(btntarifas);
 
 		JButton btnBuscar = new JButton(""); // Boton para la barra de busqueda
@@ -1419,13 +1370,13 @@ public class HomeView {
 		JButton btnCuartoA1 = new JButton("Cuarto A1"); // Botón Cuarto A1
 		btnCuartoA1.setFont(new Font("Jost*", Font.BOLD | Font.ITALIC, 14));
 		btnCuartoA1.setBackground(new Color(50, 186, 124));
-//		btnCuartoA1.addActionListener(new ActionListener() {
-//			public void actionPerformed(ActionEvent e) {
-//				frame.dispose(); // Cierra la ventana actual del menú
-//				DatosRenta conexion = new DatosRenta();
-//				conexion.frame.setVisible(true); 	
-//			}
-//		});
+		btnCuartoA1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				frame.dispose(); // Cierra la ventana actual del menú
+				UsersController hc = new UsersController();
+				hc.DatosRenta2();	
+			}
+		});
 		btnCuartoA1.setBounds(131, 257, 150, 150);
 		btnCuartoA1.setVerticalTextPosition(SwingConstants.BOTTOM); // Para poner texto debajo de la imagen dentro del
 																	// botón
@@ -1440,13 +1391,13 @@ public class HomeView {
 		panel.add(btnCuartoA1);
 
 		JButton btnCuartoB1 = new JButton("Cuarto B1"); // Botón Cuarto B1
-//		btnCuartoB1.addActionListener(new ActionListener() {
-//			public void actionPerformed(ActionEvent e) {
-//				frame.dispose(); // Cierra la ventana actual del menú
-//				DatosRenta conexion = new DatosRenta();
-//				conexion.frame.setVisible(true); 
-//			}
-//		});
+		btnCuartoB1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				frame.dispose(); // Cierra la ventana actual del menú
+				UsersController hc = new UsersController();
+				hc.DatosRenta();
+			}
+		});
 		btnCuartoB1.setFont(new Font("Jost*", Font.BOLD | Font.ITALIC, 14));
 		btnCuartoB1.setBorder(BorderFactory.createLineBorder(Color.BLACK, 0));
 		btnCuartoB1.setBackground(new Color(239, 35, 60));
@@ -1464,13 +1415,13 @@ public class HomeView {
 
 		JButton btnCuartoA2 = new JButton("Cuarto A2"); // Botón Cuarto A2
 		btnCuartoA2.setFont(new Font("Jost*", Font.BOLD | Font.ITALIC, 14));
-//		btnCuartoA2.addActionListener(new ActionListener() {
-//			public void actionPerformed(ActionEvent e) {
-//				frame.dispose(); // Cierra la ventana actual del menú
-//				DatosRenta conexion = new DatosRenta();
-//				conexion.frame.setVisible(true); 
-//			}
-//		});
+		btnCuartoA2.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				frame.dispose(); // Cierra la ventana actual del menú
+				UsersController hc = new UsersController();
+				hc.DatosRenta2();
+			}
+		});
 		btnCuartoA2.setVerticalTextPosition(SwingConstants.BOTTOM);
 		btnCuartoA2.setVerticalAlignment(SwingConstants.CENTER);
 		btnCuartoA2.setIconTextGap(1);
@@ -1485,13 +1436,13 @@ public class HomeView {
 		panel.add(btnCuartoA2);
 
 		JButton btnCuartoB2 = new JButton("Cuarto B2"); // Botón Cuarto B2
-//		btnCuartoB2.addActionListener(new ActionListener() {
-//			public void actionPerformed(ActionEvent e) {
-//				frame.dispose(); // Cierra la ventana actual del menú
-//				DatosRenta conexion = new DatosRenta();
-//				conexion.frame.setVisible(true); 
-//			}
-//		});
+		btnCuartoB2.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				frame.dispose(); // Cierra la ventana actual del menú
+				UsersController hc = new UsersController();
+				hc.DatosRenta2();
+			}
+		});
 		btnCuartoB2.setFont(new Font("Jost*", Font.BOLD | Font.ITALIC, 14));
 		btnCuartoB2.setVerticalTextPosition(SwingConstants.BOTTOM);
 		btnCuartoB2.setVerticalAlignment(SwingConstants.CENTER);
@@ -1510,6 +1461,9 @@ public class HomeView {
 		btnCuartoA3.setFont(new Font("Jost*", Font.BOLD | Font.ITALIC, 14));
 		btnCuartoA3.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				frame.dispose(); // Cierra la ventana actual del menú
+				UsersController hc = new UsersController();
+				hc.DatosRenta();
 			}
 		});
 		btnCuartoA3.setVerticalTextPosition(SwingConstants.BOTTOM);
@@ -1527,13 +1481,13 @@ public class HomeView {
 
 		JButton btnCuartoA4 = new JButton("Cuarto A4"); // Botón Cuarto A4
 		btnCuartoA4.setFont(new Font("Jost*", Font.BOLD | Font.ITALIC, 14));
-//		btnCuartoA4.addActionListener(new ActionListener() {
-//			public void actionPerformed(ActionEvent e) {
-//				frame.dispose(); // Cierra la ventana actual del menú
-//				DatosRenta conexion = new DatosRenta();
-//				conexion.frame.setVisible(true); 
-//			}
-//		});
+		btnCuartoA4.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				frame.dispose(); // Cierra la ventana actual del menú
+				UsersController hc = new UsersController();
+				hc.DatosRenta();
+			}
+		});
 		btnCuartoA4.setVerticalTextPosition(SwingConstants.BOTTOM);
 		btnCuartoA4.setVerticalAlignment(SwingConstants.CENTER);
 		btnCuartoA4.setIconTextGap(1);
@@ -1549,13 +1503,13 @@ public class HomeView {
 
 		JButton btnCuartoA5 = new JButton("Cuarto A5"); // Botón Cuarto A5
 		btnCuartoA5.setFont(new Font("Jost*", Font.BOLD | Font.ITALIC, 14));
-//		btnCuartoA5.addActionListener(new ActionListener() {
-//			public void actionPerformed(ActionEvent e) {
-//				frame.dispose(); // Cierra la ventana actual del menú
-//				DatosRenta conexion = new DatosRenta();
-//				conexion.frame.setVisible(true); 
-//			}
-//		});
+		btnCuartoA5.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				frame.dispose(); // Cierra la ventana actual del menú
+				UsersController hc = new UsersController();
+				hc.DatosRenta2();
+			}
+		});
 		btnCuartoA5.setVerticalTextPosition(SwingConstants.BOTTOM);
 		btnCuartoA5.setVerticalAlignment(SwingConstants.CENTER);
 		btnCuartoA5.setIconTextGap(1);
@@ -1571,13 +1525,13 @@ public class HomeView {
 
 		JButton btnCuartoB3 = new JButton("Cuarto B3"); // Botón Cuarto B3
 		btnCuartoB3.setFont(new Font("Jost*", Font.BOLD | Font.ITALIC, 14));
-//		btnCuartoB3.addActionListener(new ActionListener() {
-//			public void actionPerformed(ActionEvent e) {
-//				frame.dispose(); // Cierra la ventana actual del menú
-//				DatosRenta conexion = new DatosRenta();
-//				conexion.frame.setVisible(true); 
-//			}
-//		});
+		btnCuartoB3.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				frame.dispose(); // Cierra la ventana actual del menú
+				UsersController hc = new UsersController();
+				hc.DatosRenta();
+			}
+		});
 		btnCuartoB3.setVerticalTextPosition(SwingConstants.BOTTOM);
 		btnCuartoB3.setVerticalAlignment(SwingConstants.CENTER);
 		btnCuartoB3.setIconTextGap(1);
@@ -1593,13 +1547,13 @@ public class HomeView {
 
 		JButton btnCuartoB4 = new JButton("Cuarto B4"); // Botón Cuarto B4
 		btnCuartoB4.setFont(new Font("Jost*", Font.BOLD | Font.ITALIC, 14));
-//		btnCuartoB4.addActionListener(new ActionListener() {
-//			public void actionPerformed(ActionEvent e) {
-//				frame.dispose(); // Cierra la ventana actual del menú
-//				DatosRenta conexion = new DatosRenta();
-//				conexion.frame.setVisible(true); 
-//			}
-//		});
+		btnCuartoB4.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				frame.dispose(); // Cierra la ventana actual del menú
+				UsersController hc = new UsersController();
+				hc.DatosRenta2();
+			}
+		});
 		btnCuartoB4.setVerticalTextPosition(SwingConstants.BOTTOM);
 		btnCuartoB4.setVerticalAlignment(SwingConstants.CENTER);
 		btnCuartoB4.setIconTextGap(1);
@@ -1614,13 +1568,13 @@ public class HomeView {
 		panel.add(btnCuartoB4);
 
 		JButton btnCuartoB5 = new JButton("Cuarto B5"); // Botón Cuarto B5
-//		btnCuartoB5.addActionListener(new ActionListener() {
-//			public void actionPerformed(ActionEvent e) {
-//				frame.dispose(); // Cierra la ventana actual del menú
-//				DatosRenta conexion = new DatosRenta();
-//				conexion.frame.setVisible(true); 
-//			}
-//		});
+		btnCuartoB5.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				frame.dispose(); // Cierra la ventana actual del menú
+				UsersController hc = new UsersController();
+				hc.DatosRenta();
+			}
+		});
 		btnCuartoB5.setFont(new Font("Jost*", Font.BOLD | Font.ITALIC, 14));
 		btnCuartoB5.setVerticalTextPosition(SwingConstants.BOTTOM);
 		btnCuartoB5.setVerticalAlignment(SwingConstants.CENTER);
@@ -1686,14 +1640,6 @@ public class HomeView {
 		Titulo.setFont(new Font("Jost* Medium", Font.PLAIN, 35));
 		Titulo.setBounds(180, 11, 410, 73);
 		panel_1.add(Titulo);
-		// CORREGIDO: new ImageIcon(getClass().getResource("/images/usuario.png"));
-		ImageIcon c1 = new ImageIcon(getClass().getResource("/images/usuario.png"));
-		Image c2 = c1.getImage();
-		Image c3 = c2.getScaledInstance(36, 36, Image.SCALE_SMOOTH);
-		// CORREGIDO: new ImageIcon(getClass().getResource("/images/informacion.png"));
-		ImageIcon e1 = new ImageIcon(getClass().getResource("/images/informacion.png"));
-		Image e2 = e1.getImage();
-		Image e3 = e2.getScaledInstance(36, 36, Image.SCALE_SMOOTH);
 
 		JButton botonVolver = new JButton(""); // Boton para volver atrás
 		botonVolver.setForeground(new Color(255, 255, 255));
@@ -1727,13 +1673,8 @@ public class HomeView {
 			public void actionPerformed(ActionEvent e) {
 			}
 		});
+																					
 
-		JButton btnTiposDeRentas1 = new JButton("<html>Tipos de habitaciones &#8594;</html>"); // Botón superior tipos
-																								// de habitaciones
-		btnTiposDeRentas.setFont(new Font("Jost* Medium", Font.PLAIN, 12));
-		btnTiposDeRentas.setForeground(new Color(255, 255, 255));
-		btnTiposDeRentas.setBackground(new Color(56, 54, 41));
-		btnTiposDeRentas.setBorder(BorderFactory.createLineBorder(Color.BLACK, 0));
 //		btnTiposDeRentas.addActionListener(new ActionListener() {
 //			public void actionPerformed(ActionEvent e) {
 //				frame.dispose(); // Cierra la ventana actual del menú
@@ -1741,20 +1682,20 @@ public class HomeView {
 //				conexion.frame.setVisible(true); 
 //			}
 //		});
-		btnTiposDeRentas.setBounds(1023, 0, 134, 23);
+		btnTiposDeRentas.setBounds(974, 0, 180, 23);
 		btnTiposDeRentas.setBorderPainted(false);
 		btnTiposDeRentas.setFocusPainted(false);
 		btnTiposDeRentas.setContentAreaFilled(true);
 		panel_2.add(btnTiposDeRentas);
 
 		JButton btnrentas = new JButton("<html>Rentas &#8594;</html>"); // Botón superior rentas
-//		btnrentas.addActionListener(new ActionListener() {
-//			public void actionPerformed(ActionEvent e) {
-//				frame.dispose(); // Cierra la ventana actual del menú
-//				Rentas conexion = new Rentas();
-//				conexion.frame.setVisible(true); 
-//			}
-//		});
+		btnrentas.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				frame.dispose(); // Cierra la ventana actual del menú
+				HomeController hc = new HomeController();
+				hc.Rentas();
+			}
+		});
 		btnrentas.setForeground(Color.WHITE);
 		btnrentas.setFont(new Font("Jost* Medium", Font.PLAIN, 12));
 		btnrentas.setFocusPainted(false);
@@ -1762,17 +1703,17 @@ public class HomeView {
 		btnrentas.setBorderPainted(false);
 		btnrentas.setBorder(BorderFactory.createLineBorder(Color.BLACK, 0));
 		btnrentas.setBackground(new Color(56, 54, 41));
-		btnrentas.setBounds(932, 0, 81, 23);
+		btnrentas.setBounds(883, 0, 81, 23);
 		panel_2.add(btnrentas);
 
 		JButton btnclientes = new JButton("<html>Clientes &#8594;</html>"); // Botón superior clientes
-//		btnclientes.addActionListener(new ActionListener() {
-//			public void actionPerformed(ActionEvent e) {
-//				frame.dispose(); // Cierra la ventana actual del menú
-//				Clientes conexion = new Clientes();
-//				conexion.frame.setVisible(true); 
-//			}
-//		});
+		btnclientes.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				frame.dispose(); // Cierra la ventana actual del menú
+				HomeController hc = new HomeController();
+				hc.Clientes();
+			}
+		});
 		btnclientes.setForeground(Color.WHITE);
 		btnclientes.setFont(new Font("Jost* Medium", Font.PLAIN, 12));
 		btnclientes.setFocusPainted(false);
@@ -1780,17 +1721,17 @@ public class HomeView {
 		btnclientes.setBorderPainted(false);
 		btnclientes.setBorder(BorderFactory.createLineBorder(Color.BLACK, 0));
 		btnclientes.setBackground(new Color(56, 54, 41));
-		btnclientes.setBounds(841, 0, 81, 23);
+		btnclientes.setBounds(792, 0, 81, 23);
 		panel_2.add(btnclientes);
 
 		JButton btnhabitaciones = new JButton("<html>Habitaciones &#8594;</html>"); // Botón superior habitaciones
-//		btnhabitaciones.addActionListener(new ActionListener() {
-//			public void actionPerformed(ActionEvent e) {
-//				frame.dispose(); // Cierra la ventana actual del menú
-//				PanelHabitaciones1 conexion = new PanelHabitaciones1();
-//				conexion.frame.setVisible(true); 
-//			}
-//		});
+		btnhabitaciones.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				frame.dispose(); // Cierra la ventana actual del menú
+				HomeController hc = new HomeController();
+				hc.PanelHabitaciones1();
+			}
+		});
 		btnhabitaciones.setForeground(Color.WHITE);
 		btnhabitaciones.setFont(new Font("Jost* Medium", Font.PLAIN, 12));
 		btnhabitaciones.setFocusPainted(false);
@@ -1798,17 +1739,17 @@ public class HomeView {
 		btnhabitaciones.setBorderPainted(false);
 		btnhabitaciones.setBorder(BorderFactory.createLineBorder(Color.BLACK, 0));
 		btnhabitaciones.setBackground(new Color(56, 54, 41));
-		btnhabitaciones.setBounds(731, 0, 100, 23);
+		btnhabitaciones.setBounds(682, 0, 100, 23);
 		panel_2.add(btnhabitaciones);
 
 		JButton btntarifas = new JButton("<html>Tarifas &#8594;</html>"); // Botón superior tarifas
-//		btntarifas.addActionListener(new ActionListener() {
-//			public void actionPerformed(ActionEvent e) {
-//				frame.dispose(); // Cierra la ventana actual del menú
-//				Tarifas conexion = new Tarifas();
-//				conexion.frame.setVisible(true); 
-//			}
-//		});
+		btntarifas.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				frame.dispose(); // Cierra la ventana actual del menú
+				HomeController hc = new HomeController();
+				hc.Tarifas();
+			}
+		});
 		btntarifas.setForeground(Color.WHITE);
 		btntarifas.setFont(new Font("Jost* Medium", Font.PLAIN, 12));
 		btntarifas.setFocusPainted(false);
@@ -1816,7 +1757,7 @@ public class HomeView {
 		btntarifas.setBorderPainted(false);
 		btntarifas.setBorder(BorderFactory.createLineBorder(Color.BLACK, 0));
 		btntarifas.setBackground(new Color(56, 54, 41));
-		btntarifas.setBounds(649, 0, 72, 23);
+		btntarifas.setBounds(600, 0, 72, 23);
 		panel_2.add(btntarifas);
 
 		// CORREGIDO: new ImageIcon(getClass().getResource("/images/busqueda.png"));
@@ -1854,13 +1795,13 @@ public class HomeView {
 		panel_3.add(lblTexto1_2);
 
 		JButton btnNewButton_1_1_1_1 = new JButton("Detalles");
-//        btnNewButton_1_1_1_1.addActionListener(new ActionListener() {
-//        	public void actionPerformed(ActionEvent e) {
-//        		frame.dispose(); // Cierra la ventana actual del menú
-//				DetallesHabitacion4 conexion = new DetallesHabitacion4();
-//				conexion.frame.setVisible(true); 
-//        	}
-//        });
+        btnNewButton_1_1_1_1.addActionListener(new ActionListener() {
+        	public void actionPerformed(ActionEvent e) {
+				frame.dispose(); // Cierra la ventana actual del menú
+				UsersController hc = new UsersController();
+				hc.DetallesHabitacion4();
+        	}
+        });
 		btnNewButton_1_1_1_1.setBackground(new Color(255, 230, 167));
 		btnNewButton_1_1_1_1.setFont(new Font("Tahoma", Font.BOLD, 20));
 		btnNewButton_1_1_1_1.setBounds(92, 375, 124, 55);
@@ -1897,14 +1838,14 @@ public class HomeView {
 		panel_2_1.add(lblTexto1_2_1);
 
 		JButton btnNewButton_1_1_1 = new JButton("Detalles");
-//        btnNewButton_1_1_1.addActionListener(new ActionListener() {
-//        	public void actionPerformed(ActionEvent e) {
-//        		frame.dispose(); // Cierra la ventana actual del menú
-//				Detallesfamiliar conexion = new Detallesfamiliar();
-//				conexion.frame.setVisible(true);
-//        		
-//        	}
-//        });
+        btnNewButton_1_1_1.addActionListener(new ActionListener() {
+        	public void actionPerformed(ActionEvent e) {
+				frame.dispose(); // Cierra la ventana actual del menú
+				UsersController hc = new UsersController();
+				hc.DetallesFamiliar();
+        		
+        	}
+        });
 		btnNewButton_1_1_1.setBackground(new Color(255, 230, 167));
 		btnNewButton_1_1_1.setFont(new Font("Tahoma", Font.BOLD, 20));
 		btnNewButton_1_1_1.setBounds(86, 375, 124, 55);
@@ -1953,13 +1894,13 @@ public class HomeView {
 		panel_1_1.add(btnNewButton_1_1);
 
 		JButton btnNewButton_1_1_1_1_1 = new JButton("Eliminar");
-//        btnNewButton_1_1_1_1_1.addActionListener(new ActionListener() {
-//        	public void actionPerformed(ActionEvent e) {
-//        		frame.dispose(); // Cierra la ventana actual del menú
-//				EliminarTipodeHabitacion conexion = new EliminarTipodeHabitacion();
-//				conexion.frame.setVisible(true); 
-//        	}
-//        });
+		btnNewButton_1_1_1_1_1.addActionListener(new ActionListener() {
+        	public void actionPerformed(ActionEvent e) {
+				frame.dispose(); // Cierra la ventana actual del menú
+				UsersController hc = new UsersController();
+				hc.EliminarTipodeHabitacion();
+        	}
+        });
 		btnNewButton_1_1_1_1_1.setForeground(Color.WHITE);
 		btnNewButton_1_1_1_1_1.setFont(new Font("Tahoma", Font.BOLD, 20));
 		btnNewButton_1_1_1_1_1.setBackground(new Color(239, 35, 60));
@@ -1967,26 +1908,26 @@ public class HomeView {
 		panel.add(btnNewButton_1_1_1_1_1);
 
 		JButton btnNewButton_1_1_1_1_1_1 = new JButton("Editar\r\n");
-//        btnNewButton_1_1_1_1_1_1.addActionListener(new ActionListener() {
-//        	public void actionPerformed(ActionEvent e) {
-//        		frame.dispose(); // Cierra la ventana actual del menú
-//				EditartiposdeHabitaciones conexion = new EditartiposdeHabitaciones();
-//				conexion.frame.setVisible(true); 
-//        	}
-//        });
+        btnNewButton_1_1_1_1_1_1.addActionListener(new ActionListener() {
+        	public void actionPerformed(ActionEvent e) {
+				frame.dispose(); // Cierra la ventana actual del menú
+				UsersController hc = new UsersController();
+				hc.EditarHabitacion();
+        	}
+        });
 		btnNewButton_1_1_1_1_1_1.setFont(new Font("Tahoma", Font.BOLD, 20));
 		btnNewButton_1_1_1_1_1_1.setBackground(new Color(44, 196, 196));
 		btnNewButton_1_1_1_1_1_1.setBounds(265, 128, 124, 55);
 		panel.add(btnNewButton_1_1_1_1_1_1);
 
 		JButton btnNewButton_1_1_1_1_1_1_1 = new JButton("Crear tipo");
-//        btnNewButton_1_1_1_1_1_1_1.addActionListener(new ActionListener() {
-//        	public void actionPerformed(ActionEvent e) {
-//        		frame.dispose(); // Cierra la ventana actual del menú
-//				Creartipodehabitacion conexion = new Creartipodehabitacion();
-//				conexion.frame.setVisible(true); 
-//        	}
-//        });
+        btnNewButton_1_1_1_1_1_1_1.addActionListener(new ActionListener() {
+        	public void actionPerformed(ActionEvent e) {
+				frame.dispose(); // Cierra la ventana actual del menú
+				UsersController hc = new UsersController();
+				hc.CrearTipoHabitacion();
+        	}
+        });
 		btnNewButton_1_1_1_1_1_1_1.setFont(new Font("Tahoma", Font.BOLD, 20));
 		btnNewButton_1_1_1_1_1_1_1.setBackground(Color.YELLOW);
 		btnNewButton_1_1_1_1_1_1_1.setBounds(399, 127, 154, 55);
@@ -2048,10 +1989,6 @@ public class HomeView {
 			menuTitulo.setFont(new Font("Jost*", Font.BOLD, 38));
 			menuTitulo.setBounds(131, 126, 400, 56);
 			panel.add(menuTitulo);
-			ImageIcon icon14 = new ImageIcon(getClass().getResource("/images/usuario.png"));
-			Image imagen14 = icon14.getImage().getScaledInstance(36, 36, Image.SCALE_SMOOTH);
-			ImageIcon icon13 = new ImageIcon(getClass().getResource("/images/informacion.png"));
-			Image imagen13 = icon13.getImage().getScaledInstance(36, 36, Image.SCALE_SMOOTH);
 
 			JButton botonVolver = new JButton("");
 			botonVolver.setForeground(new Color(255, 255, 255));
@@ -2059,13 +1996,13 @@ public class HomeView {
 			botonVolver.setBorderPainted(false);
 			botonVolver.setFocusPainted(false);
 			botonVolver.setContentAreaFilled(true);
-//		botonVolver.addActionListener(new ActionListener() {
-//			public void actionPerformed(ActionEvent e) {
-//				frame.dispose();
-//				Menu menuWindow = new Menu();
-//				menuWindow.frame.setVisible(true);
-//			}
-//		});
+		botonVolver.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				frame.dispose(); // Cierra la ventana actual del menú
+				HomeController hc = new HomeController();
+				hc.Menu();
+			}
+		});
 			botonVolver.setBounds(60, 132, 36, 36);
 			ImageIcon icon69 = new ImageIcon(getClass().getResource("/images/flecha_izquierda.png"));
 			Image imagen69 = icon69.getImage().getScaledInstance(36, 36, Image.SCALE_SMOOTH);
@@ -2077,27 +2014,27 @@ public class HomeView {
 			btnTiposDeHabitaciones.setForeground(new Color(255, 255, 255));
 			btnTiposDeHabitaciones.setBackground(new Color(56, 54, 41));
 			btnTiposDeHabitaciones.setBorder(BorderFactory.createLineBorder(Color.BLACK, 0));
-//		btnTiposDeHabitaciones.addActionListener(new ActionListener() {
-//			public void actionPerformed(ActionEvent e) {
-//				frame.dispose();
-//				TiposHabitacion tiposHabitacionWindow = new TiposHabitacion();
-//				tiposHabitacionWindow.frame.setVisible(true);
-//			}
-//		});
-			btnTiposDeHabitaciones.setBounds(1023, 0, 134, 23);
+		btnTiposDeHabitaciones.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				frame.dispose(); // Cierra la ventana actual del menú
+				HomeController hc = new HomeController();
+				hc.TiposHabitacion();
+			}
+		});
+			btnTiposDeHabitaciones.setBounds(974, 0, 180, 23);
 			btnTiposDeHabitaciones.setBorderPainted(false);
 			btnTiposDeHabitaciones.setFocusPainted(false);
 			btnTiposDeHabitaciones.setContentAreaFilled(true);
 			panel_2.add(btnTiposDeHabitaciones);
 
 			JButton btnrentas = new JButton("<html>Rentas &#8594;</html>");
-//		btnrentas.addActionListener(new ActionListener() {
-//			public void actionPerformed(ActionEvent e) {
-//				frame.dispose();
-//				Rentas rentasWindow = new Rentas();
-//				rentasWindow.frame.setVisible(true);
-//			}
-//		});
+		btnrentas.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				frame.dispose(); // Cierra la ventana actual del menú
+				HomeController hc = new HomeController();
+				hc.Rentas();
+			}
+		});
 			btnrentas.setForeground(Color.WHITE);
 			btnrentas.setFont(new Font("Jost* Medium", Font.PLAIN, 12));
 			btnrentas.setFocusPainted(false);
@@ -2105,7 +2042,7 @@ public class HomeView {
 			btnrentas.setBorderPainted(false);
 			btnrentas.setBorder(BorderFactory.createLineBorder(Color.BLACK, 0));
 			btnrentas.setBackground(new Color(56, 54, 41));
-			btnrentas.setBounds(932, 0, 81, 23);
+			btnrentas.setBounds(883, 0, 81, 23);
 			panel_2.add(btnrentas);
 
 			JButton btnclientes = new JButton("<html>Clientes &#8594;</html>");
@@ -2116,14 +2053,14 @@ public class HomeView {
 			btnclientes.setBorderPainted(false);
 			btnclientes.setBorder(BorderFactory.createLineBorder(Color.BLACK, 0));
 			btnclientes.setBackground(new Color(56, 54, 41));
-			btnclientes.setBounds(841, 0, 81, 23);
-//		btnclientes.addActionListener(new ActionListener() {
-//			public void actionPerformed(ActionEvent e) {
-//				frame.dispose();
-//				Clientes clientesWindow = new Clientes();
-//				clientesWindow.frame.setVisible(true);
-//			}
-//		});
+			btnclientes.setBounds(792, 0, 81, 23);;
+			btnclientes.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				frame.dispose(); // Cierra la ventana actual del menú
+				HomeController hc = new HomeController();
+				hc.Clientes();
+			}
+		});
 			panel_2.add(btnclientes);
 
 			JButton btnhabitaciones = new JButton("<html>Habitaciones &#8594;</html>");
@@ -2134,14 +2071,14 @@ public class HomeView {
 			btnhabitaciones.setBorderPainted(false);
 			btnhabitaciones.setBorder(BorderFactory.createLineBorder(Color.BLACK, 0));
 			btnhabitaciones.setBackground(new Color(56, 54, 41));
-			btnhabitaciones.setBounds(731, 0, 100, 23);
-//		btnhabitaciones.addActionListener(new ActionListener() {
-//			public void actionPerformed(ActionEvent e) {
-//				frame.dispose();
-//				PanelHabitaciones1 habitacionesWindow = new PanelHabitaciones1();
-//				habitacionesWindow.frame.setVisible(true);
-//			}
-//		});
+			btnhabitaciones.setBounds(682, 0, 100, 23);
+		btnhabitaciones.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				frame.dispose(); // Cierra la ventana actual del menú
+				HomeController hc = new HomeController();
+				hc.PanelHabitaciones1();
+			}
+		});
 			panel_2.add(btnhabitaciones);
 
 			JButton btntarifas = new JButton("<html>Tarifas &#8594;</html>");
@@ -2157,7 +2094,7 @@ public class HomeView {
 			btntarifas.setBorderPainted(false);
 			btntarifas.setBorder(BorderFactory.createLineBorder(Color.BLACK, 0));
 			btntarifas.setBackground(new Color(56, 54, 41));
-			btntarifas.setBounds(649, 0, 72, 23);
+			btntarifas.setBounds(600, 0, 72, 23);
 			panel_2.add(btntarifas);
 
 			JButton btnBuscar = new JButton("");
@@ -2275,13 +2212,13 @@ public class HomeView {
 			btnCrearTarifaNueva.setBorder(BorderFactory.createLineBorder(Color.BLACK, 0));
 			btnCrearTarifaNueva.setBackground(Color.YELLOW);
 			btnCrearTarifaNueva.setBounds(451, 193, 150, 40);
-//		btnCrearTarifaNueva.addActionListener(new ActionListener() {
-//			public void actionPerformed(ActionEvent e) {
-//				frame.dispose();
-//				Creartarifa crearTarifaWindow = new Creartarifa();
-//				crearTarifaWindow.frame.setVisible(true);
-//			}
-//		});
+		btnCrearTarifaNueva.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				frame.dispose();
+				UsersController hc = new UsersController();
+				hc.CrearTarifa();
+			}
+		});
 			panel.add(btnCrearTarifaNueva);
 
 			String[] columnNames = { "ID Tarifa", "Tipo de Tarifa", "Precio", "Condiciones", "Descripcion" };
