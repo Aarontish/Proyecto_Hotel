@@ -1,5 +1,6 @@
 package Controllers;
 
+import Models.Cliente;
 import Views.HomeView;
 
 public class HomeController {
@@ -28,6 +29,10 @@ public class HomeController {
 	}
 	public void Tarifas() {
 		vista.Tarifas();
+	}
+	public void DatosUsuario(Cliente cliente) {
+		// TODO Auto-generated method stub
+		
 	}
 
 

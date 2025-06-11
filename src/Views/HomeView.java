@@ -30,12 +30,34 @@ import com.formdev.flatlaf.FlatLightLaf;
 
 import Controllers.HomeController;
 import Controllers.UsersController;
+import Models.Cliente;
+import Models.ConectionModel;
+import Models.Habitacion;
+import Models.Tarifa;
+import Models.UsersModel;
+import Models.Cliente;
+
 
 public class HomeView {
+	
+	public class UsersView {
+	    DefaultTableModel tableModel;
+	    JTable tableTarifas;
+	    
+	    public void Tarifas() {
+	       
+	    }
+
+		public void DatosUsuario(Cliente cliente) {
+			// TODO Auto-generated method stub
+			
+		}
+	}
 
 	public HomeView() {
 		// TODO Auto-generated constructor stub
 	}
+	
 
 	public void Menu() {
 		try {
@@ -325,7 +347,7 @@ public class HomeView {
 		decoracion.setIcon(new ImageIcon(imagen12));
 		panel.add(decoracion);
 
-		frame.add(panel);
+		frame.getContentPane().add(panel);
 		frame.repaint();
 		frame.revalidate();
 		frame.setLocationRelativeTo(null);
@@ -530,222 +552,111 @@ public class HomeView {
 			}
 		});
 		panel.add(textField);
+		final boolean[] modoEliminar = {false};
 
-		JButton btnEliminarCliente = new JButton("Eliminar habitacion"); // Botón prinicipal eliminar cliente
-		btnEliminarCliente.setBackground(new Color(239, 35, 60));
-		btnEliminarCliente.setFont(new Font("Inter", Font.BOLD | Font.ITALIC, 24));
-		btnEliminarCliente.setBorder(BorderFactory.createLineBorder(Color.BLACK, 0));
-		btnEliminarCliente.setForeground(Color.WHITE);
-		btnEliminarCliente.addActionListener(new ActionListener() {
+		JButton btnEliminarHabitacion = new JButton("Eliminar habitación");
+		btnEliminarHabitacion.setBackground(new Color(239, 35, 60));
+		btnEliminarHabitacion.setFont(new Font("Inter", Font.BOLD | Font.ITALIC, 24));
+		btnEliminarHabitacion.setBorder(BorderFactory.createLineBorder(Color.BLACK, 0));
+		btnEliminarHabitacion.setForeground(Color.WHITE);
+		btnEliminarHabitacion.setBounds(131, 193, 280, 40);
+		btnEliminarHabitacion.addActionListener(new ActionListener() {
+		    public void actionPerformed(ActionEvent e) {
+		        modoEliminar[0] = true;
+		        JOptionPane.showMessageDialog(null, " Modo eliminar activado. Selecciona una habitación.");
+		    }
+		});
+		panel.add(btnEliminarHabitacion);
+
+		
+		JButton btncrearhabitaciones = new JButton("Crear habitacion"); // Botón prinicipal eliminar cliente
+		btncrearhabitaciones.setBackground(new Color(239, 35, 60));
+		btncrearhabitaciones.setFont(new Font("Inter", Font.BOLD | Font.ITALIC, 24));
+		btncrearhabitaciones.setBorder(BorderFactory.createLineBorder(Color.BLACK, 0));
+		btncrearhabitaciones.setForeground(Color.WHITE);
+		btncrearhabitaciones.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 					frame.dispose();
 					UsersController hc = new UsersController();
-					hc.PanelHabitaciones2();	
+					hc.Crear_habitaciones();	
 			}
 		});
-		btnEliminarCliente.setBounds(131, 193, 280, 40);
-		panel.add(btnEliminarCliente);
+		btncrearhabitaciones.setBounds(430, 193, 280, 40);
+		panel.add(btncrearhabitaciones);
 
-		JButton btnCuartoA1 = new JButton("Cuarto A1"); // Botón Cuarto A1
-		btnCuartoA1.setFont(new Font("Jost*", Font.BOLD | Font.ITALIC, 14));
-		btnCuartoA1.setBackground(new Color(0, 187, 249));
-		btnCuartoA1.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				frame.dispose(); // Cierra la ventana actual del menú
-				UsersView hc = new UsersView();
-				hc.DetallesHabitacion1();
-			}
-		});
+		
+		
 
-		btnCuartoA1.setBounds(131, 257, 150, 150);
-		btnCuartoA1.setVerticalTextPosition(SwingConstants.BOTTOM); // Para poner texto debajo de la imagen dentro del
-																	// botón
-		btnCuartoA1.setHorizontalTextPosition(SwingConstants.CENTER);
-		btnCuartoA1.setHorizontalAlignment(SwingConstants.CENTER);
-		btnCuartoA1.setVerticalAlignment(SwingConstants.CENTER);
-		btnCuartoA1.setIconTextGap(1);
-		btnCuartoA1.setBorder(BorderFactory.createLineBorder(Color.BLACK, 0));
-		ImageIcon icon1 = new ImageIcon(getClass().getResource("/images/cama_matrimonial2.png"));
-		Image imagen1 = icon1.getImage().getScaledInstance(120, 120, Image.SCALE_SMOOTH);
-		btnCuartoA1.setIcon(new ImageIcon(imagen1));
-		panel.add(btnCuartoA1);
+		
+		ConectionModel conn = new ConectionModel();
+		List<Habitacion> listaHabitaciones = new UsersModel().obtenerHabitaciones(conn.getConnection());
 
-		JButton btnCuartoB1 = new JButton("Cuarto B1"); // Botón Cuarto B1
-		btnCuartoB1.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
+		int x = 131;
+		int y = 257;
+		int contador = 0;
 
-			}
-		});
-		btnCuartoB1.setFont(new Font("Jost*", Font.BOLD | Font.ITALIC, 14));
-		btnCuartoB1.setBorder(BorderFactory.createLineBorder(Color.BLACK, 0));
-		btnCuartoB1.setBackground(new Color(0, 187, 249));
-		btnCuartoB1.setBounds(131, 455, 150, 150);
-		btnCuartoB1.setVerticalTextPosition(SwingConstants.BOTTOM); // Para poner texto debajo de la imagen dentro del
-																	// botón
-		btnCuartoB1.setHorizontalTextPosition(SwingConstants.CENTER);
-		btnCuartoB1.setHorizontalAlignment(SwingConstants.CENTER);
-		btnCuartoB1.setVerticalAlignment(SwingConstants.CENTER);
-		btnCuartoB1.setIconTextGap(1);
-		ImageIcon icon12 = new ImageIcon(getClass().getResource("/images/cama_matrimonial2.png"));
-		Image imagen122 = icon1.getImage().getScaledInstance(120, 120, Image.SCALE_SMOOTH);
-		btnCuartoB1.setIcon(new ImageIcon(imagen1));
-		panel.add(btnCuartoB1);
+		for (Habitacion habitacion : listaHabitaciones) {
+		    JButton btnHabitacion = new JButton(habitacion.getNombre());
+		    btnHabitacion.setFont(new Font("Jost*", Font.BOLD | Font.ITALIC, 14));
+		    btnHabitacion.setBackground(new Color(0, 187, 249));
+		    btnHabitacion.setBounds(x, y, 150, 150);
+		    btnHabitacion.setVerticalTextPosition(SwingConstants.BOTTOM);
+		    btnHabitacion.setHorizontalTextPosition(SwingConstants.CENTER);
+		    btnHabitacion.setBorder(BorderFactory.createLineBorder(Color.BLACK, 0));
 
-		JButton btnCuartoA2 = new JButton("Cuarto A2"); // Botón Cuarto A2
-		btnCuartoA2.setFont(new Font("Jost*", Font.BOLD | Font.ITALIC, 14));
-		btnCuartoA2.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-			}
-		});
-		btnCuartoA2.setVerticalTextPosition(SwingConstants.BOTTOM);
-		btnCuartoA2.setVerticalAlignment(SwingConstants.CENTER);
-		btnCuartoA2.setIconTextGap(1);
-		btnCuartoA2.setHorizontalTextPosition(SwingConstants.CENTER);
-		btnCuartoA2.setHorizontalAlignment(SwingConstants.CENTER);
-		btnCuartoA2.setBorder(BorderFactory.createLineBorder(Color.BLACK, 0));
-		btnCuartoA2.setBackground(new Color(0, 187, 249));
-		btnCuartoA2.setBounds(331, 257, 150, 150);
-		ImageIcon icon = new ImageIcon(getClass().getResource("/images/cama_matrimonial2.png"));
-		Image imagen = icon1.getImage().getScaledInstance(120, 120, Image.SCALE_SMOOTH);
-		btnCuartoA2.setIcon(new ImageIcon(imagen1));
-		panel.add(btnCuartoA2);
+		    ImageIcon icon = new ImageIcon(getClass().getResource("/images/cama_matrimonial2.png"));
+		    Image imagen = icon.getImage().getScaledInstance(120, 120, Image.SCALE_SMOOTH);
+		    btnHabitacion.setIcon(new ImageIcon(imagen));
 
-		JButton btnCuartoB2 = new JButton("Cuarto B2"); // Botón Cuarto B2
-		btnCuartoB2.setFont(new Font("Jost*", Font.BOLD | Font.ITALIC, 14));
-		btnCuartoB2.setVerticalTextPosition(SwingConstants.BOTTOM);
-		btnCuartoB2.setVerticalAlignment(SwingConstants.CENTER);
-		btnCuartoB2.setIconTextGap(1);
-		btnCuartoB2.setHorizontalTextPosition(SwingConstants.CENTER);
-		btnCuartoB2.setHorizontalAlignment(SwingConstants.CENTER);
-		btnCuartoB2.setBorder(BorderFactory.createLineBorder(Color.BLACK, 0));
-		btnCuartoB2.setBackground(new Color(0, 187, 249));
-		btnCuartoB2.setBounds(331, 455, 150, 150);
-		ImageIcon icon13 = new ImageIcon(getClass().getResource("/images/cama_matrimonial2.png"));
-		Image imagen23 = icon1.getImage().getScaledInstance(120, 120, Image.SCALE_SMOOTH);
-		btnCuartoB2.setIcon(new ImageIcon(imagen1));
-		panel.add(btnCuartoB2);
+		    btnHabitacion.addActionListener(new ActionListener() {
+		        public void actionPerformed(ActionEvent e) {
+		            if (modoEliminar[0]) {
+		                int confirm = JOptionPane.showConfirmDialog(null,
+		                    "¿Estás seguro de que deseas eliminar la habitación \"" + habitacion.getNombre() + "\"?",
+		                    "Confirmar eliminación", JOptionPane.YES_NO_OPTION);
 
-		JButton btnCuartoA3 = new JButton("Cuarto A3"); // Botón Cuarto A3
-		btnCuartoA3.setFont(new Font("Jost*", Font.BOLD | Font.ITALIC, 14));
-		btnCuartoA3.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-			}
-		});
-		btnCuartoA3.setVerticalTextPosition(SwingConstants.BOTTOM);
-		btnCuartoA3.setVerticalAlignment(SwingConstants.CENTER);
-		btnCuartoA3.setIconTextGap(1);
-		btnCuartoA3.setHorizontalTextPosition(SwingConstants.CENTER);
-		btnCuartoA3.setHorizontalAlignment(SwingConstants.CENTER);
-		btnCuartoA3.setBorder(BorderFactory.createLineBorder(Color.BLACK, 0));
-		btnCuartoA3.setBackground(new Color(0, 187, 249));
-		btnCuartoA3.setBounds(531, 257, 150, 150);
-		ImageIcon icon44 = new ImageIcon(getClass().getResource("/images/cama_matrimonial2.png"));
-		Image imagen44 = icon1.getImage().getScaledInstance(120, 120, Image.SCALE_SMOOTH);
-		btnCuartoA3.setIcon(new ImageIcon(imagen1));
-		panel.add(btnCuartoA3);
+		                if (confirm == JOptionPane.YES_OPTION) {
+		                    ConectionModel conn = new ConectionModel();
+		                    boolean eliminado = new UsersModel().eliminarHabitacion(conn.getConnection(), habitacion.getId_habitacion());
+		                    if (eliminado) {
+		                        JOptionPane.showMessageDialog(null, "✅ Habitación eliminada correctamente.");
+		                        modoEliminar[0] = false;
+		                        frame.dispose();
+		                        new HomeController().PanelHabitaciones1();
+		                    } else {
+		                        JOptionPane.showMessageDialog(null, "❌ Error al eliminar la habitación.");
+		                    }
+		                } else {
+		                    modoEliminar[0] = false;
+		                }
+		            } else {
+		                frame.dispose(); 
+		                new UsersController().DetallesHabitacion1(habitacion);
+		            }
+		        }
+		    });
 
-		JButton btnCuartoA4 = new JButton("Cuarto A4"); // Botón Cuarto A4
-		btnCuartoA4.setFont(new Font("Jost*", Font.BOLD | Font.ITALIC, 14));
-		btnCuartoA4.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-			}
-		});
-		btnCuartoA4.setVerticalTextPosition(SwingConstants.BOTTOM);
-		btnCuartoA4.setVerticalAlignment(SwingConstants.CENTER);
-		btnCuartoA4.setIconTextGap(1);
-		btnCuartoA4.setHorizontalTextPosition(SwingConstants.CENTER);
-		btnCuartoA4.setHorizontalAlignment(SwingConstants.CENTER);
-		btnCuartoA4.setBorder(BorderFactory.createLineBorder(Color.BLACK, 0));
-		btnCuartoA4.setBackground(new Color(0, 187, 249));
-		btnCuartoA4.setBounds(731, 257, 150, 150);
-		ImageIcon icon77 = new ImageIcon(getClass().getResource("/images/cama_matrimonial2.png"));
-		Image imagen77 = icon1.getImage().getScaledInstance(120, 120, Image.SCALE_SMOOTH);
-		btnCuartoA4.setIcon(new ImageIcon(imagen1));
-		panel.add(btnCuartoA4);
-
-		JButton btnCuartoA5 = new JButton("Cuarto A5"); // Botón Cuarto A5
-		btnCuartoA5.setFont(new Font("Jost*", Font.BOLD | Font.ITALIC, 14));
-		btnCuartoA5.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-			}
-		});
-		btnCuartoA5.setVerticalTextPosition(SwingConstants.BOTTOM);
-		btnCuartoA5.setVerticalAlignment(SwingConstants.CENTER);
-		btnCuartoA5.setIconTextGap(1);
-		btnCuartoA5.setHorizontalTextPosition(SwingConstants.CENTER);
-		btnCuartoA5.setHorizontalAlignment(SwingConstants.CENTER);
-		btnCuartoA5.setBorder(BorderFactory.createLineBorder(Color.BLACK, 0));
-		btnCuartoA5.setBackground(new Color(0, 187, 249));
-		btnCuartoA5.setBounds(931, 257, 150, 150);
-		ImageIcon icon00 = new ImageIcon(getClass().getResource("/images/cama_matrimonial2.png"));
-		Image imagen00 = icon1.getImage().getScaledInstance(120, 120, Image.SCALE_SMOOTH);
-		btnCuartoA5.setIcon(new ImageIcon(imagen1));
-		panel.add(btnCuartoA5);
-
-		JButton btnCuartoB3 = new JButton("Cuarto B3"); // Botón Cuarto B3
-		btnCuartoB3.setFont(new Font("Jost*", Font.BOLD | Font.ITALIC, 14));
-		btnCuartoB3.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-			}
-		});
-		btnCuartoB3.setVerticalTextPosition(SwingConstants.BOTTOM);
-		btnCuartoB3.setVerticalAlignment(SwingConstants.CENTER);
-		btnCuartoB3.setIconTextGap(1);
-		btnCuartoB3.setHorizontalTextPosition(SwingConstants.CENTER);
-		btnCuartoB3.setHorizontalAlignment(SwingConstants.CENTER);
-		btnCuartoB3.setBorder(BorderFactory.createLineBorder(Color.BLACK, 0));
-		btnCuartoB3.setBackground(new Color(0, 187, 249));
-		btnCuartoB3.setBounds(531, 455, 150, 150);
-		ImageIcon icon122 = new ImageIcon(getClass().getResource("/images/cama_matrimonial2.png"));
-		Image imagen12 = icon12.getImage().getScaledInstance(120, 120, Image.SCALE_SMOOTH);
-		btnCuartoB3.setIcon(new ImageIcon(imagen12));
-		panel.add(btnCuartoB3);
-
-		JButton btnCuartoB4 = new JButton("Cuarto B4"); // Botón Cuarto B4
-		btnCuartoB4.setFont(new Font("Jost*", Font.BOLD | Font.ITALIC, 14));
-		btnCuartoB4.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-			}
-		});
-		btnCuartoB4.setVerticalTextPosition(SwingConstants.BOTTOM);
-		btnCuartoB4.setVerticalAlignment(SwingConstants.CENTER);
-		btnCuartoB4.setIconTextGap(1);
-		btnCuartoB4.setHorizontalTextPosition(SwingConstants.CENTER);
-		btnCuartoB4.setHorizontalAlignment(SwingConstants.CENTER);
-		btnCuartoB4.setBorder(BorderFactory.createLineBorder(Color.BLACK, 0));
-		btnCuartoB4.setBackground(new Color(0, 187, 249));
-		btnCuartoB4.setBounds(731, 455, 150, 150);
-		ImageIcon icon11 = new ImageIcon(getClass().getResource("/images/cama_matrimonial2.png"));
-		Image imagen11 = icon1.getImage().getScaledInstance(120, 120, Image.SCALE_SMOOTH);
-		btnCuartoB4.setIcon(new ImageIcon(imagen1));
-		panel.add(btnCuartoB4);
-
-		JButton btnCuartoB5 = new JButton("Cuarto B5"); // Botón Cuarto B5
-		btnCuartoB5.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-			}
-		});
-		btnCuartoB5.setFont(new Font("Jost*", Font.BOLD | Font.ITALIC, 14));
-		btnCuartoB5.setVerticalTextPosition(SwingConstants.BOTTOM);
-		btnCuartoB5.setVerticalAlignment(SwingConstants.CENTER);
-		btnCuartoB5.setIconTextGap(1);
-		btnCuartoB5.setHorizontalTextPosition(SwingConstants.CENTER);
-		btnCuartoB5.setHorizontalAlignment(SwingConstants.CENTER);
-		btnCuartoB5.setBorder(BorderFactory.createLineBorder(Color.BLACK, 0));
-		btnCuartoB5.setBackground(new Color(0, 187, 249));
-		btnCuartoB5.setBounds(931, 455, 150, 150);
-		ImageIcon icon99 = new ImageIcon(getClass().getResource("/images/cama_matrimonial2.png"));
-		Image imagen99 = icon1.getImage().getScaledInstance(120, 120, Image.SCALE_SMOOTH);
-		btnCuartoB5.setIcon(new ImageIcon(imagen1));
-		panel.add(btnCuartoB5);
-
-		frame.add(panel);
+		        
+		            
+		    panel.add(btnHabitacion);
+		    contador++;
+		    if (contador % 4 == 0) {
+		        x = 131;
+		        y += 198;
+		    } else {
+		        x += 200;
+		    }
+		}
+		frame.getContentPane().add(panel);
 		frame.repaint();
 		frame.revalidate();
 		frame.setLocationRelativeTo(null);
 		frame.setVisible(true);
 	}
 
+	/**
+	 * @wbp.parser.entryPoint
+	 */
 	public void Clientes() {
 		try {
 			UIManager.setLookAndFeel(new FlatLightLaf());
@@ -764,19 +675,19 @@ public class HomeView {
 		frame.getContentPane().add(panel, BorderLayout.CENTER);
 		panel.setLayout(null);
 
-		JPanel panel_1 = new JPanel(); // Borde negro
+		JPanel panel_1 = new JPanel();
 		panel_1.setBackground(new Color(0, 0, 0));
 		panel_1.setBounds(0, 0, 1164, 95);
 		panel.add(panel_1);
 		panel_1.setLayout(null);
 
-		JPanel panel_2 = new JPanel(); // Borde gris
+		JPanel panel_2 = new JPanel();
 		panel_2.setBackground(new Color(55, 54, 48));
 		panel_2.setBounds(0, 95, 1164, 26);
 		panel.add(panel_2);
 		panel_2.setLayout(null);
 
-		JLabel logo = new JLabel(""); // Logo
+		JLabel logo = new JLabel("");
 		logo.setBounds(0, 0, 170, 95);
 		logo.setBounds(0, 0, 170, 95);
 		ImageIcon icon20065 = new ImageIcon(getClass().getResource("/images/logo.png"));
@@ -784,18 +695,18 @@ public class HomeView {
 		logo.setIcon(new ImageIcon(imagen20065));
 		panel_1.add(logo);
 
-		JLabel Titulo = new JLabel("Panel de clientes\r\n"); // Titulo
+		JLabel Titulo = new JLabel("Panel de clientes\r\n");
 		Titulo.setForeground(new Color(255, 255, 255));
 		Titulo.setFont(new Font("Jost* Medium", Font.PLAIN, 35));
 		Titulo.setBounds(180, 11, 410, 73);
 		panel_1.add(Titulo);
 
-		JLabel menuTitulo = new JLabel("Clientes:"); // Texto menú
+		JLabel menuTitulo = new JLabel("Clientes:");
 		menuTitulo.setFont(new Font("Jost*", Font.BOLD, 38));
 		menuTitulo.setBounds(131, 126, 245, 56);
 		panel.add(menuTitulo);
 
-		JButton botonVolver = new JButton(""); // Boton para volver atrás
+		JButton botonVolver = new JButton("");
 		botonVolver.setBounds(60, 132, 36, 36);
 		botonVolver.setForeground(new Color(255, 255, 255));
 		botonVolver.setBackground(new Color(255, 255, 255));
@@ -804,7 +715,7 @@ public class HomeView {
 		botonVolver.setContentAreaFilled(true);
 		botonVolver.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				frame.dispose(); // Cierra la ventana actual del menú
+				frame.dispose();
 				HomeController hc = new HomeController();
 				hc.Menu();
 			}
@@ -814,15 +725,14 @@ public class HomeView {
 		botonVolver.setIcon(new ImageIcon(imagen2006));
 		panel.add(botonVolver);
 
-		JButton btnTiposDeRentas = new JButton("<html>Tipos de habitaciones &#8594;</html>"); // Botón superior tipos de
-																								// habitaciones
+		JButton btnTiposDeRentas = new JButton("<html>Tipos de habitaciones &#8594;</html>");
 		btnTiposDeRentas.setFont(new Font("Jost* Medium", Font.PLAIN, 12));
 		btnTiposDeRentas.setForeground(new Color(255, 255, 255));
 		btnTiposDeRentas.setBackground(new Color(56, 54, 41));
 		btnTiposDeRentas.setBorder(BorderFactory.createLineBorder(Color.BLACK, 0));
 		btnTiposDeRentas.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				frame.dispose(); // Cierra la ventana actual del menú
+				frame.dispose();
 				HomeController hc = new HomeController();
 				hc.TiposHabitacion();
 			}
@@ -833,10 +743,10 @@ public class HomeView {
 		btnTiposDeRentas.setContentAreaFilled(true);
 		panel_2.add(btnTiposDeRentas);
 
-		JButton btnrentas = new JButton("<html>Rentas &#8594;</html>"); // Botón superior rentas
+		JButton btnrentas = new JButton("<html>Rentas &#8594;</html>");
 		btnrentas.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				frame.dispose(); // Cierra la ventana actual del menú
+				frame.dispose();
 				HomeController hc = new HomeController();
 				hc.Rentas();
 			}
@@ -851,14 +761,7 @@ public class HomeView {
 		btnrentas.setBounds(883, 0, 81, 23);
 		panel_2.add(btnrentas);
 
-		JButton btnclientes = new JButton("<html>Clientes &#8594;</html>"); // Botón superior clientes
-//		btnclientes.addActionListener(new ActionListener() {
-//			public void actionPerformed(ActionEvent e) {
-//				frame.dispose(); // Cierra la ventana actual del menú
-//				Clientes conexion = new Clientes();
-//				conexion.frame.setVisible(true); 
-//			}
-//		});
+		JButton btnclientes = new JButton("<html>Clientes &#8594;</html>");
 		btnclientes.setForeground(Color.WHITE);
 		btnclientes.setFont(new Font("Jost* Medium", Font.PLAIN, 12));
 		btnclientes.setFocusPainted(false);
@@ -869,10 +772,10 @@ public class HomeView {
 		btnclientes.setBounds(792, 0, 81, 23);
 		panel_2.add(btnclientes);
 
-		JButton btnhabitaciones = new JButton("<html>Habitaciones &#8594;</html>"); // Botón superior habitaciones
+		JButton btnhabitaciones = new JButton("<html>Habitaciones &#8594;</html>");
 		btnhabitaciones.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				frame.dispose(); // Cierra la ventana actual del menú
+				frame.dispose();
 				HomeController hc = new HomeController();
 				hc.PanelHabitaciones1();
 			}
@@ -887,10 +790,10 @@ public class HomeView {
 		btnhabitaciones.setBounds(682, 0, 100, 23);
 		panel_2.add(btnhabitaciones);
 
-		JButton btntarifas = new JButton("<html>Tarifas &#8594;</html>"); // Botón superior tarifas
+		JButton btntarifas = new JButton("<html>Tarifas &#8594;</html>");
 		btntarifas.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				frame.dispose(); // Cierra la ventana actual del menú
+				frame.dispose();
 				HomeController hc = new HomeController();
 				hc.Tarifas();
 			}
@@ -905,7 +808,7 @@ public class HomeView {
 		btntarifas.setBounds(600, 0, 72, 23);
 		panel_2.add(btntarifas);
 
-		JButton btnBuscar = new JButton(""); // Boton para la barra de busqueda
+		JButton btnBuscar = new JButton("");
 		btnBuscar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 			}
@@ -919,16 +822,15 @@ public class HomeView {
 		btnBuscar.setContentAreaFilled(true);
 		panel.add(btnBuscar);
 
-		JTextField textField = new JTextField("BUSCAR"); // Texto de ejemplo
+		JTextField textField = new JTextField("BUSCAR");
 		textField.setToolTipText("");
 		textField.setBounds(770, 140, 290, 40);
 		textField.setColumns(10);
 		textField.setBackground(new Color(217, 217, 217));
 		textField.setFont(new Font("Dialog", Font.BOLD | Font.ITALIC, 24));
 		textField.setForeground(Color.GRAY);
-		final String placeholder = "BUSCAR"; // Borra el texto de ejemplo al escribir en el campo
+		final String placeholder = "BUSCAR";
 		textField.addFocusListener(new FocusAdapter() {
-
 			public void focusGained(FocusEvent e) {
 				if (textField.getText().equals(placeholder)) {
 					textField.setText("");
@@ -945,207 +847,22 @@ public class HomeView {
 		});
 		panel.add(textField);
 
-		JButton btnEliminarCliente = new JButton("Eliminar Cliente"); // Botón prinicipal eliminar cliente
+		final boolean[] modoEliminar = {false};
+
+		JButton btnEliminarCliente = new JButton("Eliminar Cliente");
 		btnEliminarCliente.setBackground(new Color(239, 35, 60));
 		btnEliminarCliente.setFont(new Font("Inter", Font.BOLD | Font.ITALIC, 24));
 		btnEliminarCliente.setBorder(BorderFactory.createLineBorder(Color.BLACK, 0));
 		btnEliminarCliente.setForeground(Color.WHITE);
-		btnEliminarCliente.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				frame.dispose(); // Cierra la ventana actual del menú
-				UsersController hc = new UsersController();
-				hc.ClientesEliminar();
-			}
-		});
 		btnEliminarCliente.setBounds(131, 193, 245, 40);
 		panel.add(btnEliminarCliente);
 
-		JButton btnCuartoA1 = new JButton("usuario#123"); // Botón Cuarto A1
-		btnCuartoA1.setFont(new Font("Jost*", Font.BOLD | Font.ITALIC, 14));
-		btnCuartoA1.setBackground(new Color(0, 175, 185));
-		btnCuartoA1.addActionListener(new ActionListener() {
+		btnEliminarCliente.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				frame.dispose(); // Cierra la ventana actual del menú
-				UsersController hc = new UsersController();
-				hc.DatosUsuario();
+				modoEliminar[0] = true;
+				JOptionPane.showMessageDialog(null, " Modo eliminar activado. Selecciona un cliente.");
 			}
 		});
-		btnCuartoA1.setBounds(131, 257, 150, 150);
-		btnCuartoA1.setVerticalTextPosition(SwingConstants.BOTTOM); // Para poner texto debajo de la imagen dentro del
-																	// botón
-		btnCuartoA1.setHorizontalTextPosition(SwingConstants.CENTER);
-		btnCuartoA1.setHorizontalAlignment(SwingConstants.CENTER);
-		btnCuartoA1.setVerticalAlignment(SwingConstants.CENTER);
-		btnCuartoA1.setIconTextGap(1);
-		btnCuartoA1.setBorder(BorderFactory.createLineBorder(Color.BLACK, 0));
-		ImageIcon icon1 = new ImageIcon(getClass().getResource("/images/usuario.png"));
-		Image imagen1 = icon1.getImage().getScaledInstance(100, 100, Image.SCALE_SMOOTH);
-		btnCuartoA1.setIcon(new ImageIcon(imagen1));
-		panel.add(btnCuartoA1);
-
-		JButton btnCuartoB1 = new JButton("usuario#234"); // Botón Cuarto B1
-		btnCuartoB1.setFont(new Font("Jost*", Font.BOLD | Font.ITALIC, 14));
-		btnCuartoB1.setBorder(BorderFactory.createLineBorder(Color.BLACK, 0));
-		btnCuartoB1.setBackground(new Color(0, 175, 185));
-		btnCuartoB1.setBounds(131, 455, 150, 150);
-		btnCuartoB1.setVerticalTextPosition(SwingConstants.BOTTOM); // Para poner texto debajo de la imagen dentro del
-																	// botón
-		btnCuartoB1.setHorizontalTextPosition(SwingConstants.CENTER);
-		btnCuartoB1.setHorizontalAlignment(SwingConstants.CENTER);
-		btnCuartoB1.setVerticalAlignment(SwingConstants.CENTER);
-		btnCuartoB1.setIconTextGap(1);
-		ImageIcon icon2 = new ImageIcon(getClass().getResource("/images/usuario.png"));
-		Image imagen2 = icon1.getImage().getScaledInstance(120, 120, Image.SCALE_SMOOTH);
-		btnCuartoB1.setIcon(new ImageIcon(imagen1));
-		panel.add(btnCuartoB1);
-
-		JButton btnCuartoA2 = new JButton("usuario#345"); // Botón Cuarto A2
-		btnCuartoA2.setFont(new Font("Jost*", Font.BOLD | Font.ITALIC, 14));
-		btnCuartoA2.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-			}
-		});
-		btnCuartoA2.setVerticalTextPosition(SwingConstants.BOTTOM);
-		btnCuartoA2.setVerticalAlignment(SwingConstants.CENTER);
-		btnCuartoA2.setIconTextGap(1);
-		btnCuartoA2.setHorizontalTextPosition(SwingConstants.CENTER);
-		btnCuartoA2.setHorizontalAlignment(SwingConstants.CENTER);
-		btnCuartoA2.setBorder(BorderFactory.createLineBorder(Color.BLACK, 0));
-		btnCuartoA2.setBackground(new Color(0, 175, 185));
-		btnCuartoA2.setBounds(331, 257, 150, 150);
-		ImageIcon icon3 = new ImageIcon(getClass().getResource("/images/usuario.png"));
-		Image imagen3 = icon1.getImage().getScaledInstance(100, 100, Image.SCALE_SMOOTH);
-		btnCuartoA2.setIcon(new ImageIcon(imagen3));
-		panel.add(btnCuartoA2);
-
-		JButton btnCuartoB2 = new JButton("usuario#456"); // Botón Cuarto B2
-		btnCuartoB2.setFont(new Font("Jost*", Font.BOLD | Font.ITALIC, 14));
-		btnCuartoB2.setVerticalTextPosition(SwingConstants.BOTTOM);
-		btnCuartoB2.setVerticalAlignment(SwingConstants.CENTER);
-		btnCuartoB2.setIconTextGap(1);
-		btnCuartoB2.setHorizontalTextPosition(SwingConstants.CENTER);
-		btnCuartoB2.setHorizontalAlignment(SwingConstants.CENTER);
-		btnCuartoB2.setBorder(BorderFactory.createLineBorder(Color.BLACK, 0));
-		btnCuartoB2.setBackground(new Color(0, 175, 185));
-		btnCuartoB2.setBounds(331, 455, 150, 150);
-		ImageIcon icon4 = new ImageIcon(getClass().getResource("/images/usuario.png"));
-		Image imagen4 = icon1.getImage().getScaledInstance(100, 100, Image.SCALE_SMOOTH);
-		btnCuartoB2.setIcon(new ImageIcon(imagen4));
-		panel.add(btnCuartoB2);
-
-		JButton btnCuartoA3 = new JButton("usuarioo#236"); // Botón Cuarto A3
-		btnCuartoA3.setFont(new Font("Jost*", Font.BOLD | Font.ITALIC, 14));
-		btnCuartoA3.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-			}
-		});
-		btnCuartoA3.setVerticalTextPosition(SwingConstants.BOTTOM);
-		btnCuartoA3.setVerticalAlignment(SwingConstants.CENTER);
-		btnCuartoA3.setIconTextGap(1);
-		btnCuartoA3.setHorizontalTextPosition(SwingConstants.CENTER);
-		btnCuartoA3.setHorizontalAlignment(SwingConstants.CENTER);
-		btnCuartoA3.setBorder(BorderFactory.createLineBorder(Color.BLACK, 0));
-		btnCuartoA3.setBackground(new Color(0, 175, 185));
-		btnCuartoA3.setBounds(531, 257, 150, 150);
-		ImageIcon icon5 = new ImageIcon(getClass().getResource("/images/usuario.png"));
-		Image imagen5 = icon1.getImage().getScaledInstance(120, 120, Image.SCALE_SMOOTH);
-		btnCuartoA3.setIcon(new ImageIcon(imagen3));
-		panel.add(btnCuartoA3);
-
-		JButton btnCuartoA4 = new JButton("usuario#789"); // Botón Cuarto A4
-		btnCuartoA4.setFont(new Font("Jost*", Font.BOLD | Font.ITALIC, 14));
-		btnCuartoA4.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-			}
-		});
-		btnCuartoA4.setVerticalTextPosition(SwingConstants.BOTTOM);
-		btnCuartoA4.setVerticalAlignment(SwingConstants.CENTER);
-		btnCuartoA4.setIconTextGap(1);
-		btnCuartoA4.setHorizontalTextPosition(SwingConstants.CENTER);
-		btnCuartoA4.setHorizontalAlignment(SwingConstants.CENTER);
-		btnCuartoA4.setBorder(BorderFactory.createLineBorder(Color.BLACK, 0));
-		btnCuartoA4.setBackground(new Color(0, 175, 185));
-		btnCuartoA4.setBounds(731, 257, 150, 150);
-		ImageIcon icon6 = new ImageIcon(getClass().getResource("/images/usuario.png"));
-		Image imagen6 = icon1.getImage().getScaledInstance(100, 100, Image.SCALE_SMOOTH);
-		btnCuartoA4.setIcon(new ImageIcon(imagen6));
-		panel.add(btnCuartoA4);
-
-		JButton btnCuartoA5 = new JButton("usuario#128"); // Botón Cuarto A5
-		btnCuartoA5.setFont(new Font("Jost*", Font.BOLD | Font.ITALIC, 14));
-		btnCuartoA5.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-			}
-		});
-		btnCuartoA5.setVerticalTextPosition(SwingConstants.BOTTOM);
-		btnCuartoA5.setVerticalAlignment(SwingConstants.CENTER);
-		btnCuartoA5.setIconTextGap(1);
-		btnCuartoA5.setHorizontalTextPosition(SwingConstants.CENTER);
-		btnCuartoA5.setHorizontalAlignment(SwingConstants.CENTER);
-		btnCuartoA5.setBorder(BorderFactory.createLineBorder(Color.BLACK, 0));
-		btnCuartoA5.setBackground(new Color(0, 175, 185));
-		btnCuartoA5.setBounds(931, 257, 150, 150);
-		ImageIcon icon7 = new ImageIcon(getClass().getResource("/images/usuario.png"));
-		Image imagen7 = icon1.getImage().getScaledInstance(100, 100, Image.SCALE_SMOOTH);
-		btnCuartoA5.setIcon(new ImageIcon(imagen7));
-		panel.add(btnCuartoA5);
-
-		JButton btnCuartoB3 = new JButton("usuario#509"); // Botón Cuarto B3
-		btnCuartoB3.setFont(new Font("Jost*", Font.BOLD | Font.ITALIC, 14));
-		btnCuartoB3.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-			}
-		});
-		btnCuartoB3.setVerticalTextPosition(SwingConstants.BOTTOM);
-		btnCuartoB3.setVerticalAlignment(SwingConstants.CENTER);
-		btnCuartoB3.setIconTextGap(1);
-		btnCuartoB3.setHorizontalTextPosition(SwingConstants.CENTER);
-		btnCuartoB3.setHorizontalAlignment(SwingConstants.CENTER);
-		btnCuartoB3.setBorder(BorderFactory.createLineBorder(Color.BLACK, 0));
-		btnCuartoB3.setBackground(new Color(0, 175, 185));
-		btnCuartoB3.setBounds(531, 455, 150, 150);
-		ImageIcon icon8 = new ImageIcon(getClass().getResource("/images/usuario.png"));
-		Image imagen8 = icon1.getImage().getScaledInstance(100, 100, Image.SCALE_SMOOTH);
-		btnCuartoB3.setIcon(new ImageIcon(imagen8));
-		panel.add(btnCuartoB3);
-
-		JButton btnCuartoB4 = new JButton("usuario#899"); // Botón Cuarto B4
-		btnCuartoB4.setFont(new Font("Jost*", Font.BOLD | Font.ITALIC, 14));
-		btnCuartoB4.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-			}
-		});
-		btnCuartoB4.setVerticalTextPosition(SwingConstants.BOTTOM);
-		btnCuartoB4.setVerticalAlignment(SwingConstants.CENTER);
-		btnCuartoB4.setIconTextGap(1);
-		btnCuartoB4.setHorizontalTextPosition(SwingConstants.CENTER);
-		btnCuartoB4.setHorizontalAlignment(SwingConstants.CENTER);
-		btnCuartoB4.setBorder(BorderFactory.createLineBorder(Color.BLACK, 0));
-		btnCuartoB4.setBackground(new Color(0, 175, 185));
-		btnCuartoB4.setBounds(731, 455, 150, 150);
-		ImageIcon icon10 = new ImageIcon(getClass().getResource("/images/usuario.png"));
-		Image imagen10 = icon1.getImage().getScaledInstance(100, 100, Image.SCALE_SMOOTH);
-		btnCuartoB4.setIcon(new ImageIcon(imagen10));
-		panel.add(btnCuartoB4);
-
-		JButton btnCuartoB5 = new JButton("usuario#009"); // Botón Cuarto B5
-		btnCuartoB5.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-			}
-		});
-		btnCuartoB5.setFont(new Font("Jost*", Font.BOLD | Font.ITALIC, 14));
-		btnCuartoB5.setVerticalTextPosition(SwingConstants.BOTTOM);
-		btnCuartoB5.setVerticalAlignment(SwingConstants.CENTER);
-		btnCuartoB5.setIconTextGap(1);
-		btnCuartoB5.setHorizontalTextPosition(SwingConstants.CENTER);
-		btnCuartoB5.setHorizontalAlignment(SwingConstants.CENTER);
-		btnCuartoB5.setBorder(BorderFactory.createLineBorder(Color.BLACK, 0));
-		btnCuartoB5.setBackground(new Color(0, 175, 185));
-		btnCuartoB5.setBounds(931, 455, 150, 150);
-		ImageIcon icon11 = new ImageIcon(getClass().getResource("/images/usuario.png"));
-		Image imagen11 = icon1.getImage().getScaledInstance(100, 100, Image.SCALE_SMOOTH);
-		btnCuartoB5.setIcon(new ImageIcon(imagen10));
-		panel.add(btnCuartoB5);
 
 		JButton btnCrearClienteNuevo = new JButton("Crear cliente nuevo");
 		btnCrearClienteNuevo.setForeground(Color.DARK_GRAY);
@@ -1155,14 +872,78 @@ public class HomeView {
 		btnCrearClienteNuevo.setBounds(388, 193, 245, 40);
 		btnCrearClienteNuevo.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				frame.dispose(); // Cierra la ventana actual del menú
+				frame.dispose();
 				UsersController hc = new UsersController();
 				hc.CrearNuevoCliente();
 			}
 		});
 		panel.add(btnCrearClienteNuevo);
 
-		frame.add(panel);
+		int x = 131;
+		int y = 257;
+		int contador = 0;
+
+		ConectionModel conn = new ConectionModel();
+		List<Cliente> listaClientes = new UsersModel().obtenerClientes(conn.getConnection());
+
+		for (Cliente cliente : listaClientes) {
+			JButton btnCliente = new JButton(cliente.getIdClientes() + " - " + cliente.getNombreCliente());
+			btnCliente.setFont(new Font("Jost*", Font.BOLD | Font.ITALIC, 14));
+			btnCliente.setBackground(new Color(0, 175, 185));
+			btnCliente.setBounds(x, y, 150, 150);
+			btnCliente.setVerticalTextPosition(SwingConstants.BOTTOM);
+			btnCliente.setHorizontalTextPosition(SwingConstants.CENTER);
+			btnCliente.setHorizontalAlignment(SwingConstants.CENTER);
+			btnCliente.setVerticalAlignment(SwingConstants.CENTER);
+			btnCliente.setIconTextGap(1);
+			btnCliente.setBorder(BorderFactory.createLineBorder(Color.BLACK, 0));
+
+			ImageIcon icon = new ImageIcon(getClass().getResource("/images/usuario.png"));
+			Image imagen = icon.getImage().getScaledInstance(100, 100, Image.SCALE_SMOOTH);
+			btnCliente.setIcon(new ImageIcon(imagen));
+
+			btnCliente.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+					if (modoEliminar[0]) {
+						int confirm = JOptionPane.showConfirmDialog(null,
+								"¿Estás seguro de que deseas eliminar a " + cliente.getNombreCliente() + "?",
+								"Confirmar eliminación", JOptionPane.YES_NO_OPTION);
+
+						if (confirm == JOptionPane.YES_OPTION) {
+							ConectionModel conn = new ConectionModel();
+							boolean eliminado = new UsersModel().eliminarCliente(conn.getConnection(), cliente.getIdClientes());
+
+							if (eliminado) {
+								JOptionPane.showMessageDialog(null, "✅ Cliente eliminado correctamente.");
+								modoEliminar[0] = false;
+								frame.dispose();
+								new UsersController().Clientes();
+							} else {
+								JOptionPane.showMessageDialog(null, "❌ Error al eliminar el cliente.");
+							}
+						} else {
+							modoEliminar[0] = false;
+						}
+					} else {
+						frame.dispose();
+						UsersView uv = new UsersView();
+						uv.DatosUsuario(cliente);
+					}
+				}
+			});
+
+			panel.add(btnCliente);
+
+			contador++;
+			if (contador % 4 == 0) {
+				x = 131;
+				y += 198;
+			} else {
+				x += 200;
+			}
+		}
+
+		frame.getContentPane().add(panel);
 		frame.repaint();
 		frame.revalidate();
 		frame.setLocationRelativeTo(null);
@@ -1589,7 +1370,7 @@ public class HomeView {
 		btnCuartoB5.setIcon(new ImageIcon(imagen3));
 		panel.add(btnCuartoB5);
 
-		frame.add(panel);
+		frame.getContentPane().add(panel);
 		frame.repaint();
 		frame.revalidate();
 		frame.setLocationRelativeTo(null);
@@ -1933,7 +1714,7 @@ public class HomeView {
 		btnNewButton_1_1_1_1_1_1_1.setBounds(399, 127, 154, 55);
 		panel.add(btnNewButton_1_1_1_1_1_1_1);
 
-		frame.add(panel);
+		frame.getContentPane().add(panel);
 		frame.repaint();
 		frame.revalidate();
 		frame.setLocationRelativeTo(null);
@@ -1941,357 +1722,312 @@ public class HomeView {
 	}
 
 	public void Tarifas() {
-		try {
-			UIManager.setLookAndFeel(new FlatLightLaf());
-			UIManager.put("Button.arc", 0);
-		} catch (Exception ex) {
-			ex.printStackTrace();
+	    try {
+	        UIManager.setLookAndFeel(new FlatLightLaf());
+	        UIManager.put("Button.arc", 0);
+	    } catch (Exception ex) {
+	        ex.printStackTrace();
+	    }
 
-//        tarifaDAO = new TarifaDAO();
-//		initialize();
-//		cargarDatosTabla(""); 
-			JFrame frame = new JFrame();
-			frame.setResizable(false);
-			frame.setBounds(100, 100, 1180, 700);
-			frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+	    JFrame frame = new JFrame();
+	    frame.setResizable(false);
+	    frame.setBounds(100, 100, 1180, 700);
+	    frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-			JPanel panel = new JPanel();
-			panel.setBackground(new Color(255, 255, 255));
-			frame.getContentPane().add(panel, BorderLayout.CENTER);
-			panel.setLayout(null);
+	    JPanel panel = new JPanel();
+	    panel.setBackground(new Color(255, 255, 255));
+	    frame.getContentPane().add(panel, BorderLayout.CENTER);
+	    panel.setLayout(null);
 
-			JPanel panel_1 = new JPanel();
-			panel_1.setBackground(new Color(0, 0, 0));
-			panel_1.setBounds(0, 0, 1164, 95);
-			panel.add(panel_1);
-			panel_1.setLayout(null);
+	    JPanel panel_1 = new JPanel();
+	    panel_1.setBackground(new Color(0, 0, 0));
+	    panel_1.setBounds(0, 0, 1164, 95);
+	    panel.add(panel_1);
+	    panel_1.setLayout(null);
 
-			JPanel panel_2 = new JPanel();
-			panel_2.setBackground(new Color(55, 54, 48));
-			panel_2.setBounds(0, 95, 1164, 26);
-			panel.add(panel_2);
-			panel_2.setLayout(null);
+	    JPanel panel_2 = new JPanel();
+	    panel_2.setBackground(new Color(55, 54, 48));
+	    panel_2.setBounds(0, 95, 1164, 26);
+	    panel.add(panel_2);
+	    panel_2.setLayout(null);
 
-			JLabel logo = new JLabel("");
-			logo.setBounds(0, 0, 170, 95);
-			ImageIcon icon12 = new ImageIcon(getClass().getResource("/images/logo.png"));
-			Image imagen12 = icon12.getImage().getScaledInstance(170, 95, Image.SCALE_SMOOTH);
-			logo.setIcon(new ImageIcon(imagen12));
-			panel_1.add(logo);
+	    JLabel logo = new JLabel("");
+	    logo.setBounds(0, 0, 170, 95);
+	    ImageIcon icon12 = new ImageIcon(getClass().getResource("/images/logo.png"));
+	    Image imagen12 = icon12.getImage().getScaledInstance(170, 95, Image.SCALE_SMOOTH);
+	    logo.setIcon(new ImageIcon(imagen12));
+	    panel_1.add(logo);
 
-			JLabel Titulo = new JLabel("Tarifas");
-			Titulo.setForeground(new Color(255, 255, 255));
-			Titulo.setFont(new Font("Jost* Medium", Font.PLAIN, 35));
-			Titulo.setBounds(180, 11, 410, 73);
-			panel_1.add(Titulo);
+	    JLabel Titulo = new JLabel("Tarifas");
+	    Titulo.setForeground(new Color(255, 255, 255));
+	    Titulo.setFont(new Font("Jost* Medium", Font.PLAIN, 35));
+	    Titulo.setBounds(180, 11, 410, 73);
+	    panel_1.add(Titulo);
 
-			JLabel menuTitulo = new JLabel("Tipos de tarifas:");
-			menuTitulo.setFont(new Font("Jost*", Font.BOLD, 38));
-			menuTitulo.setBounds(131, 126, 400, 56);
-			panel.add(menuTitulo);
+	    JLabel menuTitulo = new JLabel("Tipos de tarifas:");
+	    menuTitulo.setFont(new Font("Jost*", Font.BOLD, 38));
+	    menuTitulo.setBounds(131, 126, 400, 56);
+	    panel.add(menuTitulo);
 
-			JButton botonVolver = new JButton("");
-			botonVolver.setForeground(new Color(255, 255, 255));
-			botonVolver.setBackground(new Color(255, 255, 255));
-			botonVolver.setBorderPainted(false);
-			botonVolver.setFocusPainted(false);
-			botonVolver.setContentAreaFilled(true);
-		botonVolver.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				frame.dispose(); // Cierra la ventana actual del menú
-				HomeController hc = new HomeController();
-				hc.Menu();
-			}
-		});
-			botonVolver.setBounds(60, 132, 36, 36);
-			ImageIcon icon69 = new ImageIcon(getClass().getResource("/images/flecha_izquierda.png"));
-			Image imagen69 = icon69.getImage().getScaledInstance(36, 36, Image.SCALE_SMOOTH);
-			botonVolver.setIcon(new ImageIcon(imagen69));
-			panel.add(botonVolver);
+	    JButton botonVolver = new JButton("");
+	    botonVolver.setForeground(new Color(255, 255, 255));
+	    botonVolver.setBackground(new Color(255, 255, 255));
+	    botonVolver.setBorderPainted(false);
+	    botonVolver.setFocusPainted(false);
+	    botonVolver.setContentAreaFilled(true);
+	    botonVolver.addActionListener(e -> {
+	        frame.dispose();
+	        HomeController hc = new HomeController();
+	        hc.Menu();
+	    });
+	    botonVolver.setBounds(60, 132, 36, 36);
+	    ImageIcon icon69 = new ImageIcon(getClass().getResource("/images/flecha_izquierda.png"));
+	    Image imagen69 = icon69.getImage().getScaledInstance(36, 36, Image.SCALE_SMOOTH);
+	    botonVolver.setIcon(new ImageIcon(imagen69));
+	    panel.add(botonVolver);
 
-			JButton btnTiposDeHabitaciones = new JButton("<html>Tipos de habitaciones &#8594;</html>");
-			btnTiposDeHabitaciones.setFont(new Font("Jost* Medium", Font.PLAIN, 12));
-			btnTiposDeHabitaciones.setForeground(new Color(255, 255, 255));
-			btnTiposDeHabitaciones.setBackground(new Color(56, 54, 41));
-			btnTiposDeHabitaciones.setBorder(BorderFactory.createLineBorder(Color.BLACK, 0));
-		btnTiposDeHabitaciones.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				frame.dispose(); // Cierra la ventana actual del menú
-				HomeController hc = new HomeController();
-				hc.TiposHabitacion();
-			}
-		});
-			btnTiposDeHabitaciones.setBounds(974, 0, 180, 23);
-			btnTiposDeHabitaciones.setBorderPainted(false);
-			btnTiposDeHabitaciones.setFocusPainted(false);
-			btnTiposDeHabitaciones.setContentAreaFilled(true);
-			panel_2.add(btnTiposDeHabitaciones);
-
-			JButton btnrentas = new JButton("<html>Rentas &#8594;</html>");
-		btnrentas.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				frame.dispose(); // Cierra la ventana actual del menú
-				HomeController hc = new HomeController();
-				hc.Rentas();
-			}
-		});
-			btnrentas.setForeground(Color.WHITE);
-			btnrentas.setFont(new Font("Jost* Medium", Font.PLAIN, 12));
-			btnrentas.setFocusPainted(false);
-			btnrentas.setContentAreaFilled(true);
-			btnrentas.setBorderPainted(false);
-			btnrentas.setBorder(BorderFactory.createLineBorder(Color.BLACK, 0));
-			btnrentas.setBackground(new Color(56, 54, 41));
-			btnrentas.setBounds(883, 0, 81, 23);
-			panel_2.add(btnrentas);
-
-			JButton btnclientes = new JButton("<html>Clientes &#8594;</html>");
-			btnclientes.setForeground(Color.WHITE);
-			btnclientes.setFont(new Font("Jost* Medium", Font.PLAIN, 12));
-			btnclientes.setFocusPainted(false);
-			btnclientes.setContentAreaFilled(true);
-			btnclientes.setBorderPainted(false);
-			btnclientes.setBorder(BorderFactory.createLineBorder(Color.BLACK, 0));
-			btnclientes.setBackground(new Color(56, 54, 41));
-			btnclientes.setBounds(792, 0, 81, 23);;
-			btnclientes.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				frame.dispose(); // Cierra la ventana actual del menú
-				HomeController hc = new HomeController();
-				hc.Clientes();
-			}
-		});
-			panel_2.add(btnclientes);
-
-			JButton btnhabitaciones = new JButton("<html>Habitaciones &#8594;</html>");
-			btnhabitaciones.setForeground(Color.WHITE);
-			btnhabitaciones.setFont(new Font("Jost* Medium", Font.PLAIN, 12));
-			btnhabitaciones.setFocusPainted(false);
-			btnhabitaciones.setContentAreaFilled(true);
-			btnhabitaciones.setBorderPainted(false);
-			btnhabitaciones.setBorder(BorderFactory.createLineBorder(Color.BLACK, 0));
-			btnhabitaciones.setBackground(new Color(56, 54, 41));
-			btnhabitaciones.setBounds(682, 0, 100, 23);
-		btnhabitaciones.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				frame.dispose(); // Cierra la ventana actual del menú
-				HomeController hc = new HomeController();
-				hc.PanelHabitaciones1();
-			}
-		});
-			panel_2.add(btnhabitaciones);
-
-			JButton btntarifas = new JButton("<html>Tarifas &#8594;</html>");
-			btntarifas.addActionListener(new ActionListener() {
-				public void actionPerformed(ActionEvent e) {
-
-				}
-			});
-			btntarifas.setForeground(Color.WHITE);
-			btntarifas.setFont(new Font("Jost* Medium", Font.PLAIN, 12));
-			btntarifas.setFocusPainted(false);
-			btntarifas.setContentAreaFilled(true);
-			btntarifas.setBorderPainted(false);
-			btntarifas.setBorder(BorderFactory.createLineBorder(Color.BLACK, 0));
-			btntarifas.setBackground(new Color(56, 54, 41));
-			btntarifas.setBounds(600, 0, 72, 23);
-			panel_2.add(btntarifas);
-
-			JButton btnBuscar = new JButton("");
-			JTextField textFieldBuscar;
-//		btnBuscar.addActionListener(new ActionListener() {
-//			public void actionPerformed(ActionEvent e) {
-//				String filtro = textFieldBuscar.getText().trim();
-//				if (filtro.equals("BUSCAR")) {
-//					cargarDatosTabla("");
-//				} else {
-//					cargarDatosTabla(filtro);
-//				}
-//			}
-//		});
-			btnBuscar.setBounds(720, 140, 40, 40);
-
-			try {
-				ImageIcon searchIcon = new ImageIcon(getClass().getResource("/images/busqueda.png"));
-				if (searchIcon.getImage() != null) {
-					Image imagen9 = searchIcon.getImage().getScaledInstance(40, 40, Image.SCALE_SMOOTH);
-					btnBuscar.setIcon(new ImageIcon(imagen9));
-				}
-			} catch (Exception e) {
-				System.err.println("Error al cargar el icono de búsqueda: " + e.getMessage());
-
-			}
-			btnBuscar.setBorderPainted(false);
-			btnBuscar.setFocusPainted(false);
-			btnBuscar.setContentAreaFilled(true);
-			panel.add(btnBuscar);
-
-			textFieldBuscar = new JTextField("BUSCAR");
-			textFieldBuscar.setToolTipText("");
-			textFieldBuscar.setBounds(770, 140, 290, 40);
-			textFieldBuscar.setColumns(10);
-			textFieldBuscar.setBackground(new Color(217, 217, 217));
-			textFieldBuscar.setFont(new Font("Dialog", Font.BOLD | Font.ITALIC, 24));
-			textFieldBuscar.setForeground(Color.GRAY);
-			final String placeholder = "BUSCAR";
-			textFieldBuscar.addFocusListener(new FocusAdapter() {
-				public void focusGained(FocusEvent e) {
-					if (textFieldBuscar.getText().equals(placeholder)) {
-						textFieldBuscar.setText("");
-						textFieldBuscar.setForeground(Color.BLACK);
-					}
-				}
-
-				public void focusLost(FocusEvent e) {
-					if (textFieldBuscar.getText().isEmpty()) {
-						textFieldBuscar.setText(placeholder);
-						textFieldBuscar.setForeground(Color.GRAY);
-					}
-				}
-			});
-			panel.add(textFieldBuscar);
-
-			JButton btnEliminarTarifa = new JButton("Eliminar");
-			btnEliminarTarifa.setBackground(new Color(239, 35, 60));
-			btnEliminarTarifa.setFont(new Font("Inter", Font.BOLD | Font.ITALIC, 24));
-			btnEliminarTarifa.setBorder(BorderFactory.createLineBorder(Color.BLACK, 0));
-			btnEliminarTarifa.setForeground(Color.WHITE);
-			DefaultTableModel tableModel;
-			JTable tableTarifas;
-//		btnEliminarTarifa.addActionListener(new ActionListener() {
-//			public void actionPerformed(ActionEvent e) {
-//				int selectedRow = tableTarifas.getSelectedRow();
-//				if (selectedRow >= 0) {
-//					int idTarifa = (int) tableModel.getValueAt(selectedRow, 0);
-//					int confirm = JOptionPane.showConfirmDialog(frame, "¿Seguro de eliminar esta tarifa?",
-//							"Confirmar Eliminación", JOptionPane.YES_NO_OPTION);
-//					if (confirm == JOptionPane.YES_OPTION) {
-//						if (tarifaDAO.deleteTarifa(idTarifa)) {
-//							JOptionPane.showMessageDialog(frame, "Tarifa eliminada exitosamente.", "Éxito",
-//									JOptionPane.INFORMATION_MESSAGE);
-//							cargarDatosTabla("");
-//						} else {
-//							JOptionPane.showMessageDialog(frame, "Error al eliminar la tarifa.", "Error",
-//									JOptionPane.ERROR_MESSAGE);
-//						}
-//					}
-//				} else {
-//					JOptionPane.showMessageDialog(frame, "Selecciona una tarifa para eliminar.", "Advertencia",
-//							JOptionPane.WARNING_MESSAGE);
-//				}
-//			}
-//		});
-			btnEliminarTarifa.setBounds(131, 193, 150, 40);
-			panel.add(btnEliminarTarifa);
-
-			JButton btnEditarTarifa = new JButton("Editar");
-			btnEditarTarifa.setBackground(new Color(50, 186, 125));
-			btnEditarTarifa.setFont(new Font("Inter", Font.BOLD | Font.ITALIC, 24));
-			btnEditarTarifa.setBorder(BorderFactory.createLineBorder(Color.BLACK, 0));
-			btnEditarTarifa.setForeground(Color.WHITE);
-//		btnEditarTarifa.addActionListener(new ActionListener() {
-//			public void actionPerformed(ActionEvent e) {
-//				int selectedRow = tableTarifas.getSelectedRow();
-//				if (selectedRow >= 0) {
-//					int idTarifa = (int) tableModel.getValueAt(selectedRow, 0);
-//					frame.dispose();
-//					EditarTarifaFormulario editarTarifaWindow = new EditarTarifaFormulario(idTarifa);
-//					editarTarifaWindow.frame.setVisible(true);
-//				} else {
-//					JOptionPane.showMessageDialog(frame, "Selecciona una tarifa para editar.", "Advertencia",
-//							JOptionPane.WARNING_MESSAGE);
-//				}
-//			}
-//		});
-			btnEditarTarifa.setBounds(291, 193, 150, 40);
-			panel.add(btnEditarTarifa);
-
-			JButton btnCrearTarifaNueva = new JButton("Crear");
-			btnCrearTarifaNueva.setForeground(Color.DARK_GRAY);
-			btnCrearTarifaNueva.setFont(new Font("Dialog", Font.BOLD | Font.ITALIC, 24));
-			btnCrearTarifaNueva.setBorder(BorderFactory.createLineBorder(Color.BLACK, 0));
-			btnCrearTarifaNueva.setBackground(Color.YELLOW);
-			btnCrearTarifaNueva.setBounds(451, 193, 150, 40);
-		btnCrearTarifaNueva.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				frame.dispose();
-				UsersController hc = new UsersController();
-				hc.CrearTarifa();
-			}
-		});
-			panel.add(btnCrearTarifaNueva);
-
-			String[] columnNames = { "ID Tarifa", "Tipo de Tarifa", "Precio", "Condiciones", "Descripcion" };
-			tableModel = new DefaultTableModel(columnNames, 0) {
-				@Override
-				public boolean isCellEditable(int row, int column) {
-					return false;
-				}
-			};
-			tableTarifas = new JTable(tableModel);
-			tableTarifas.setFont(new Font("Dialog", Font.PLAIN, 14));
-			tableTarifas.setRowHeight(25);
-			tableTarifas.getTableHeader().setFont(new Font("Dialog", Font.BOLD, 16));
-			tableTarifas.getTableHeader().setBackground(new Color(55, 54, 48));
-			tableTarifas.getTableHeader().setForeground(Color.WHITE);
-
-			JScrollPane scrollPane = new JScrollPane(tableTarifas);
-			scrollPane.setBounds(131, 250, 950, 350);
-			panel.add(scrollPane);
-
-			TableColumnModel tcm = tableTarifas.getColumnModel();
-			tcm.removeColumn(tcm.getColumn(0));
-
-			frame.add(panel);
-			frame.repaint();
-			frame.revalidate();
-			frame.setLocationRelativeTo(null);
-			frame.setVisible(true);
-
-			// cargarDatosTabla("");
+	    JButton btnTiposDeHabitaciones = new JButton("<html>Tipos de habitaciones &#8594;</html>");
+		btnTiposDeHabitaciones.setFont(new Font("Jost* Medium", Font.PLAIN, 12));
+		btnTiposDeHabitaciones.setForeground(new Color(255, 255, 255));
+		btnTiposDeHabitaciones.setBackground(new Color(56, 54, 41));
+		btnTiposDeHabitaciones.setBorder(BorderFactory.createLineBorder(Color.BLACK, 0));
+	btnTiposDeHabitaciones.addActionListener(new ActionListener() {
+		public void actionPerformed(ActionEvent e) {
+			frame.dispose(); // Cierra la ventana actual del menú
+			HomeController hc = new HomeController();
+			hc.TiposHabitacion();
 		}
+	});
+		btnTiposDeHabitaciones.setBounds(974, 0, 180, 23);
+		btnTiposDeHabitaciones.setBorderPainted(false);
+		btnTiposDeHabitaciones.setFocusPainted(false);
+		btnTiposDeHabitaciones.setContentAreaFilled(true);
+		panel_2.add(btnTiposDeHabitaciones);
+
+		JButton btnrentas = new JButton("<html>Rentas &#8594;</html>");
+	btnrentas.addActionListener(new ActionListener() {
+		public void actionPerformed(ActionEvent e) {
+			frame.dispose(); // Cierra la ventana actual del menú
+			HomeController hc = new HomeController();
+			hc.Rentas();
+		}
+	});
+		btnrentas.setForeground(Color.WHITE);
+		btnrentas.setFont(new Font("Jost* Medium", Font.PLAIN, 12));
+		btnrentas.setFocusPainted(false);
+		btnrentas.setContentAreaFilled(true);
+		btnrentas.setBorderPainted(false);
+		btnrentas.setBorder(BorderFactory.createLineBorder(Color.BLACK, 0));
+		btnrentas.setBackground(new Color(56, 54, 41));
+		btnrentas.setBounds(883, 0, 81, 23);
+		panel_2.add(btnrentas);
+
+		JButton btnclientes = new JButton("<html>Clientes &#8594;</html>");
+		btnclientes.setForeground(Color.WHITE);
+		btnclientes.setFont(new Font("Jost* Medium", Font.PLAIN, 12));
+		btnclientes.setFocusPainted(false);
+		btnclientes.setContentAreaFilled(true);
+		btnclientes.setBorderPainted(false);
+		btnclientes.setBorder(BorderFactory.createLineBorder(Color.BLACK, 0));
+		btnclientes.setBackground(new Color(56, 54, 41));
+		btnclientes.setBounds(792, 0, 81, 23);;
+		btnclientes.addActionListener(new ActionListener() {
+		public void actionPerformed(ActionEvent e) {
+			frame.dispose(); // Cierra la ventana actual del menú
+			HomeController hc = new HomeController();
+			hc.Clientes();
+		}
+	});
+		panel_2.add(btnclientes);
+
+		JButton btnhabitaciones = new JButton("<html>Habitaciones &#8594;</html>");
+		btnhabitaciones.setForeground(Color.WHITE);
+		btnhabitaciones.setFont(new Font("Jost* Medium", Font.PLAIN, 12));
+		btnhabitaciones.setFocusPainted(false);
+		btnhabitaciones.setContentAreaFilled(true);
+		btnhabitaciones.setBorderPainted(false);
+		btnhabitaciones.setBorder(BorderFactory.createLineBorder(Color.BLACK, 0));
+		btnhabitaciones.setBackground(new Color(56, 54, 41));
+		btnhabitaciones.setBounds(682, 0, 100, 23);
+	btnhabitaciones.addActionListener(new ActionListener() {
+		public void actionPerformed(ActionEvent e) {
+			frame.dispose(); // Cierra la ventana actual del menú
+			HomeController hc = new HomeController();
+			hc.PanelHabitaciones1();
+		}
+	});
+		panel_2.add(btnhabitaciones);
+
+		JButton btntarifas = new JButton("<html>Tarifas &#8594;</html>");
+		btntarifas.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+
+			}
+		});
+		btntarifas.setForeground(Color.WHITE);
+		btntarifas.setFont(new Font("Jost* Medium", Font.PLAIN, 12));
+		btntarifas.setFocusPainted(false);
+		btntarifas.setContentAreaFilled(true);
+		btntarifas.setBorderPainted(false);
+		btntarifas.setBorder(BorderFactory.createLineBorder(Color.BLACK, 0));
+		btntarifas.setBackground(new Color(56, 54, 41));
+		btntarifas.setBounds(600, 0, 72, 23);
+		panel_2.add(btntarifas);
+
+	    JButton btnBuscar = new JButton("");
+	    JTextField textFieldBuscar;
+	    btnBuscar.setBounds(720, 140, 40, 40);
+	    try {
+	        ImageIcon searchIcon = new ImageIcon(getClass().getResource("/images/busqueda.png"));
+	        if (searchIcon.getImage() != null) {
+	            Image imagen9 = searchIcon.getImage().getScaledInstance(40, 40, Image.SCALE_SMOOTH);
+	            btnBuscar.setIcon(new ImageIcon(imagen9));
+	        }
+	    } catch (Exception e) {
+	        System.err.println("Error al cargar el icono de búsqueda: " + e.getMessage());
+	    }
+	    btnBuscar.setBorderPainted(false);
+	    btnBuscar.setFocusPainted(false);
+	    btnBuscar.setContentAreaFilled(true);
+	    panel.add(btnBuscar);
+
+	    textFieldBuscar = new JTextField("BUSCAR");
+	    textFieldBuscar.setBounds(770, 140, 290, 40);
+	    textFieldBuscar.setColumns(10);
+	    textFieldBuscar.setBackground(new Color(217, 217, 217));
+	    textFieldBuscar.setFont(new Font("Dialog", Font.BOLD | Font.ITALIC, 24));
+	    textFieldBuscar.setForeground(Color.GRAY);
+	    final String placeholder = "BUSCAR";
+	    textFieldBuscar.addFocusListener(new FocusAdapter() {
+	        public void focusGained(FocusEvent e) {
+	            if (textFieldBuscar.getText().equals(placeholder)) {
+	                textFieldBuscar.setText("");
+	                textFieldBuscar.setForeground(Color.BLACK);
+	            }
+	        }
+	        public void focusLost(FocusEvent e) {
+	            if (textFieldBuscar.getText().isEmpty()) {
+	                textFieldBuscar.setText(placeholder);
+	                textFieldBuscar.setForeground(Color.GRAY);
+	            }
+	        }
+	    });
+	    panel.add(textFieldBuscar);
+
+	    // Tabla y modelo:
+	    final DefaultTableModel tableModel = new DefaultTableModel(
+	        new String[] { "ID Tarifa", "Nombre de tarifa", "Precio", "Condicion" }, 0
+	    );
+	    final JTable tableTarifas = new JTable(tableModel);
+	    tableTarifas.setFont(new Font("Dialog", Font.PLAIN, 14));
+	    tableTarifas.setRowHeight(25);
+	    tableTarifas.getTableHeader().setFont(new Font("Dialog", Font.BOLD, 16));
+	    tableTarifas.getTableHeader().setBackground(new Color(55, 54, 48));
+	    tableTarifas.getTableHeader().setForeground(Color.WHITE);
+
+	    JScrollPane scrollPane = new JScrollPane(tableTarifas);
+	    scrollPane.setBounds(131, 250, 950, 350);
+	    panel.add(scrollPane);
+
+	    TableColumnModel tcm = tableTarifas.getColumnModel();
+	    tcm.removeColumn(tcm.getColumn(0));
+
+	    // Botón eliminar
+	    JButton btnEliminarTarifa = new JButton("Eliminar");
+	    btnEliminarTarifa.setBackground(new Color(239, 35, 60));
+	    btnEliminarTarifa.setFont(new Font("Inter", Font.BOLD | Font.ITALIC, 24));
+	    btnEliminarTarifa.setBorder(BorderFactory.createLineBorder(Color.BLACK, 0));
+	    btnEliminarTarifa.setForeground(Color.WHITE);
+	    btnEliminarTarifa.addActionListener(e -> {
+	        int selectedRow = tableTarifas.getSelectedRow();
+	        if (selectedRow >= 0) {
+	            int confirm = JOptionPane.showConfirmDialog(frame,
+	                "¿Seguro que deseas eliminar esta tarifa?",
+	                "Confirmar eliminación",
+	                JOptionPane.YES_NO_OPTION
+	            );
+	            if (confirm == JOptionPane.YES_OPTION) {
+	                int idTarifa = (int) tableModel.getValueAt(selectedRow, 0);
+	                ConectionModel conn = new ConectionModel();
+	                boolean eliminado = new UsersModel().eliminarTarifa(conn.getConnection(), idTarifa);
+	                if (eliminado) {
+	                    JOptionPane.showMessageDialog(frame, "✅ Tarifa eliminada correctamente.");
+	                    tableModel.removeRow(selectedRow);
+	                } else {
+	                    JOptionPane.showMessageDialog(frame, "❌ Error al eliminar la tarifa.");
+	                }
+	            }
+	        } else {
+	            JOptionPane.showMessageDialog(frame, "❗Selecciona una tarifa primero.");
+	        }
+	    });
+	    btnEliminarTarifa.setBounds(131, 193, 150, 40);
+	    panel.add(btnEliminarTarifa);
+
+	    JButton btnEditarTarifa = new JButton("Editar");
+		btnEditarTarifa.setBackground(new Color(50, 186, 125));
+		btnEditarTarifa.setFont(new Font("Inter", Font.BOLD | Font.ITALIC, 24));
+		btnEditarTarifa.setBorder(BorderFactory.createLineBorder(Color.BLACK, 0));
+		btnEditarTarifa.setForeground(Color.WHITE);
+//	btnEditarTarifa.addActionListener(new ActionListener() {
+//		public void actionPerformed(ActionEvent e) {
+//			int selectedRow = tableTarifas.getSelectedRow();
+//			if (selectedRow >= 0) {
+//				int idTarifa = (int) tableModel.getValueAt(selectedRow, 0);
+//				frame.dispose();
+//				EditarTarifaFormulario editarTarifaWindow = new EditarTarifaFormulario(idTarifa);
+//				editarTarifaWindow.frame.setVisible(true);
+//			} else {
+//				JOptionPane.showMessageDialog(frame, "Selecciona una tarifa para editar.", "Advertencia",
+//						JOptionPane.WARNING_MESSAGE);
+//			}
+//		}
+//	});
+		btnEditarTarifa.setBounds(291, 193, 150, 40);
+		panel.add(btnEditarTarifa);
+	    
+	    JButton btnCrearTarifaNueva = new JButton("Crear");
+	    btnCrearTarifaNueva.setForeground(Color.DARK_GRAY);
+	    btnCrearTarifaNueva.setFont(new Font("Dialog", Font.BOLD | Font.ITALIC, 24));
+	    btnCrearTarifaNueva.setBorder(BorderFactory.createLineBorder(Color.BLACK, 0));
+	    btnCrearTarifaNueva.setBackground(Color.YELLOW);
+	    btnCrearTarifaNueva.setBounds(451, 193, 150, 40);
+	    btnCrearTarifaNueva.addActionListener(e -> {
+	        frame.dispose();
+	        UsersController hc = new UsersController();
+	        hc.CrearTarifa();
+	    });
+	    panel.add(btnCrearTarifaNueva);
+	    List<Tarifa> tarifas = new UsersModel().obtenerTarifas(new ConectionModel().getConnection());
+	    for (Tarifa t : tarifas) {
+	        tableModel.addRow(new Object[]{ t.getId(), t.getNombre(), t.getPrecio(), t.getCondicion() });
+	    }
+
+	    frame.getContentPane().add(panel);
+	    frame.repaint();
+	    frame.revalidate();
+	    frame.setLocationRelativeTo(null);
+	    frame.setVisible(true);
+	}
+	private void cargarDatosTabla(DefaultTableModel tableModel) {
+	    ConectionModel conn = new ConectionModel();
+	    List<Tarifa> tarifas = new UsersModel().obtenerTarifas(conn.getConnection());
+
+	    for (Tarifa t : tarifas) {
+	        Object[] fila = {
+	            t.getId(),
+	            t.getNombre(),
+	            t.getPrecio(),
+	            t.getCondicion()
+	        };
+	        tableModel.addRow(fila);
+	    }
+	}
+//============================================================================================================	
+	
+	
+	
+	
+	
 	}
 
-//	private void cargarDatosTabla(String filtro) {
-//		DefaultTableModel tableModel;
-//		tableModel.setRowCount(0);
-//
-//		List<Tarifa> tarifas;
-//		if (filtro != null && !filtro.isEmpty() && !filtro.equals("BUSCAR")) {
-//			tarifas = tarifaDAO.getTarifasByTipoHabitacion(filtro);
-//		} else {
-//			tarifas = tarifaDAO.getAllTarifas();
-//		}
-//
-//		for (Tarifa tarifa : tarifas) {
-//			String condiciones = "";
-//
-//			switch (tarifa.getTipoHabitacion().toLowerCase()) {
-//			case "reembolsable":
-//				condiciones = "Cancelable";
-//				break;
-//			case "no reembolsable":
-//				condiciones = "No Cancelable";
-//				break;
-//			case "promocional":
-//				condiciones = "Solo temporada";
-//				break;
-//			case "corporativa":
-//				condiciones = "Empresa";
-//				break;
-//			default:
-//				if (tarifa.getDescuentoPorcentaje() > 0) {
-//					condiciones = "Con descuento: " + tarifa.getDescuentoPorcentaje() + "%";
-//				} else {
-//					condiciones = "Sin descuento";
-//				}
-//				break;
-//			}
-//
-//			tableModel.addRow(new Object[] { tarifa.getIdTarifa(), tarifa.getTipoHabitacion(),
-//					String.format("$ %.2f MXN", tarifa.getPrecioBase()), condiciones, tarifa.getDescripcion() });
-//		}
-//	}
-	
-
-}

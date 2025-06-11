@@ -1,11 +1,24 @@
 package Controllers;
 
+
+import Models.Cliente;
+import Models.Habitacion;
 import Views.AuthView;
+import Views.HomeView;
 import Views.UsersView;
 
 public class UsersController {
 	
 	private UsersView vista;
+	
+
+	public void Clientes() {
+	    new HomeView().Clientes(); 
+	}
+	public void Tarifas() {
+	    new HomeView().Tarifas(); 
+	}
+
 
 	public UsersController() {
 		vista = new UsersView();
@@ -19,25 +32,28 @@ public class UsersController {
 		vista.PanelHabitaciones2();
 	}
 	
-	public void DetallesHabitacion1() {
+	/*public void DetallesHabitacion1() {
 		vista.DetallesHabitacion1();
-	}
+	}*/
 	
-	public void DetallesHabitacion2() {
-		vista.DetallesHabitacion2();
+	public void DetallesHabitacion2(Habitacion habitacion) {
+	    new UsersView().DetallesHabitacion2(habitacion);
 	}
+
 	
 	public void ClientesEliminar() {
 		vista.ClientesEliminar();
 	}
 	
-	public void DatosUsuario() {
-		vista.DatosUsuario();
+	public void DatosUsuario(Cliente cliente) {
+	    vista.DatosUsuario(cliente);
 	}
+
 	
-	public void EditarDatosCliente() {
-		vista.EditarDatosCliente();
+	public void EditarDatosCliente(Cliente cliente) {
+	    vista.EditarDatosCliente(cliente);
 	}
+
 	
 	public void CrearNuevoCliente() {
 		vista.CrearNuevoCliente();
@@ -86,6 +102,13 @@ public class UsersController {
 	public void ClienteNoEncontrado() {
 		vista.ClienteNoEncontrado();
 	}
-	
 
+
+	public void Crear_habitaciones() {
+		vista.Crear_habitaciones();
+	}
+	
+	public void DetallesHabitacion1(Habitacion habitacion) {
+	    new UsersView().DetallesHabitacion1(habitacion);
+	}
 }

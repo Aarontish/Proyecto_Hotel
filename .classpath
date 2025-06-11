@@ -6,12 +6,12 @@
 		</attributes>
 	</classpathentry>
 	<classpathentry kind="src" path="src"/>
-	<classpathentry kind="lib" path="C:/Users/USUARIO/Pictures/Repositorio/Proyecto_Hotel/lib/jbcrypt-0.4.jar"/>
-	<classpathentry kind="lib" path="C:/Users/USUARIO/Pictures/Repositorio/Proyecto_Hotel/lib/mysql-connector-j-9.3.0.jar"/>
-	<classpathentry kind="lib" path="C:/Users/USUARIO/Pictures/Repositorio/Proyecto_Hotel/lib/flatlaf-3.2.jar">
+	<classpathentry kind="lib" path="C:/Users/DYNABOOK/Favorites/Desktop/proyecto hotel/Proyecto_Hotel/lib/flatlaf-3.2.jar">
 		<attributes>
 			<attribute name="module" value="true"/>
 		</attributes>
 	</classpathentry>
+	<classpathentry kind="lib" path="C:/Users/DYNABOOK/Favorites/Desktop/proyecto hotel/Proyecto_Hotel/lib/jbcrypt-0.4.jar"/>
+	<classpathentry kind="lib" path="C:/Users/DYNABOOK/Favorites/Desktop/proyecto hotel/Proyecto_Hotel/lib/mysql-connector-j-9.3.0.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
