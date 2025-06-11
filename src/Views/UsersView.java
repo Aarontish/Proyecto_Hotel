@@ -5700,6 +5700,244 @@ public class UsersView {
 			frame.setVisible(true);
 	}
 	
+	public void EditarTarifa() {
+		try {
+            UIManager.setLookAndFeel(new FlatLightLaf());
+            UIManager.put("Button.arc", 0); // Esquinas redondas
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+
+		JFrame frame = new JFrame();
+		frame.setResizable(false);
+		frame.setBounds(100, 100, 1180, 700);
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+		JPanel panel = new JPanel();
+		panel.setBackground(new Color(255, 255, 255));
+		frame.getContentPane().add(panel, BorderLayout.CENTER);
+		panel.setLayout(null);
+
+		JPanel panel_1 = new JPanel(); //Borde negro
+		panel_1.setBounds(0, 0, 1164, 95);
+		panel_1.setBackground(new Color(0, 0, 0));
+		panel.add(panel_1);
+		panel_1.setLayout(null);
+
+		JPanel panel_2 = new JPanel(); //Borde gris
+		panel_2.setBounds(0, 95, 1164, 26);
+		panel_2.setBackground(new Color(55, 54, 48));
+		panel.add(panel_2);
+		panel_2.setLayout(null);
+
+		JButton btnTiposDeRentas = new JButton("<html>Tipos de habitaciones &#8594;</html>"); //Botón superior tipos de habitaciones
+		btnTiposDeRentas.setFont(new Font("Jost* Medium", Font.PLAIN, 12));
+		btnTiposDeRentas.setForeground(new Color(255, 255, 255));
+		btnTiposDeRentas.setBackground(new Color(56, 54, 41));
+		btnTiposDeRentas.setBorder(BorderFactory.createLineBorder(Color.BLACK,0));
+		btnTiposDeRentas.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				frame.dispose(); // Cierra la ventana actual del menú
+				HomeController hc = new HomeController();
+				hc.TiposHabitacion();	
+			}
+		});
+		btnTiposDeRentas.setBounds(974, 0, 180, 23);
+		btnTiposDeRentas.setBorderPainted(false);
+        btnTiposDeRentas.setFocusPainted(false);
+        btnTiposDeRentas.setContentAreaFilled(true);
+		panel_2.add(btnTiposDeRentas);
+		
+		JButton btnrentas = new JButton("<html>Rentas &#8594;</html>"); //Botón superior rentas
+		btnrentas.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				frame.dispose(); // Cierra la ventana actual del menú
+				HomeController hc = new HomeController();
+				hc.Rentas();
+			}
+		});
+		btnrentas.setForeground(Color.WHITE);
+		btnrentas.setFont(new Font("Jost* Medium", Font.PLAIN, 12));
+		btnrentas.setFocusPainted(false);
+		btnrentas.setContentAreaFilled(true);
+		btnrentas.setBorderPainted(false);
+		btnrentas.setBorder(BorderFactory.createLineBorder(Color.BLACK,0));
+		btnrentas.setBackground(new Color(56, 54, 41));
+		btnrentas.setBounds(883, 0, 81, 23);
+		panel_2.add(btnrentas);
+		
+		JButton btnclientes = new JButton("<html>Clientes &#8594;</html>"); //Botón superior clientes
+		btnclientes.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				frame.dispose(); // Cierra la ventana actual del menú
+				HomeController hc = new HomeController();
+				hc.Clientes();
+			}
+		});
+		btnclientes.setForeground(Color.WHITE);
+		btnclientes.setFont(new Font("Jost* Medium", Font.PLAIN, 12));
+		btnclientes.setFocusPainted(false);
+		btnclientes.setContentAreaFilled(true);
+		btnclientes.setBorderPainted(false);
+		btnclientes.setBorder(BorderFactory.createLineBorder(Color.BLACK,0));
+		btnclientes.setBackground(new Color(56, 54, 41));
+		btnclientes.setBounds(792, 0, 81, 23);
+		panel_2.add(btnclientes);
+		
+		JButton btnhabitaciones = new JButton("<html>Habitaciones &#8594;</html>"); //Botón superior habitaciones
+		btnhabitaciones.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				frame.dispose(); // Cierra la ventana actual del menú
+				HomeController hc = new HomeController();
+				hc.PanelHabitaciones1();
+			}
+		});
+		btnhabitaciones.setForeground(Color.WHITE);
+		btnhabitaciones.setFont(new Font("Jost* Medium", Font.PLAIN, 12));
+		btnhabitaciones.setFocusPainted(false);
+		btnhabitaciones.setContentAreaFilled(true);
+		btnhabitaciones.setBorderPainted(false);
+		btnhabitaciones.setBorder(BorderFactory.createLineBorder(Color.BLACK,0));
+		btnhabitaciones.setBackground(new Color(56, 54, 41));
+		btnhabitaciones.setBounds(682, 0, 100, 23);
+		panel_2.add(btnhabitaciones);
+		
+		JButton btntarifas = new JButton("<html>Tarifas &#8594;</html>"); //Botón superior tarifas
+		btntarifas.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				frame.dispose(); // Cierra la ventana actual del menú
+				HomeController hc = new HomeController();
+				hc.Tarifas();
+			}
+		});
+		btntarifas.setForeground(Color.WHITE);
+		btntarifas.setFont(new Font("Jost* Medium", Font.PLAIN, 12));
+		btntarifas.setFocusPainted(false);
+		btntarifas.setContentAreaFilled(true);
+		btntarifas.setBorderPainted(false);
+		btntarifas.setBorder(BorderFactory.createLineBorder(Color.BLACK,0));
+		btntarifas.setBackground(new Color(56, 54, 41));
+		btntarifas.setBounds(600, 0, 72, 23);
+		panel_2.add(btntarifas);
+
+		JLabel logo = new JLabel(""); //Logo
+		logo.setBounds(0, 0, 170, 95);
+		ImageIcon icon2 = new ImageIcon(getClass().getResource("/images/logo.png"));
+        Image imagen2 = icon2.getImage().getScaledInstance(170, 95, Image.SCALE_SMOOTH);
+        logo.setIcon(new ImageIcon(imagen2));
+		panel_1.add(logo);
+		
+	     JLabel Titulo = new JLabel("Tarifas\r\n");
+	     Titulo.setForeground(new Color(255, 255, 255));
+	     Titulo.setFont(new Font("Jost* Medium", Font.PLAIN, 35));
+	     Titulo.setBounds(180, 11, 480, 73);
+	     panel_1.add(Titulo);
+		
+			btntarifas.setForeground(Color.WHITE);
+			btntarifas.setFont(new Font("Jost* Medium", Font.PLAIN, 12));
+			btntarifas.setFocusPainted(false);
+			btntarifas.setContentAreaFilled(true);
+			btntarifas.setBorderPainted(false);
+			btntarifas.setBorder(BorderFactory.createLineBorder(Color.BLACK,0));
+			btntarifas.setBackground(new Color(56, 54, 41));
+			btntarifas.setBounds(600, 0, 72, 23);
+			panel_2.add(btntarifas);
+
+			JButton botonVolver = new JButton("");
+			botonVolver.setForeground(new Color(255, 255, 255));
+			botonVolver.setBackground(new Color(255, 255, 255));
+			botonVolver.setBorderPainted(false);
+			botonVolver.setFocusPainted(false);
+			botonVolver.setContentAreaFilled(true);
+			botonVolver.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+					frame.dispose(); // Cierra la ventana actual del menú
+					HomeController hc = new HomeController();
+					hc.Tarifas();	
+				}
+			});
+			botonVolver.setBounds(60, 132, 36, 36);
+			ImageIcon icon4 = new ImageIcon(getClass().getResource("/images/flecha_izquierda.png"));
+	        Image imagen4 = icon4.getImage().getScaledInstance(36, 36, Image.SCALE_SMOOTH);
+	        botonVolver.setIcon(new ImageIcon(imagen4));
+			panel.add(botonVolver);
+		
+		JLabel menuTitulo1 = new JLabel("Editar tarifa");
+		menuTitulo1.setBackground(new Color(255, 255, 255));
+		menuTitulo1.setFont(new Font("Jost*", Font.BOLD, 34));
+		menuTitulo1.setBounds(131, 126, 600, 56);
+		panel.add(menuTitulo1);
+		
+		JLabel lblNewLabel = new JLabel("Nombre:");
+		lblNewLabel.setFont(new Font("Jost*", Font.BOLD, 24));
+		lblNewLabel.setBounds(141, 193, 335, 40);
+		panel.add(lblNewLabel);
+
+		JTextField textField = new JTextField();
+		textField.setBackground(new Color(192, 192, 192));
+		textField.setBounds(141, 244, 335, 40);
+		panel.add(textField);
+		textField.setColumns(10);
+
+		JLabel lblNewLabel_1 = new JLabel("Descripción:");
+		lblNewLabel_1.setFont(new Font("Jost*", Font.BOLD, 24));
+		lblNewLabel_1.setBounds(141, 295, 335, 40);
+		panel.add(lblNewLabel_1);
+
+		JTextArea textArea = new JTextArea();
+		textArea.setWrapStyleWord(true);
+		textArea.setLineWrap(true);
+		textArea.setBackground(new Color(192, 192, 192));
+		textArea.setBounds(141, 346, 335, 100);
+		panel.add(textArea);
+		
+		
+		JLabel lblNewLabel_2 = new JLabel("Tipo de tarifa:");
+		lblNewLabel_2.setFont(new Font("Jost*", Font.BOLD, 24));
+		lblNewLabel_2.setBounds(550, 193, 335, 40);
+		panel.add(lblNewLabel_2);
+		
+		JComboBox comboBox = new JComboBox();
+		comboBox.setFont(new Font("Jost*", Font.BOLD, 16));
+		comboBox.setModel(new DefaultComboBoxModel(new String[] {"Rembolsable", "No rembolsable", "corporativa ", "Promocional"}));
+		comboBox.setToolTipText("Rembolsable\r\nNo rembolsable\r\ncorporativa \r\nPromocional\r\n");
+		comboBox.setBounds(550, 239, 335, 44);
+		panel.add(comboBox);
+		
+		JLabel lblNewLabel_3 = new JLabel("Precio por noche:");
+		lblNewLabel_3.setFont(new Font("Jost*", Font.BOLD, 24));
+		lblNewLabel_3.setBounds(550, 295, 335, 40);
+		panel.add(lblNewLabel_3);
+
+		JTextField textField_3 = new JTextField();
+		textField_3.setBackground(new Color(192, 192, 192));
+		textField_3.setBounds(550, 346, 335, 40);
+		panel.add(textField_3);
+		textField_3.setColumns(10);
+		
+		JButton btnNewButton = new JButton("Cancelar");
+		btnNewButton.setBackground(Color.RED);
+		btnNewButton.setFont(new Font("Dialog", Font.BOLD | Font.ITALIC, 20));
+		btnNewButton.setForeground(new Color(255, 255, 255));
+		btnNewButton.setBounds(870, 529, 250, 40);
+		panel.add(btnNewButton);
+		
+		JButton btnGuardarCambios = new JButton("Guardar cambios");
+		btnGuardarCambios.setForeground(new Color(0, 0, 0));
+		btnGuardarCambios.setFont(new Font("Dialog", Font.BOLD | Font.ITALIC, 16));
+		btnGuardarCambios.setBackground(new Color(255, 214, 10));
+		btnGuardarCambios.setBounds(870, 580, 250, 40);
+		panel.add(btnGuardarCambios);
+		
+		frame.getContentPane().add(panel);
+		frame.repaint();
+		frame.revalidate();
+		frame.setLocationRelativeTo(null);
+		frame.setVisible(true);
+		
+		
+	}
+	
 	public void HabitacionNoEncontrada() {
 		
 		try {

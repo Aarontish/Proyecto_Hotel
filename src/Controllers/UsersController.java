@@ -111,4 +111,8 @@ public class UsersController {
 	public void DetallesHabitacion1(Habitacion habitacion) {
 	    new UsersView().DetallesHabitacion1(habitacion);
 	}
+	
+	public void EditarTarifa() {
+		vista.EditarTarifa();
+	}
 }
