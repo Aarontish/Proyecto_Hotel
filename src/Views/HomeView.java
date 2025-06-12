@@ -44,18 +44,15 @@ public class HomeView {
 	    DefaultTableModel tableModel;
 	    JTable tableTarifas;
 	    
-	    public void Tarifas() {
-	       
+	    public void Tarifas() {   
 	    }
 
-		public void DatosUsuario(Cliente cliente) {
-			// TODO Auto-generated method stub
-			
+		public void DatosUsuario(Cliente cliente) {		
 		}
+		
 	}
 
 	public HomeView() {
-		// TODO Auto-generated constructor stub
 	}
 	
 
@@ -185,7 +182,7 @@ public class HomeView {
 		JLabel logo = new JLabel(""); // Logo
 		logo.setBounds(0, 0, 170, 95);
 		// CORRECCIÓN: Usar getResource para cargar la imagen
-		ImageIcon icon2 = new ImageIcon(getClass().getResource("/images/logo.png"));
+		ImageIcon icon2 = new ImageIcon(getClass().getResource("/Images/logo.png"));
 		Image imagen2 = icon2.getImage().getScaledInstance(170, 95, Image.SCALE_SMOOTH);
 		logo.setIcon(new ImageIcon(imagen2));
 		panel_1.add(logo);
@@ -221,7 +218,7 @@ public class HomeView {
 		botonPanelDeHabitaciones.setVerticalAlignment(SwingConstants.CENTER);
 		botonPanelDeHabitaciones.setIconTextGap(1);
 		// CORRECCIÓN: Usar getResource para cargar la imagen
-		ImageIcon icon121 = new ImageIcon(getClass().getResource("/images/cama_individual.png"));
+		ImageIcon icon121 = new ImageIcon(getClass().getResource("/Images/cama_individual.png"));
 		Image imagen121 = icon121.getImage().getScaledInstance(70, 80, Image.SCALE_SMOOTH);
 		botonPanelDeHabitaciones.setIcon(new ImageIcon(imagen121));
 		botonPanelDeHabitaciones.setBorder(BorderFactory.createLineBorder(Color.BLACK, 0));
@@ -255,7 +252,7 @@ public class HomeView {
 		});
 		botonClientes.setIconTextGap(1);
 		// CORRECCIÓN: Usar getResource para cargar la imagen
-		ImageIcon s1 = new ImageIcon(getClass().getResource("/images/clientes.png"));
+		ImageIcon s1 = new ImageIcon(getClass().getResource("/Images/clientes.png"));
 		Image s2 = s1.getImage();
 		Image s3 = s2.getScaledInstance(65, 60, Image.SCALE_SMOOTH);
 		botonClientes.setIcon(new ImageIcon(s3));
@@ -282,7 +279,7 @@ public class HomeView {
 		});
 		botonRentas.setIconTextGap(1);
 		// CORRECCIÓN: Usar getResource para cargar la imagen
-		ImageIcon icon112 = new ImageIcon(getClass().getResource("/images/renta.png"));
+		ImageIcon icon112 = new ImageIcon(getClass().getResource("/Images/renta.png"));
 		Image imagen112 = icon112.getImage().getScaledInstance(70, 80, Image.SCALE_SMOOTH);
 		botonRentas.setIcon(new ImageIcon(imagen112));
 		panel_3.add(botonRentas);
@@ -301,7 +298,7 @@ public class HomeView {
 		botonTiposDeHabitaciones.setVerticalAlignment(SwingConstants.CENTER);
 		botonTiposDeHabitaciones.setIconTextGap(1);
 		// Asigna un ícono exclusivo a botonTiposDeHabitaciones
-		ImageIcon iconTiposHabitaciones = new ImageIcon(getClass().getResource("/images/cama_doble.png"));
+		ImageIcon iconTiposHabitaciones = new ImageIcon(getClass().getResource("/Images/cama_doble.png"));
 		Image imagenTiposHabitaciones = iconTiposHabitaciones.getImage().getScaledInstance(70, 80, Image.SCALE_SMOOTH);
 		botonTiposDeHabitaciones.setIcon(new ImageIcon(imagenTiposHabitaciones));
 		botonTiposDeHabitaciones.addActionListener(new ActionListener() {
@@ -326,7 +323,7 @@ public class HomeView {
 		botonTarifas.setVerticalAlignment(SwingConstants.CENTER);
 		botonTarifas.setIconTextGap(1);
 		// CORRECCIÓN: Usar getResource para cargar la imagen
-		ImageIcon icon1 = new ImageIcon(getClass().getResource("/images/tarifa_por_hora.png"));
+		ImageIcon icon1 = new ImageIcon(getClass().getResource("/Images/tarifa_por_hora.png"));
 		Image imagen1 = icon1.getImage().getScaledInstance(50, 60, Image.SCALE_SMOOTH);
 		botonTarifas.setIcon(new ImageIcon(imagen1));
 		botonTarifas.addActionListener(new ActionListener() {
@@ -342,7 +339,7 @@ public class HomeView {
 		JLabel decoracion = new JLabel(""); // imagen junto al menú
 		decoracion.setBounds(730, 150, 424, 400);
 		// CORRECCIÓN: Usar getResource para cargar la imagen
-		ImageIcon icon12 = new ImageIcon(getClass().getResource("/images/decoracion.png"));
+		ImageIcon icon12 = new ImageIcon(getClass().getResource("/Images/decoracion.png"));
 		Image imagen12 = icon12.getImage().getScaledInstance(400, 400, Image.SCALE_SMOOTH);
 		decoracion.setIcon(new ImageIcon(imagen12));
 		panel.add(decoracion);
@@ -387,7 +384,7 @@ public class HomeView {
 
 		JLabel logo = new JLabel(""); // Logo
 		logo.setBounds(0, 0, 170, 95);
-		ImageIcon icon423 = new ImageIcon(getClass().getResource("/images/logo.png"));
+		ImageIcon icon423 = new ImageIcon(getClass().getResource("/Images/logo.png"));
 		Image imagen423 = icon423.getImage().getScaledInstance(170, 95, Image.SCALE_SMOOTH);
 		logo.setIcon(new ImageIcon(imagen423));
 		panel_1.add(logo);
@@ -417,7 +414,7 @@ public class HomeView {
 				hc.Menu();
 			}
 		});
-		ImageIcon icon2006 = new ImageIcon(getClass().getResource("/images/flecha_izquierda.png"));
+		ImageIcon icon2006 = new ImageIcon(getClass().getResource("/Images/flecha_izquierda.png"));
 		Image imagen2006 = icon2006.getImage().getScaledInstance(36, 36, Image.SCALE_SMOOTH);
 		botonVolver.setIcon(new ImageIcon(imagen2006));
 		panel.add(botonVolver);
@@ -513,47 +510,9 @@ public class HomeView {
 		btntarifas.setBounds(600, 0, 72, 23);
 		panel_2.add(btntarifas);
 
-		JButton btnBuscar = new JButton(""); // Boton para la barra de busqueda
-		btnBuscar.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-			}
-		});
-		btnBuscar.setBounds(720, 140, 40, 40);
-		ImageIcon icon45 = new ImageIcon(getClass().getResource("/images/busqueda.png"));
-		Image imagen56 = icon45.getImage().getScaledInstance(40, 40, Image.SCALE_SMOOTH);
-		btnBuscar.setIcon(new ImageIcon(imagen56));
-		btnBuscar.setBorderPainted(false);
-		btnBuscar.setFocusPainted(false);
-		btnBuscar.setContentAreaFilled(true);
-		panel.add(btnBuscar);
 
-		JTextField textField = new JTextField("BUSCAR"); // Texto de ejemplo
-		textField.setToolTipText("");
-		textField.setBounds(770, 140, 290, 40);
-		textField.setColumns(10);
-		textField.setBackground(new Color(217, 217, 217));
-		textField.setFont(new Font("Dialog", Font.BOLD | Font.ITALIC, 24));
-		textField.setForeground(Color.GRAY);
-		final String placeholder = "BUSCAR"; // Borra el texto de ejemplo al escribir en el campo
-		textField.addFocusListener(new FocusAdapter() {
-
-			public void focusGained(FocusEvent e) {
-				if (textField.getText().equals(placeholder)) {
-					textField.setText("");
-					textField.setForeground(Color.BLACK);
-				}
-			}
-
-			public void focusLost(FocusEvent e) {
-				if (textField.getText().isEmpty()) {
-					textField.setText(placeholder);
-					textField.setForeground(Color.GRAY);
-				}
-			}
-		});
-		panel.add(textField);
 		final boolean[] modoEliminar = {false};
-
+	
 		JButton btnEliminarHabitacion = new JButton("Eliminar habitación");
 		btnEliminarHabitacion.setBackground(new Color(239, 35, 60));
 		btnEliminarHabitacion.setFont(new Font("Inter", Font.BOLD | Font.ITALIC, 24));
@@ -570,10 +529,10 @@ public class HomeView {
 
 		
 		JButton btncrearhabitaciones = new JButton("Crear habitacion"); // Botón prinicipal eliminar cliente
-		btncrearhabitaciones.setBackground(new Color(239, 35, 60));
+		btncrearhabitaciones.setBackground(new Color(255, 255, 0));
 		btncrearhabitaciones.setFont(new Font("Inter", Font.BOLD | Font.ITALIC, 24));
 		btncrearhabitaciones.setBorder(BorderFactory.createLineBorder(Color.BLACK, 0));
-		btncrearhabitaciones.setForeground(Color.WHITE);
+		btncrearhabitaciones.setForeground(Color.BLACK);
 		btncrearhabitaciones.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 					frame.dispose();
@@ -604,7 +563,7 @@ public class HomeView {
 		    btnHabitacion.setHorizontalTextPosition(SwingConstants.CENTER);
 		    btnHabitacion.setBorder(BorderFactory.createLineBorder(Color.BLACK, 0));
 
-		    ImageIcon icon = new ImageIcon(getClass().getResource("/images/cama_matrimonial2.png"));
+		    ImageIcon icon = new ImageIcon(getClass().getResource("/Images/cama_matrimonial2.png"));
 		    Image imagen = icon.getImage().getScaledInstance(120, 120, Image.SCALE_SMOOTH);
 		    btnHabitacion.setIcon(new ImageIcon(imagen));
 
@@ -690,7 +649,7 @@ public class HomeView {
 		JLabel logo = new JLabel("");
 		logo.setBounds(0, 0, 170, 95);
 		logo.setBounds(0, 0, 170, 95);
-		ImageIcon icon20065 = new ImageIcon(getClass().getResource("/images/logo.png"));
+		ImageIcon icon20065 = new ImageIcon(getClass().getResource("/Images/logo.png"));
 		Image imagen20065 = icon20065.getImage().getScaledInstance(170, 95, Image.SCALE_SMOOTH);
 		logo.setIcon(new ImageIcon(imagen20065));
 		panel_1.add(logo);
@@ -720,7 +679,7 @@ public class HomeView {
 				hc.Menu();
 			}
 		});
-		ImageIcon icon2006 = new ImageIcon(getClass().getResource("/images/flecha_izquierda.png"));
+		ImageIcon icon2006 = new ImageIcon(getClass().getResource("/Images/flecha_izquierda.png"));
 		Image imagen2006 = icon2006.getImage().getScaledInstance(36, 36, Image.SCALE_SMOOTH);
 		botonVolver.setIcon(new ImageIcon(imagen2006));
 		panel.add(botonVolver);
@@ -808,44 +767,6 @@ public class HomeView {
 		btntarifas.setBounds(600, 0, 72, 23);
 		panel_2.add(btntarifas);
 
-		JButton btnBuscar = new JButton("");
-		btnBuscar.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-			}
-		});
-		btnBuscar.setBounds(720, 140, 40, 40);
-		ImageIcon icon134 = new ImageIcon(getClass().getResource("/images/busqueda.png"));
-		Image imagen134 = icon134.getImage().getScaledInstance(36, 36, Image.SCALE_SMOOTH);
-		btnBuscar.setIcon(new ImageIcon(imagen134));
-		btnBuscar.setBorderPainted(false);
-		btnBuscar.setFocusPainted(false);
-		btnBuscar.setContentAreaFilled(true);
-		panel.add(btnBuscar);
-
-		JTextField textField = new JTextField("BUSCAR");
-		textField.setToolTipText("");
-		textField.setBounds(770, 140, 290, 40);
-		textField.setColumns(10);
-		textField.setBackground(new Color(217, 217, 217));
-		textField.setFont(new Font("Dialog", Font.BOLD | Font.ITALIC, 24));
-		textField.setForeground(Color.GRAY);
-		final String placeholder = "BUSCAR";
-		textField.addFocusListener(new FocusAdapter() {
-			public void focusGained(FocusEvent e) {
-				if (textField.getText().equals(placeholder)) {
-					textField.setText("");
-					textField.setForeground(Color.BLACK);
-				}
-			}
-
-			public void focusLost(FocusEvent e) {
-				if (textField.getText().isEmpty()) {
-					textField.setText(placeholder);
-					textField.setForeground(Color.GRAY);
-				}
-			}
-		});
-		panel.add(textField);
 
 		final boolean[] modoEliminar = {false};
 
@@ -865,7 +786,7 @@ public class HomeView {
 		});
 
 		JButton btnCrearClienteNuevo = new JButton("Crear cliente nuevo");
-		btnCrearClienteNuevo.setForeground(Color.DARK_GRAY);
+		btnCrearClienteNuevo.setForeground(Color.BLACK);
 		btnCrearClienteNuevo.setFont(new Font("Dialog", Font.BOLD | Font.ITALIC, 24));
 		btnCrearClienteNuevo.setBorder(BorderFactory.createLineBorder(Color.BLACK, 0));
 		btnCrearClienteNuevo.setBackground(Color.YELLOW);
@@ -898,7 +819,7 @@ public class HomeView {
 			btnCliente.setIconTextGap(1);
 			btnCliente.setBorder(BorderFactory.createLineBorder(Color.BLACK, 0));
 
-			ImageIcon icon = new ImageIcon(getClass().getResource("/images/usuario.png"));
+			ImageIcon icon = new ImageIcon(getClass().getResource("/Images/usuario.png"));
 			Image imagen = icon.getImage().getScaledInstance(100, 100, Image.SCALE_SMOOTH);
 			btnCliente.setIcon(new ImageIcon(imagen));
 
@@ -982,7 +903,7 @@ public class HomeView {
 
 		JLabel logo = new JLabel(""); // Logo
 		logo.setBounds(0, 0, 170, 95);
-		ImageIcon icon01 = new ImageIcon(getClass().getResource("/images/logo.png"));
+		ImageIcon icon01 = new ImageIcon(getClass().getResource("/Images/logo.png"));
 		Image imagen01 = icon01.getImage().getScaledInstance(170, 95, Image.SCALE_SMOOTH);
 		logo.setIcon(new ImageIcon(imagen01));
 		panel_1.add(logo);
@@ -1012,7 +933,7 @@ public class HomeView {
 			}
 		});
 		botonVolver.setBounds(60, 132, 36, 36);
-		ImageIcon icon10 = new ImageIcon(getClass().getResource("/images/flecha_izquierda.png"));
+		ImageIcon icon10 = new ImageIcon(getClass().getResource("/Images/flecha_izquierda.png"));
 		Image imagen10 = icon10.getImage().getScaledInstance(36, 36, Image.SCALE_SMOOTH);
 		botonVolver.setIcon(new ImageIcon(imagen10));
 		panel.add(botonVolver);
@@ -1108,46 +1029,6 @@ public class HomeView {
 		btntarifas.setBounds(600, 0, 72, 23);
 		panel_2.add(btntarifas);
 
-		JButton btnBuscar = new JButton(""); // Boton para la barra de busqueda
-		btnBuscar.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-			}
-		});
-		btnBuscar.setBounds(720, 140, 40, 40);
-		ImageIcon icon11 = new ImageIcon(getClass().getResource("/images/busqueda.png"));
-		Image imagen11 = icon11.getImage().getScaledInstance(40, 40, Image.SCALE_SMOOTH);
-		btnBuscar.setIcon(new ImageIcon(imagen11));
-		btnBuscar.setBorderPainted(false);
-		btnBuscar.setFocusPainted(false);
-		btnBuscar.setContentAreaFilled(true);
-		panel.add(btnBuscar);
-
-		JTextField textField = new JTextField("BUSCAR"); // Texto de ejemplo
-		textField.setToolTipText("");
-		textField.setBounds(770, 140, 290, 40);
-		textField.setColumns(10);
-		textField.setBackground(new Color(217, 217, 217));
-		textField.setFont(new Font("Dialog", Font.BOLD | Font.ITALIC, 24));
-		textField.setForeground(Color.GRAY);
-		final String placeholder = "BUSCAR"; // Borra el texto de ejemplo al escribir en el campo
-		textField.addFocusListener(new FocusAdapter() {
-
-			public void focusGained(FocusEvent e) {
-				if (textField.getText().equals(placeholder)) {
-					textField.setText("");
-					textField.setForeground(Color.BLACK);
-				}
-			}
-
-			public void focusLost(FocusEvent e) {
-				if (textField.getText().isEmpty()) {
-					textField.setText(placeholder);
-					textField.setForeground(Color.GRAY);
-				}
-			}
-		});
-		panel.add(textField);
-
 		JButton btnCuartoA1 = new JButton("Cuarto A1"); // Botón Cuarto A1
 		btnCuartoA1.setFont(new Font("Jost*", Font.BOLD | Font.ITALIC, 14));
 		btnCuartoA1.setBackground(new Color(50, 186, 124));
@@ -1166,7 +1047,7 @@ public class HomeView {
 		btnCuartoA1.setVerticalAlignment(SwingConstants.CENTER);
 		btnCuartoA1.setIconTextGap(1);
 		btnCuartoA1.setBorder(BorderFactory.createLineBorder(Color.BLACK, 0));
-		ImageIcon icon6 = new ImageIcon(getClass().getResource("/images/cama_matrimonial2.png"));
+		ImageIcon icon6 = new ImageIcon(getClass().getResource("/Images/cama_matrimonial2.png"));
 		Image imagen6 = icon6.getImage().getScaledInstance(120, 120, Image.SCALE_SMOOTH);
 		btnCuartoA1.setIcon(new ImageIcon(imagen6));
 		panel.add(btnCuartoA1);
@@ -1189,7 +1070,7 @@ public class HomeView {
 		btnCuartoB1.setHorizontalAlignment(SwingConstants.CENTER);
 		btnCuartoB1.setVerticalAlignment(SwingConstants.CENTER);
 		btnCuartoB1.setIconTextGap(1);
-		ImageIcon icon5 = new ImageIcon(getClass().getResource("/images/cama_matrimonial2.png"));
+		ImageIcon icon5 = new ImageIcon(getClass().getResource("/Images/cama_matrimonial2.png"));
 		Image imagen5 = icon5.getImage().getScaledInstance(120, 120, Image.SCALE_SMOOTH);
 		btnCuartoB1.setIcon(new ImageIcon(imagen5));
 		panel.add(btnCuartoB1);
@@ -1211,7 +1092,7 @@ public class HomeView {
 		btnCuartoA2.setBorder(BorderFactory.createLineBorder(Color.BLACK, 0));
 		btnCuartoA2.setBackground(new Color(50, 186, 124));
 		btnCuartoA2.setBounds(331, 257, 150, 150);
-		ImageIcon icon4 = new ImageIcon(getClass().getResource("/images/cama_matrimonial2.png"));
+		ImageIcon icon4 = new ImageIcon(getClass().getResource("/Images/cama_matrimonial2.png"));
 		Image imagen4 = icon4.getImage().getScaledInstance(120, 120, Image.SCALE_SMOOTH);
 		btnCuartoA2.setIcon(new ImageIcon(imagen4));
 		panel.add(btnCuartoA2);
@@ -1233,7 +1114,7 @@ public class HomeView {
 		btnCuartoB2.setBorder(BorderFactory.createLineBorder(Color.BLACK, 0));
 		btnCuartoB2.setBackground(new Color(50, 186, 124));
 		btnCuartoB2.setBounds(331, 455, 150, 150);
-		ImageIcon icon7 = new ImageIcon(getClass().getResource("/images/cama_matrimonial2.png"));
+		ImageIcon icon7 = new ImageIcon(getClass().getResource("/Images/cama_matrimonial2.png"));
 		Image imagen7 = icon7.getImage().getScaledInstance(120, 120, Image.SCALE_SMOOTH);
 		btnCuartoB2.setIcon(new ImageIcon(imagen7));
 		panel.add(btnCuartoB2);
@@ -1255,7 +1136,7 @@ public class HomeView {
 		btnCuartoA3.setBorder(BorderFactory.createLineBorder(Color.BLACK, 0));
 		btnCuartoA3.setBackground(new Color(239, 35, 60));
 		btnCuartoA3.setBounds(531, 257, 150, 150);
-		ImageIcon icon8 = new ImageIcon(getClass().getResource("/images/cama_matrimonial2.png"));
+		ImageIcon icon8 = new ImageIcon(getClass().getResource("/Images/cama_matrimonial2.png"));
 		Image imagen8 = icon8.getImage().getScaledInstance(120, 120, Image.SCALE_SMOOTH);
 		btnCuartoA3.setIcon(new ImageIcon(imagen8));
 		panel.add(btnCuartoA3);
@@ -1277,7 +1158,7 @@ public class HomeView {
 		btnCuartoA4.setBorder(BorderFactory.createLineBorder(Color.BLACK, 0));
 		btnCuartoA4.setBackground(SystemColor.activeCaptionBorder);
 		btnCuartoA4.setBounds(731, 257, 150, 150);
-		ImageIcon icon23 = new ImageIcon(getClass().getResource("/images/cama_matrimonial2.png"));
+		ImageIcon icon23 = new ImageIcon(getClass().getResource("/Images/cama_matrimonial2.png"));
 		Image imagen23 = icon23.getImage().getScaledInstance(120, 120, Image.SCALE_SMOOTH);
 		btnCuartoA4.setIcon(new ImageIcon(imagen23));
 		panel.add(btnCuartoA4);
@@ -1299,7 +1180,7 @@ public class HomeView {
 		btnCuartoA5.setBorder(BorderFactory.createLineBorder(Color.BLACK, 0));
 		btnCuartoA5.setBackground(new Color(50, 186, 124));
 		btnCuartoA5.setBounds(931, 257, 150, 150);
-		ImageIcon icon1 = new ImageIcon(getClass().getResource("/images/cama_matrimonial2.png"));
+		ImageIcon icon1 = new ImageIcon(getClass().getResource("/Images/cama_matrimonial2.png"));
 		Image imagen1 = icon1.getImage().getScaledInstance(120, 120, Image.SCALE_SMOOTH);
 		btnCuartoA5.setIcon(new ImageIcon(imagen1));
 		panel.add(btnCuartoA5);
@@ -1321,7 +1202,7 @@ public class HomeView {
 		btnCuartoB3.setBorder(BorderFactory.createLineBorder(Color.BLACK, 0));
 		btnCuartoB3.setBackground(new Color(239, 35, 60));
 		btnCuartoB3.setBounds(531, 455, 150, 150);
-		ImageIcon icon42 = new ImageIcon(getClass().getResource("/images/cama_matrimonial2.png"));
+		ImageIcon icon42 = new ImageIcon(getClass().getResource("/Images/cama_matrimonial2.png"));
 		Image imagen42 = icon42.getImage().getScaledInstance(120, 120, Image.SCALE_SMOOTH);
 		btnCuartoB3.setIcon(new ImageIcon(imagen42));
 		panel.add(btnCuartoB3);
@@ -1343,7 +1224,7 @@ public class HomeView {
 		btnCuartoB4.setBorder(BorderFactory.createLineBorder(Color.BLACK, 0));
 		btnCuartoB4.setBackground(new Color(50, 186, 124));
 		btnCuartoB4.setBounds(731, 455, 150, 150);
-		ImageIcon icon44 = new ImageIcon(getClass().getResource("/images/cama_matrimonial2.png"));
+		ImageIcon icon44 = new ImageIcon(getClass().getResource("/Images/cama_matrimonial2.png"));
 		Image imagen44 = icon44.getImage().getScaledInstance(120, 120, Image.SCALE_SMOOTH);
 		btnCuartoB4.setIcon(new ImageIcon(imagen44));
 		panel.add(btnCuartoB4);
@@ -1365,7 +1246,7 @@ public class HomeView {
 		btnCuartoB5.setBorder(BorderFactory.createLineBorder(Color.BLACK, 0));
 		btnCuartoB5.setBackground(new Color(239, 35, 60));
 		btnCuartoB5.setBounds(931, 455, 150, 150);
-		ImageIcon icon3 = new ImageIcon(getClass().getResource("/images/cama_matrimonial2.png"));
+		ImageIcon icon3 = new ImageIcon(getClass().getResource("/Images/cama_matrimonial2.png"));
 		Image imagen3 = icon3.getImage().getScaledInstance(120, 120, Image.SCALE_SMOOTH);
 		btnCuartoB5.setIcon(new ImageIcon(imagen3));
 		panel.add(btnCuartoB5);
@@ -1409,8 +1290,8 @@ public class HomeView {
 
 		JLabel logo = new JLabel(""); // Logo
 		logo.setBounds(0, 0, 170, 95);
-		// CORREGIDO: new ImageIcon(getClass().getResource("/images/logo.png"));
-		ImageIcon portada1 = new ImageIcon(getClass().getResource("/images/logo.png"));
+		// CORREGIDO: new ImageIcon(getClass().getResource("/Images/logo.png"));
+		ImageIcon portada1 = new ImageIcon(getClass().getResource("/Images/logo.png"));
 		Image portada2 = portada1.getImage();
 		Image portada3 = portada2.getScaledInstance(170, 95, Image.SCALE_SMOOTH);
 		logo.setIcon(new ImageIcon(portada3));
@@ -1437,8 +1318,8 @@ public class HomeView {
 		});
 		botonVolver.setBounds(60, 132, 50, 50);
 		// CORREGIDO: new
-		// ImageIcon(getClass().getResource("/images/flecha_izquierda.png"));
-		ImageIcon f1 = new ImageIcon(getClass().getResource("/images/flecha_izquierda.png"));
+		// ImageIcon(getClass().getResource("/Images/flecha_izquierda.png"));
+		ImageIcon f1 = new ImageIcon(getClass().getResource("/Images/flecha_izquierda.png"));
 		Image f2 = f1.getImage();
 		Image f3 = f2.getScaledInstance(36, 36, Image.SCALE_SMOOTH);
 		botonVolver.setIcon(new ImageIcon(f3));
@@ -1541,8 +1422,8 @@ public class HomeView {
 		btntarifas.setBounds(600, 0, 72, 23);
 		panel_2.add(btntarifas);
 
-		// CORREGIDO: new ImageIcon(getClass().getResource("/images/busqueda.png"));
-		ImageIcon u1 = new ImageIcon(getClass().getResource("/images/busqueda.png"));
+		// CORREGIDO: new ImageIcon(getClass().getResource("/Images/busqueda.png"));
+		ImageIcon u1 = new ImageIcon(getClass().getResource("/Images/busqueda.png"));
 		Image u2 = u1.getImage();
 		Image u3 = u2.getScaledInstance(36, 36, Image.SCALE_SMOOTH);
 		final String placeholder = "BUSCAR";
@@ -1555,7 +1436,7 @@ public class HomeView {
 
 		JLabel lblImagen1 = new JLabel();
 		lblImagen1.setBounds(50, 39, 200, 200);
-		ImageIcon icon1 = new ImageIcon(getClass().getResource("/images/foto1.png"));
+		ImageIcon icon1 = new ImageIcon(getClass().getResource("/Images/foto1.png"));
 		Image imagen1 = icon1.getImage().getScaledInstance(200, 200, Image.SCALE_SMOOTH);
 		lblImagen1.setIcon(new ImageIcon(imagen1));
 		panel_3.add(lblImagen1);
@@ -1598,7 +1479,7 @@ public class HomeView {
 
 		JLabel lblImagen2 = new JLabel();
 		lblImagen2.setBounds(49, 36, 200, 200);
-		ImageIcon icon2 = new ImageIcon(getClass().getResource("/images/foto2.png"));
+		ImageIcon icon2 = new ImageIcon(getClass().getResource("/Images/foto2.png"));
 		Image imagen2 = icon2.getImage().getScaledInstance(200, 200, Image.SCALE_SMOOTH);
 		lblImagen2.setIcon(new ImageIcon(imagen2));
 		panel_2_1.add(lblImagen2);
@@ -1641,7 +1522,7 @@ public class HomeView {
 
 		JLabel lblImagen3 = new JLabel();
 		lblImagen3.setBounds(51, 41, 200, 200);
-		ImageIcon icon3 = new ImageIcon(getClass().getResource("/images/foto3.png"));
+		ImageIcon icon3 = new ImageIcon(getClass().getResource("/Images/foto3.png"));
 		Image imagen3 = icon3.getImage().getScaledInstance(200, 200, Image.SCALE_SMOOTH);
 		lblImagen3.setIcon(new ImageIcon(imagen3));
 		panel_1_1.add(lblImagen3);
@@ -1753,7 +1634,7 @@ public class HomeView {
 
 	    JLabel logo = new JLabel("");
 	    logo.setBounds(0, 0, 170, 95);
-	    ImageIcon icon12 = new ImageIcon(getClass().getResource("/images/logo.png"));
+	    ImageIcon icon12 = new ImageIcon(getClass().getResource("/Images/logo.png"));
 	    Image imagen12 = icon12.getImage().getScaledInstance(170, 95, Image.SCALE_SMOOTH);
 	    logo.setIcon(new ImageIcon(imagen12));
 	    panel_1.add(logo);
@@ -1781,7 +1662,7 @@ public class HomeView {
 	        hc.Menu();
 	    });
 	    botonVolver.setBounds(60, 132, 36, 36);
-	    ImageIcon icon69 = new ImageIcon(getClass().getResource("/images/flecha_izquierda.png"));
+	    ImageIcon icon69 = new ImageIcon(getClass().getResource("/Images/flecha_izquierda.png"));
 	    Image imagen69 = icon69.getImage().getScaledInstance(36, 36, Image.SCALE_SMOOTH);
 	    botonVolver.setIcon(new ImageIcon(imagen69));
 	    panel.add(botonVolver);
@@ -1873,46 +1754,6 @@ public class HomeView {
 		btntarifas.setBackground(new Color(56, 54, 41));
 		btntarifas.setBounds(600, 0, 72, 23);
 		panel_2.add(btntarifas);
-
-	    JButton btnBuscar = new JButton("");
-	    JTextField textFieldBuscar;
-	    btnBuscar.setBounds(720, 140, 40, 40);
-	    try {
-	        ImageIcon searchIcon = new ImageIcon(getClass().getResource("/images/busqueda.png"));
-	        if (searchIcon.getImage() != null) {
-	            Image imagen9 = searchIcon.getImage().getScaledInstance(40, 40, Image.SCALE_SMOOTH);
-	            btnBuscar.setIcon(new ImageIcon(imagen9));
-	        }
-	    } catch (Exception e) {
-	        System.err.println("Error al cargar el icono de búsqueda: " + e.getMessage());
-	    }
-	    btnBuscar.setBorderPainted(false);
-	    btnBuscar.setFocusPainted(false);
-	    btnBuscar.setContentAreaFilled(true);
-	    panel.add(btnBuscar);
-
-	    textFieldBuscar = new JTextField("BUSCAR");
-	    textFieldBuscar.setBounds(770, 140, 290, 40);
-	    textFieldBuscar.setColumns(10);
-	    textFieldBuscar.setBackground(new Color(217, 217, 217));
-	    textFieldBuscar.setFont(new Font("Dialog", Font.BOLD | Font.ITALIC, 24));
-	    textFieldBuscar.setForeground(Color.GRAY);
-	    final String placeholder = "BUSCAR";
-	    textFieldBuscar.addFocusListener(new FocusAdapter() {
-	        public void focusGained(FocusEvent e) {
-	            if (textFieldBuscar.getText().equals(placeholder)) {
-	                textFieldBuscar.setText("");
-	                textFieldBuscar.setForeground(Color.BLACK);
-	            }
-	        }
-	        public void focusLost(FocusEvent e) {
-	            if (textFieldBuscar.getText().isEmpty()) {
-	                textFieldBuscar.setText(placeholder);
-	                textFieldBuscar.setForeground(Color.GRAY);
-	            }
-	        }
-	    });
-	    panel.add(textFieldBuscar);
 
 	    // Tabla y modelo:
 	    final DefaultTableModel tableModel = new DefaultTableModel(

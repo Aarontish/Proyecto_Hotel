@@ -38,9 +38,9 @@ public class UsersController {
 	}
 
 	
-	public void ClientesEliminar() {
+/*	public void ClientesEliminar() {
 		vista.ClientesEliminar();
-	}
+	}	*/
 	
 	public void DatosUsuario(Cliente cliente) {
 	    vista.DatosUsuario(cliente);

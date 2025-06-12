@@ -31,9 +31,9 @@ Credenciales de Acceso:
 
 Para propósitos de prueba y administración del sistema, se proporcionan las siguientes credenciales:
 
-Usuario: admin
+Usuario: Admin
 
-Contraseña: admin123
+Contraseña: 12345
 
 Tecnología Principal:
 
