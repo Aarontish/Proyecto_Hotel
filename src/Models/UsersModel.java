@@ -211,6 +211,44 @@ public class UsersModel {
     }
 
     
+    public TarifaModel obtenerTarifaPorId(int id) {
+        TarifaModel tarifa = null;
+        try {
+            Connection conn = new ConectionModel().getConnection();
+            PreparedStatement ps = conn.prepareStatement("SELECT * FROM tarifa WHERE id_tarifa = ?");
+            ps.setInt(1, id);
+            ResultSet rs = ps.executeQuery();
+            if (rs.next()) {
+                tarifa = new TarifaModel(
+                    rs.getInt("id_tarifa"),
+                    rs.getString("nombre"),
+                    rs.getDouble("precio"),
+                    rs.getString("condicion")
+                );
+            }
+            conn.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return tarifa;
+    }
+    
+    public boolean actualizarTarifa(Connection conn, int idTarifa, String nuevoNombre, String nuevaCondicion) {
+        String sql = "UPDATE tarifa SET nombre = ?, condicion = ? WHERE id_tarifa = ?";
+        try (PreparedStatement stmt = conn.prepareStatement(sql)) {
+            stmt.setString(1, nuevoNombre);
+            stmt.setString(2, nuevaCondicion);
+            stmt.setInt(3, idTarifa);
+            int filas = stmt.executeUpdate();
+            return filas > 0;
+        } catch (SQLException e) {
+            System.err.println("Error al actualizar tarifa: " + e.getMessage());
+            return false;
+        }
+    }
+
+
+
 }
 
 

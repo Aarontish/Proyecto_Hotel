@@ -2,6 +2,7 @@ package Controllers;
 
 import Models.Cliente;
 import Views.HomeView;
+import Views.UsersView;
 
 public class HomeController {
 	
@@ -33,6 +34,10 @@ public class HomeController {
 	public void DatosUsuario(Cliente cliente) {
 		// TODO Auto-generated method stub
 		
+	}
+	public void EditarTarifa(int idTarifa) {
+	    UsersView uv = new UsersView();
+	    uv.EditarTarifa(idTarifa); 
 	}
 
 

@@ -32,9 +32,6 @@ public class UsersController {
 		vista.PanelHabitaciones2();
 	}
 	
-	/*public void DetallesHabitacion1() {
-		vista.DetallesHabitacion1();
-	}*/
 	
 	public void DetallesHabitacion2(Habitacion habitacion) {
 	    new UsersView().DetallesHabitacion2(habitacion);

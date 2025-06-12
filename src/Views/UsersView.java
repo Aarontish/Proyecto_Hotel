@@ -31,6 +31,7 @@ import Controllers.UsersController;
 import Models.Cliente;
 import Models.ConectionModel;
 import Models.Habitacion;
+import Models.TarifaModel;
 import Models.UsersModel;
 
 public class UsersView {
@@ -5915,12 +5916,7 @@ public class UsersView {
 		panel.add(textField_3);
 		textField_3.setColumns(10);
 		
-		JButton btnNewButton = new JButton("Cancelar");
-		btnNewButton.setBackground(Color.RED);
-		btnNewButton.setFont(new Font("Dialog", Font.BOLD | Font.ITALIC, 20));
-		btnNewButton.setForeground(new Color(255, 255, 255));
-		btnNewButton.setBounds(870, 529, 250, 40);
-		panel.add(btnNewButton);
+		
 		
 		JButton btnGuardarCambios = new JButton("Guardar cambios");
 		btnGuardarCambios.setForeground(new Color(0, 0, 0));
@@ -5935,9 +5931,167 @@ public class UsersView {
 		frame.setLocationRelativeTo(null);
 		frame.setVisible(true);
 		
+	
 		
 	}
-	
+	int idTarifaSeleccionada;
+	private JTextField textField; // para nombre
+	private JComboBox<String> comboBox; // para condición
+
+
+	public void EditarTarifa(int idtarifa) {
+		try {
+	        UIManager.setLookAndFeel(new FlatLightLaf());
+	        UIManager.put("Button.arc", 0);
+	    } catch (Exception ex) {
+	        ex.printStackTrace();
+	    }
+
+		JFrame frame = new JFrame();
+		frame.setResizable(false);
+		frame.setBounds(100, 100, 1180, 700);
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+		JPanel panel = new JPanel();
+		panel.setBackground(new Color(255, 255, 255));
+		frame.getContentPane().add(panel, BorderLayout.CENTER);
+		panel.setLayout(null);
+
+		JPanel panel_1 = new JPanel();
+		panel_1.setBounds(0, 0, 1164, 95);
+		panel_1.setBackground(new Color(0, 0, 0));
+		panel.add(panel_1);
+		panel_1.setLayout(null);
+
+		JPanel panel_2 = new JPanel();
+		panel_2.setBounds(0, 95, 1164, 26);
+		panel_2.setBackground(new Color(55, 54, 48));
+		panel.add(panel_2);
+		panel_2.setLayout(null);
+
+		// botones menú superior (sin cambios omitidos por claridad)
+
+		JLabel logo = new JLabel("");
+		logo.setBounds(0, 0, 170, 95);
+		ImageIcon icon2 = new ImageIcon(getClass().getResource("/images/logo.png"));
+	    Image imagen2 = icon2.getImage().getScaledInstance(170, 95, Image.SCALE_SMOOTH);
+	    logo.setIcon(new ImageIcon(imagen2));
+		panel_1.add(logo);
+
+		JLabel Titulo = new JLabel("Tarifas\r\n");
+		Titulo.setForeground(new Color(255, 255, 255));
+		Titulo.setFont(new Font("Jost* Medium", Font.PLAIN, 35));
+		Titulo.setBounds(180, 11, 480, 73);
+		panel_1.add(Titulo);
+
+		JButton botonVolver = new JButton("");
+		botonVolver.setForeground(new Color(255, 255, 255));
+		botonVolver.setBackground(new Color(255, 255, 255));
+		botonVolver.setBorderPainted(false);
+		botonVolver.setFocusPainted(false);
+		botonVolver.setContentAreaFilled(true);
+		botonVolver.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				frame.dispose();
+				HomeController hc = new HomeController();
+				hc.Tarifas();	
+			}
+		});
+		botonVolver.setBounds(60, 132, 36, 36);
+		ImageIcon icon4 = new ImageIcon(getClass().getResource("/images/flecha_izquierda.png"));
+	    Image imagen4 = icon4.getImage().getScaledInstance(36, 36, Image.SCALE_SMOOTH);
+	    botonVolver.setIcon(new ImageIcon(imagen4));
+		panel.add(botonVolver);
+
+		JLabel menuTitulo1 = new JLabel("Editar tarifa");
+		menuTitulo1.setBackground(new Color(255, 255, 255));
+		menuTitulo1.setFont(new Font("Jost*", Font.BOLD, 34));
+		menuTitulo1.setBounds(131, 126, 600, 56);
+		panel.add(menuTitulo1);
+
+		JLabel lblNewLabel = new JLabel("Nombre:");
+		lblNewLabel.setFont(new Font("Jost*", Font.BOLD, 24));
+		lblNewLabel.setBounds(141, 193, 335, 40);
+		panel.add(lblNewLabel);
+
+		textField = new JTextField();
+		textField.setBackground(new Color(192, 192, 192));
+		textField.setBounds(141, 244, 335, 40);
+		panel.add(textField);
+		textField.setColumns(10);
+
+		
+		JLabel lblNewLabel_2 = new JLabel("Tipo de tarifa:");
+		lblNewLabel_2.setFont(new Font("Jost*", Font.BOLD, 24));
+		lblNewLabel_2.setBounds(550, 193, 335, 40);
+		panel.add(lblNewLabel_2);
+
+		comboBox = new JComboBox<>();
+		comboBox.setFont(new Font("Jost*", Font.BOLD, 16));
+		comboBox.setModel(new DefaultComboBoxModel<>(new String[] {"Rembolsable", "No rembolsable", "corporativa ", "Promocional"}));
+		comboBox.setBounds(550, 239, 335, 44);
+		panel.add(comboBox);
+
+		JLabel lblNewLabel_3 = new JLabel("Precio por noche:");
+		lblNewLabel_3.setFont(new Font("Jost*", Font.BOLD, 24));
+		lblNewLabel_3.setBounds(550, 295, 335, 40);
+		panel.add(lblNewLabel_3);
+
+		JTextField textField_3 = new JTextField();
+		textField_3.setBackground(new Color(192, 192, 192));
+		textField_3.setBounds(550, 346, 335, 40);
+		panel.add(textField_3);
+		textField_3.setColumns(10);
+
+		TarifaModel tarifa = new UsersModel().obtenerTarifaPorId(idtarifa);
+		if (tarifa != null) {
+			textField.setText(tarifa.getNombre());
+			comboBox.setSelectedItem(tarifa.getCondicion());
+			textField_3.setText(String.valueOf(tarifa.getPrecio()));
+			idTarifaSeleccionada = tarifa.getIdTarifa();
+		}
+
+		JButton btnGuardarCambios = new JButton("Guardar cambios");
+		btnGuardarCambios.setForeground(new Color(0, 0, 0));
+		btnGuardarCambios.setFont(new Font("Dialog", Font.BOLD | Font.ITALIC, 16));
+		btnGuardarCambios.setBackground(new Color(255, 214, 10));
+		btnGuardarCambios.setBounds(870, 580, 250, 40);
+		panel.add(btnGuardarCambios);
+		btnGuardarCambios.addActionListener(new ActionListener() {
+		    public void actionPerformed(ActionEvent e) {
+		        String nuevoNombre = textField.getText().trim();
+		        String nuevaCondicion = (String) comboBox.getSelectedItem();
+
+		        if (nuevoNombre.isEmpty()) {
+		            JOptionPane.showMessageDialog(frame, "El nombre no puede estar vacío.");
+		            return;
+		        }
+
+		        // Conexión y actualización
+		        ConectionModel conn = new ConectionModel();
+		        boolean actualizado = new UsersModel().actualizarTarifa(conn.getConnection(), idtarifa, nuevoNombre, nuevaCondicion);
+		        
+		        if (actualizado) {
+		            JOptionPane.showMessageDialog(frame, "✅ Tarifa actualizada correctamente.");
+		            frame.dispose();
+		            new HomeController().Tarifas();
+		        } else {
+		            JOptionPane.showMessageDialog(frame, "❌ Error al actualizar la tarifa.");
+		        }
+		    }
+		});
+
+
+
+		frame.getContentPane().add(panel);
+		frame.repaint();
+		frame.revalidate();
+		frame.setLocationRelativeTo(null);
+		frame.setVisible(true);
+	}
+
+		
+
 	public void HabitacionNoEncontrada() {
 		
 		try {
@@ -6397,7 +6551,6 @@ public class UsersView {
 		frame.setLocationRelativeTo(null);
 		frame.setVisible(true);
 	}
-	private JTextField textField;
 	public void Crear_habitaciones() {
 	
 		try {
@@ -6606,14 +6759,12 @@ public class UsersView {
 		textField_3.setBounds(415, 295, 326, 121);
 		panel.add(textField_3);
 //#######################################################################################
-		// Ya tienes este bloque
 		JButton btnNewButton = new JButton("Crear habitacion");
 		btnNewButton.setBackground(new Color(255, 255, 0));
 		btnNewButton.setFont(new Font("Dialog", Font.BOLD, 24));
 		btnNewButton.setBounds(890, 561, 251, 77);
 		panel.add(btnNewButton);
 
-		// AÑADE ESTE BLOQUE DESPUÉS DEL panel.add(btnNewButton)
 		btnNewButton.addActionListener(new ActionListener() {
 		    public void actionPerformed(ActionEvent e) {
 		        String nombre = textField_1.getText().trim();
@@ -6646,13 +6797,7 @@ public class UsersView {
 		    }
 		});
 
-		// Corrected image path
-		ImageIcon u1 = new ImageIcon(getClass().getResource("/images/busqueda.png"));
-		Image u2 = u1.getImage();
-		Image u3 = u2.getScaledInstance(36, 36, Image.SCALE_SMOOTH);
-        final String placeholder = "BUSCAR";
-        
-        frame.getContentPane().add(panel);
+		frame.getContentPane().add(panel);
 		frame.repaint();
 		frame.revalidate();
 		frame.setLocationRelativeTo(null);

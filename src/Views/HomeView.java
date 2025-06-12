@@ -926,8 +926,8 @@ public class HomeView {
 						}
 					} else {
 						frame.dispose();
-						UsersView uv = new UsersView();
-						uv.DatosUsuario(cliente);
+						UsersController hc = new UsersController();
+						hc.DatosUsuario(cliente);
 					}
 				}
 			});
@@ -1969,20 +1969,23 @@ public class HomeView {
 		btnEditarTarifa.setFont(new Font("Inter", Font.BOLD | Font.ITALIC, 24));
 		btnEditarTarifa.setBorder(BorderFactory.createLineBorder(Color.BLACK, 0));
 		btnEditarTarifa.setForeground(Color.WHITE);
-//	btnEditarTarifa.addActionListener(new ActionListener() {
-//		public void actionPerformed(ActionEvent e) {
-//			int selectedRow = tableTarifas.getSelectedRow();
-//			if (selectedRow >= 0) {
-//				int idTarifa = (int) tableModel.getValueAt(selectedRow, 0);
-//				frame.dispose();
-//				EditarTarifaFormulario editarTarifaWindow = new EditarTarifaFormulario(idTarifa);
-//				editarTarifaWindow.frame.setVisible(true);
-//			} else {
-//				JOptionPane.showMessageDialog(frame, "Selecciona una tarifa para editar.", "Advertencia",
-//						JOptionPane.WARNING_MESSAGE);
-//			}
-//		}
-//	});
+		
+		btnEditarTarifa.addActionListener(new ActionListener() {
+		    public void actionPerformed(ActionEvent e) {
+		        int selectedRow = tableTarifas.getSelectedRow();
+		        if (selectedRow >= 0) {
+		            int idTarifa = (int) tableModel.getValueAt(selectedRow, 0);
+		            frame.dispose();
+		            HomeController hc = new HomeController();
+		            hc.EditarTarifa(idTarifa); // <-- Así mandas el ID
+		        } else {
+		            JOptionPane.showMessageDialog(frame, "Selecciona una tarifa para editar.", "Advertencia",
+		                JOptionPane.WARNING_MESSAGE);
+		        }
+		    }
+		});
+
+		
 		btnEditarTarifa.setBounds(291, 193, 150, 40);
 		panel.add(btnEditarTarifa);
 	    

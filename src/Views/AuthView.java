@@ -36,6 +36,7 @@ public class AuthView {
 
 	}
 	public void Inicio() {
+		
 		try {
 			UIManager.setLookAndFeel(new FlatLightLaf());
 			UIManager.put("Button.arc", 90);
@@ -46,7 +47,7 @@ public class AuthView {
 		frame.setResizable(false);
 		frame.setBounds(100, 100, 1180, 700);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
+	    
 		JPanel panel = new JPanel();
 		panel.setBackground(new Color(255, 255, 255));
 		frame.getContentPane().add(panel, BorderLayout.CENTER);
@@ -297,6 +298,7 @@ public class AuthView {
 		frame.revalidate();
 		frame.setLocationRelativeTo(null); 
 		frame.setVisible(true);
+
 	}
 
 
