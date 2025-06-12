@@ -5969,8 +5969,96 @@ public class UsersView {
 		panel.add(panel_2);
 		panel_2.setLayout(null);
 
-		// botones menú superior (sin cambios omitidos por claridad)
-
+		JButton btnTiposDeRentas = new JButton("<html>Tipos de habitaciones &#8594;</html>"); //Botón superior tipos de habitaciones
+		btnTiposDeRentas.setFont(new Font("Jost* Medium", Font.PLAIN, 12));
+		btnTiposDeRentas.setForeground(new Color(255, 255, 255));
+		btnTiposDeRentas.setBackground(new Color(56, 54, 41));
+		btnTiposDeRentas.setBorder(BorderFactory.createLineBorder(Color.BLACK,0));
+		btnTiposDeRentas.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				frame.dispose(); // Cierra la ventana actual del menú
+				HomeController hc = new HomeController();
+				hc.TiposHabitacion();	
+			}
+		});
+		btnTiposDeRentas.setBounds(974, 0, 180, 23);
+		btnTiposDeRentas.setBorderPainted(false);
+        btnTiposDeRentas.setFocusPainted(false);
+        btnTiposDeRentas.setContentAreaFilled(true);
+		panel_2.add(btnTiposDeRentas);
+		
+		JButton btnrentas = new JButton("<html>Rentas &#8594;</html>"); //Botón superior rentas
+		btnrentas.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				frame.dispose(); // Cierra la ventana actual del menú
+				HomeController hc = new HomeController();
+				hc.Rentas();
+			}
+		});
+		btnrentas.setForeground(Color.WHITE);
+		btnrentas.setFont(new Font("Jost* Medium", Font.PLAIN, 12));
+		btnrentas.setFocusPainted(false);
+		btnrentas.setContentAreaFilled(true);
+		btnrentas.setBorderPainted(false);
+		btnrentas.setBorder(BorderFactory.createLineBorder(Color.BLACK,0));
+		btnrentas.setBackground(new Color(56, 54, 41));
+		btnrentas.setBounds(883, 0, 81, 23);
+		panel_2.add(btnrentas);
+		
+		JButton btnclientes = new JButton("<html>Clientes &#8594;</html>"); //Botón superior clientes
+		btnclientes.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				frame.dispose(); // Cierra la ventana actual del menú
+				HomeController hc = new HomeController();
+				hc.Clientes();
+			}
+		});
+		btnclientes.setForeground(Color.WHITE);
+		btnclientes.setFont(new Font("Jost* Medium", Font.PLAIN, 12));
+		btnclientes.setFocusPainted(false);
+		btnclientes.setContentAreaFilled(true);
+		btnclientes.setBorderPainted(false);
+		btnclientes.setBorder(BorderFactory.createLineBorder(Color.BLACK,0));
+		btnclientes.setBackground(new Color(56, 54, 41));
+		btnclientes.setBounds(792, 0, 81, 23);
+		panel_2.add(btnclientes);
+		
+		JButton btnhabitaciones = new JButton("<html>Habitaciones &#8594;</html>"); //Botón superior habitaciones
+		btnhabitaciones.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				frame.dispose(); // Cierra la ventana actual del menú
+				HomeController hc = new HomeController();
+				hc.PanelHabitaciones1();
+			}
+		});
+		btnhabitaciones.setForeground(Color.WHITE);
+		btnhabitaciones.setFont(new Font("Jost* Medium", Font.PLAIN, 12));
+		btnhabitaciones.setFocusPainted(false);
+		btnhabitaciones.setContentAreaFilled(true);
+		btnhabitaciones.setBorderPainted(false);
+		btnhabitaciones.setBorder(BorderFactory.createLineBorder(Color.BLACK,0));
+		btnhabitaciones.setBackground(new Color(56, 54, 41));
+		btnhabitaciones.setBounds(682, 0, 100, 23);
+		panel_2.add(btnhabitaciones);
+		
+		JButton btntarifas = new JButton("<html>Tarifas &#8594;</html>"); //Botón superior tarifas
+		btntarifas.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				frame.dispose(); // Cierra la ventana actual del menú
+				HomeController hc = new HomeController();
+				hc.Tarifas();
+			}
+		});
+		btntarifas.setForeground(Color.WHITE);
+		btntarifas.setFont(new Font("Jost* Medium", Font.PLAIN, 12));
+		btntarifas.setFocusPainted(false);
+		btntarifas.setContentAreaFilled(true);
+		btntarifas.setBorderPainted(false);
+		btntarifas.setBorder(BorderFactory.createLineBorder(Color.BLACK,0));
+		btntarifas.setBackground(new Color(56, 54, 41));
+		btntarifas.setBounds(600, 0, 72, 23);
+		panel_2.add(btntarifas);
+		
 		JLabel logo = new JLabel("");
 		logo.setBounds(0, 0, 170, 95);
 		ImageIcon icon2 = new ImageIcon(getClass().getResource("/images/logo.png"));
